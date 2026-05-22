@@ -56,22 +56,44 @@
     }
   }
 
-  // ─── 單張卡片 HTML ───
-  function cardHTML(c) {
-    const badges = [`<span class="badge ${c.type}">${escapeHtml(c.type_label)}</span>`];
-    (c.status_tags || []).forEach(t => badges.push(`<span class="badge planning">${escapeHtml(t)}</span>`));
+  // ─── 模式 badges：場域（線上/實體/混合/podcast）+ 報名（開放/專場/待定） ───
+  const VENUE_LABEL = {
+    online: '線上',
+    physical: '實體',
+    hybrid: '線上＋實體',
+    podcast: 'Podcast',
+    tbd: '待定'
+  };
+  const REG_LABEL = {
+    open: '開放報名',
+    private: '專場',
+    pending: '待開放'
+  };
+  function modeBadgesHTML(c) {
+    const v = c.venue_mode || (c.type === 'podcast' ? 'podcast' : null);
+    const r = (c.registration && c.registration.status) || null;
+    const parts = [];
+    if (v) parts.push(`<span class="mode-badge venue-${v}">${escapeHtml(VENUE_LABEL[v] || v)}</span>`);
+    if (r) parts.push(`<span class="mode-badge reg-${r}">${escapeHtml(REG_LABEL[r] || r)}</span>`);
+    return parts.length ? `<div class="card-modes">${parts.join('')}</div>` : '';
+  }
 
+  // ─── 沒圖時的佔位（大日期） ───
+  function placeholderHTML(c) {
+    const d = parseDate(c.date);
+    const monthEn = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
+    return `<div class="card-thumbnail-placeholder">
+      <div class="ph-month">${monthEn}</div>
+      <div class="ph-day">${d.getDate()}</div>
+      <div class="ph-label">${escapeHtml(c.type_label)}</div>
+    </div>`;
+  }
+
+  // ─── 單張卡片 HTML（極簡版：圖 + 日期 + 標題 + 模式 badges + CTA） ───
+  function cardHTML(c) {
     const thumb = c.image
       ? `<div class="card-thumbnail"><img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.title)}" loading="lazy" /></div>`
-      : '';
-
-    const venue = c.venue
-      ? `<p class="card-venue"><span class="venue-icon">📍</span>${escapeHtml(c.venue)}${c.host && c.host !== '江江教練' ? ` · ${escapeHtml(c.host)}` : ''}</p>`
-      : '';
-
-    const detailLink = c.detail_url
-      ? `<div class="card-detail-link"><a href="${escapeHtml(c.detail_url)}">看課程詳情 →</a></div>`
-      : '';
+      : placeholderHTML(c);
 
     return `
       <div class="list-card course-card${c.image ? ' has-thumb' : ''}" data-course-id="${escapeHtml(c.id)}">
@@ -79,13 +101,10 @@
         <div class="card-body">
           <div class="card-meta">
             <span class="card-date">${escapeHtml(fmtDate(c))}</span>
-            ${badges.join('')}
           </div>
           <h3>${escapeHtml(c.title)}</h3>
-          <p>${escapeHtml(c.summary)}</p>
-          ${venue}
+          ${modeBadgesHTML(c)}
           ${ctaHTML(c)}
-          ${detailLink}
         </div>
       </div>`;
   }
