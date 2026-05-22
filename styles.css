@@ -507,14 +507,14 @@ footer .container {
   position: relative; z-index: 2;
 }
 
-/* 簽名檔圖（footer 頂部主視覺，數值可在 footer-tuner.html 調好複製） */
+/* 簽名檔圖（footer 頂部主視覺，數值由 footer-tuner.html 調定） */
 .footer-signature {
   width: 100%;
-  max-width: 200px;                      /* 雷哥要長邊 200，數值由 tuner 微調 */
+  max-width: 250px;                      /* tuner 定案 */
   height: auto;
   display: block;
   margin: 0 auto;
-  opacity: 0.85;                          /* 微透明，融入暖色底 */
+  opacity: 1.00;
 }
 .footer-signature-placeholder {
   width: 100%;
