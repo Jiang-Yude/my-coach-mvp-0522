@@ -118,8 +118,8 @@ nav.top ul a {
   transition: color .2s;
   font-weight: 500;
 }
-nav.top ul a:hover { color: var(--c-coral); }
-nav.top ul a.active { color: var(--c-coral); }
+nav.top ul a:hover { color: var(--ink); }
+nav.top ul a.active { color: var(--ink-soft); }  /* 跟其他連結同色，不高亮 */
 
 /* ─── 區塊與標題 ─── */
 section { padding: 88px 0; position: relative; overflow: hidden; }
