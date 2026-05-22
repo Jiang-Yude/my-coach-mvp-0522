@@ -209,5 +209,42 @@
 </footer>
 
 <script src="spotlight.js" defer></script>
+<script>
+  // Resources 頁：搜尋 + 分類過濾
+  (function () {
+    const search = document.getElementById('resource-search');
+    const cards = document.querySelectorAll('.list-card[data-cat]');
+    const sections = document.querySelectorAll('[data-resource-section]');
+    const chips = document.querySelectorAll('[data-resource-cat]');
+    let currentCat = 'all', currentSearch = '';
+
+    function filter() {
+      cards.forEach(card => {
+        const cat = card.dataset.cat;
+        const text = (card.textContent || '').toLowerCase();
+        const matchCat = (currentCat === 'all') || (cat === currentCat);
+        const matchSearch = !currentSearch || text.includes(currentSearch.toLowerCase());
+        card.style.display = (matchCat && matchSearch) ? '' : 'none';
+      });
+      sections.forEach(sec => {
+        const secCat = sec.dataset.resourceSection;
+        const visibleInSec = document.querySelectorAll(`.list-card[data-cat="${secCat}"]:not([style*="display: none"])`).length;
+        const showSec = visibleInSec > 0;
+        sec.style.display = showSec ? '' : 'none';
+        const grid = sec.nextElementSibling;
+        if (grid && grid.classList.contains('list-grid')) grid.style.display = showSec ? '' : 'none';
+      });
+    }
+    if (search) search.addEventListener('input', e => { currentSearch = e.target.value.trim(); filter(); });
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        currentCat = chip.dataset.resourceCat;
+        filter();
+      });
+    });
+  })();
+</script>
 </body>
 </html>
