@@ -1414,19 +1414,20 @@ footer .foot-meta {
 .course-cta .cta-btn {
   display: inline-block;
   padding: 8px 18px;
-  background: var(--c-coral);
+  background: #06C755;            /* LINE 綠（多數 open 按鈕都跳 LINE） */
   color: var(--paper);
   border-radius: 999px;
   font-size: 0.88rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  transition: background .2s, transform .2s;
-  border: 1px solid var(--c-coral);
+  transition: background .2s, transform .2s, box-shadow .2s;
+  border: 1px solid #06C755;
 }
 .course-cta .cta-btn:hover {
-  background: var(--paper);
-  color: var(--c-coral);
+  background: #04a847;
+  border-color: #04a847;
   transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(6, 199, 85, 0.30);
 }
 
 /* CTA 按鈕 hover tooltip（暖白底 + 沙金邊 + 智慧定位） */
