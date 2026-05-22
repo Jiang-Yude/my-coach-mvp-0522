@@ -639,6 +639,74 @@ footer .foot-meta {
 .wc-sage     { background: var(--c-sage);     opacity: 0.12; }
 .wc-lavender { background: var(--c-lavender); opacity: 0.14; }
 
+/* ─── 找我的方法：5 平台社群卡（仿截圖直列卡片，暖色版） ─── */
+.social-grid {
+  display: grid;
+  gap: 12px;
+  max-width: 640px;
+  margin: 40px auto 0;
+}
+.social-card {
+  display: flex; align-items: center; gap: 18px;
+  padding: 16px 22px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+  color: inherit;
+  position: relative;
+}
+.social-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--c-sand);
+  box-shadow: 0 8px 20px rgba(107,74,42,0.10);
+}
+
+.social-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 700;
+  font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.social-icon.line, .social-icon.line-oa { background: #06C755; }
+.social-icon.threads { background: #000; }
+.social-icon.vocus { background: #C53030; font-size: 1.2rem; }
+.social-icon.ig {
+  background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d62976 60%, #962fbf 80%, #4f5bd5 100%);
+}
+
+.social-content { flex-grow: 1; min-width: 0; text-align: left; }
+.social-content .name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 3px;
+  letter-spacing: 0.02em;
+}
+.social-content .desc {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+}
+.social-arrow {
+  color: var(--ink-faint);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  transition: color .2s, transform .2s;
+  flex-shrink: 0;
+}
+.social-card:hover .social-arrow {
+  color: var(--c-sand);
+  transform: translateX(3px);
+}
+
 /* ─── 課程卡（4:5 圖 + 極簡資訊：日期/標題/模式 badge/CTA） ─── */
 .course-card {
   padding: 0 !important;
