@@ -139,14 +139,44 @@
     target.innerHTML = upcoming.map(cardHTML).join('');
   };
 
+  // ─── 從 type_label 推 type（給 filter 用） ───
+  function inferType(c) {
+    const t = c.type_label || '';
+    if (t.includes('免費')) return 'free';
+    if (t.includes('付費')) return 'paid';
+    if (t.includes('Podcast')) return 'podcast';
+    if (t.includes('外部')) return 'external';
+    return 'other';
+  }
+
   // ─── 子頁：全部課程，月份分區（未來在上、過去在下） ───
+  let _courseFilter = { search: '', type: 'all', venue: 'all' };
   window.renderAllCourses = function (selector) {
     const target = document.querySelector(selector);
     if (!target) return;
 
+    // 套 filter
+    const filtered = COURSES.filter(c => {
+      if (_courseFilter.type !== 'all' && inferType(c) !== _courseFilter.type) return false;
+      if (_courseFilter.venue !== 'all' && (c.venue_mode || 'other') !== _courseFilter.venue) return false;
+      if (_courseFilter.search) {
+        const q = _courseFilter.search.toLowerCase();
+        const hay = [
+          c.title || '', c.summary || '', c.venue || '', c.host || '',
+          (c.tags || []).join(' '), c.type_label || ''
+        ].join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
     // 排序：未來升序、過去降序（最近的在前）
-    const upcoming = COURSES.filter(isUpcoming).sort((a,b)=>parseDate(a.date)-parseDate(b.date));
-    const past = COURSES.filter(isPast).sort((a,b)=>parseDate(b.date)-parseDate(a.date));
+    const upcoming = filtered.filter(isUpcoming).sort((a,b)=>parseDate(a.date)-parseDate(b.date));
+    const past = filtered.filter(isPast).sort((a,b)=>parseDate(b.date)-parseDate(a.date));
+
+    // 沒結果
+    const emptyEl = document.getElementById('no-courses-results');
+    if (emptyEl) emptyEl.classList.toggle('show', upcoming.length === 0 && past.length === 0);
 
     function groupByMonth(arr) {
       const groups = {};
@@ -203,6 +233,37 @@
     }
     if (document.getElementById('all-courses')) {
       window.renderAllCourses('#all-courses');
+
+      // 課程頁：搜尋 + 標籤過濾
+      const search = document.getElementById('course-search');
+      const rebind = () => {
+        if (window.attachLocalSpotlight) document.querySelectorAll('.list-card').forEach(window.attachLocalSpotlight);
+      };
+      if (search) {
+        search.addEventListener('input', (e) => {
+          _courseFilter.search = e.target.value.trim();
+          window.renderAllCourses('#all-courses');
+          rebind();
+        });
+      }
+      document.querySelectorAll('[data-filter-type]').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('[data-filter-type]').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          _courseFilter.type = chip.dataset.filterType;
+          window.renderAllCourses('#all-courses');
+          rebind();
+        });
+      });
+      document.querySelectorAll('[data-filter-venue]').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('[data-filter-venue]').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          _courseFilter.venue = chip.dataset.filterVenue;
+          window.renderAllCourses('#all-courses');
+          rebind();
+        });
+      });
     }
 
     // 重新綁定卡片 hover spotlight（新卡片）

@@ -6,3 +6,4 @@ node_modules/
 .env.*
 _自動備份/
 .obsidian/
+.vercel

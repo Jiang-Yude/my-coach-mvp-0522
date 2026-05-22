@@ -1478,6 +1478,66 @@ footer .foot-meta {
   font-weight: 500;
 }
 
+/* ─── 通用搜尋＋標籤過濾列（courses/resources/skills 共用） ─── */
+.search-filter-bar {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.search-row {
+  display: flex; gap: 10px; align-items: center;
+  position: relative;
+}
+.search-row .search-icon {
+  position: absolute; left: 14px;
+  color: var(--ink-faint); font-size: 1rem;
+  pointer-events: none;
+}
+.search-input {
+  flex: 1;
+  padding: 11px 14px 11px 38px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-soft);
+  font-size: 0.95rem;
+  font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
+  color: var(--ink);
+  transition: border-color .2s, background .2s;
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--c-sand);
+  background: var(--paper);
+  box-shadow: 0 0 0 4px rgba(160,129,68,0.10);
+}
+.search-input::placeholder { color: var(--ink-faint); }
+.filter-row-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--c-sand);
+  font-size: 0.95rem;
+  margin-right: 6px;
+  white-space: nowrap;
+}
+.filter-row {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+}
+.no-results {
+  text-align: center;
+  padding: 56px 24px;
+  color: var(--ink-faint);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  display: none;
+}
+.no-results.show { display: block; }
+
 /* ─── Skills 頁專用：標籤過濾 + cols-3 緊湊卡 ─── */
 .filter-bar {
   background: var(--paper);
