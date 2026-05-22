@@ -639,6 +639,88 @@ footer .foot-meta {
 .wc-sage     { background: var(--c-sage);     opacity: 0.12; }
 .wc-lavender { background: var(--c-lavender); opacity: 0.14; }
 
+/* ─── Hero 下方 mini icons row（小圖示 + hover tooltip） ─── */
+.social-icons-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin: 40px auto 0;
+  flex-wrap: wrap;
+}
+.social-icon-mini {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: transform .25s, box-shadow .25s;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
+  cursor: pointer;
+}
+.social-icon-mini:hover, .social-icon-mini:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+.social-icon-mini.line, .social-icon-mini.line-oa { background: #06C755; }
+.social-icon-mini.threads { background: #000; }
+.social-icon-mini.vocus { background: #C53030; font-size: 1.05rem; }
+.social-icon-mini.ig {
+  background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d62976 60%, #962fbf 80%, #4f5bd5 100%);
+}
+.social-icon-mini.yt { background: #FF0000; font-size: 0.88rem; }
+
+/* mini icon tooltip（暖白底沙金邊，跟 cta-has-tip 同款） */
+.social-icon-mini::after {
+  content: attr(data-tip);
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--c-sand);
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: pre-wrap;
+  width: max-content;
+  max-width: 240px;
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease, transform .2s ease;
+  box-shadow: 0 12px 28px rgba(107, 74, 42, 0.18), 0 0 0 4px rgba(160, 129, 68, 0.08);
+  z-index: 200;
+  text-align: center;
+}
+.social-icon-mini::before {
+  content: '';
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  border: 7px solid transparent;
+  border-bottom-color: var(--c-sand);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 200;
+}
+.social-icon-mini:hover::after,
+.social-icon-mini:hover::before,
+.social-icon-mini:focus-visible::after,
+.social-icon-mini:focus-visible::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
 /* ─── 找我的方法：5 平台社群卡（仿截圖直列卡片，暖色版） ─── */
 .social-grid {
   display: grid;
@@ -679,6 +761,7 @@ footer .foot-meta {
 .social-icon.ig {
   background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d62976 60%, #962fbf 80%, #4f5bd5 100%);
 }
+.social-icon.yt { background: #FF0000; font-size: 0.95rem; }
 
 .social-content { flex-grow: 1; min-width: 0; text-align: left; }
 .social-content .name {
