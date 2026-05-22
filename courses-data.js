@@ -49,9 +49,9 @@ window.COURSES = [
     materials: [],
     registration: {
       status: "open",
-      url: null,                                    // ⚠️ 待補：報名連結
-      label: "加 LINE 群組通知 ↗",
-      note: "免費，加群組第一時間收到 Zoom 連結"
+      url: "https://www.threads.net/@thedav1035",
+      label: "追 Threads 看連結 ↗",
+      note: "免費，每場新講座 Zoom 連結會在 Threads 公布"
     }
   },
   {
@@ -79,7 +79,7 @@ window.COURSES = [
     time: "10:00",
     title: "永力社 AI 應用工作坊",
     type_label: "外部授課",
-    image: "images/courses/2026-05-30-yongli-ai-workshop.jpg",  // ⚠️ 待補圖
+    image: null,  // ⚠️ 待補圖（永力 5/30 宣傳簡章圖，請存到 11圖片待整/）
     venue_mode: "physical",
     host: "江江教練",
     tags: ["扶輪社", "ChatGPT", "Gemini", "NotebookLM", "商會"],

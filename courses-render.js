@@ -43,7 +43,8 @@
         const org = r.host_org || c.host;
         const note = r.note ? `<p class="cta-note">${escapeHtml(r.note)}</p>` : '';
         return `<div class="course-cta private">
-          <p class="cta-private-tag"><span class="cta-dot"></span>${escapeHtml(D.private_prefix || '主辦：')}<strong>${escapeHtml(org)}</strong>${escapeHtml(D.private_suffix || '（封閉場次）')}</p>
+          <p class="cta-private-tag">主辦：<strong>${escapeHtml(org)}</strong></p>
+          <p class="cta-private-sub">封閉場次，由主辦邀約</p>
           ${note}
         </div>`;
       }

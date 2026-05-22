@@ -128,7 +128,7 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1.55rem;
-  color: var(--c-coral);
+  color: #7a5c3a;          /* 深咖啡，低飽和（取代原 var(--c-coral) 太紅問題） */
   margin-bottom: 10px;
   font-weight: 500;
 }
@@ -758,24 +758,38 @@ footer .foot-meta {
 }
 .course-cta.private .cta-private-tag {
   margin: 0;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--c-sand);
-  display: flex; align-items: center; gap: 8px;
   font-weight: 500;
+  line-height: 1.6;
+}
+.course-cta.private .cta-private-tag::before {
+  content: '';
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--c-sand);
+  margin-right: 8px;
+  vertical-align: 2px;
 }
 .course-cta.private .cta-private-tag strong {
   color: var(--ink);
   font-weight: 600;
-  margin: 0 2px;
 }
-.course-cta.private .cta-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: var(--c-sand);
-  display: inline-block;
-  flex-shrink: 0;
+.course-cta.private .cta-private-sub {
+  margin: 4px 0 0 15px;
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  font-style: italic;
+  line-height: 1.5;
 }
-.course-cta.private .cta-note { font-style: italic; }
+.course-cta.private .cta-note {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  font-style: italic;
+  line-height: 1.55;
+}
 .course-cta.pending .cta-note {
   color: var(--ink-faint);
   font-style: italic;
