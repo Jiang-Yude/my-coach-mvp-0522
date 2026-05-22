@@ -58,123 +58,91 @@
   </div>
 </section>
 
-<!-- 三入口 -->
-<section style="padding-top: 40px;">
-  <div class="container">
-    <div class="section-head-center">
-      <div class="eyebrow">先從這三個地方開始</div>
-      <h2 class="section-title">你想看 <span class="italic">什麼</span>？</h2>
-      <p class="section-sub">這版本是「最常被問」的三件事整理頁。完整網站還在做。</p>
-    </div>
+<!-- IG 漸層 defs（給 SVG fill="url(#ig-gradient)" 用） -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="ig-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#feda75"/>
+      <stop offset="25%" stop-color="#fa7e1e"/>
+      <stop offset="50%" stop-color="#d62976"/>
+      <stop offset="75%" stop-color="#962fbf"/>
+      <stop offset="100%" stop-color="#4f5bd5"/>
+    </linearGradient>
+  </defs>
+</svg>
 
-    <div class="entry-grid">
-      <a class="entry-card c1" href="courses.html">
-        <div class="entry-eye">最近在開的</div>
-        <h3>課程預告</h3>
-        <p>免費線上講座、付費工作坊、外部授課。看接下來幾週、幾個月有什麼可以一起學的場次。</p>
-        <span class="arrow">查看課程 →</span>
-      </a>
-
-      <a class="entry-card c2" href="resources.html">
-        <div class="entry-eye">學的時候帶著用</div>
-        <h3>學習資源</h3>
-        <p>公開的講座簡報、課程素材、文章合輯、AI 工具實戰範例。整理成可以直接拿去看、拿去用的形式。</p>
-        <span class="arrow">查看資源 →</span>
-      </a>
-
-      <a class="entry-card c3" href="skills.html">
-        <div class="entry-eye">把方法包起來</div>
-        <h3>Skills 下載</h3>
-        <p>把江江的工作方法做成可以 clone 的 Claude Skills 技能包。從評估老師、提煉知識、到一人公司操作，都有對應的包。</p>
-        <span class="arrow">查看技能包 →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 介紹：左照片 300×300 + 右文字 -->
+<!-- 第三區：介紹 + LINE hook + 6 圓 icon -->
 <section class="intro-section">
   <div class="watercolor wc-sand-bg"></div>
   <div class="container">
     <div class="intro-grid">
-      <!-- 照片預留 300×300（之後把 intro-photo 改成 has-photo + 放 img） -->
+      <!-- 照片預留 300×300 -->
       <div class="intro-photo">
         照片預留<br />300 × 300
       </div>
       <div class="intro-text">
         <div class="intro-eye">關於我</div>
-        <h2 class="intro-name">江昱德</h2>
+        <h2 class="intro-name">我是江昱德</h2>
         <p class="intro-title">隱性知識提煉師 / 知識工作者的 AI 應用</p>
-        <p class="intro-desc">
-          協助專業人士，只需會寫文件跟分類資料夾，<br />
-          就能打造自己的 AI 助理與知識庫。<br />
-          <em>用 AI 放大你的亮點。</em>
-        </p>
-        <span class="intro-hook">每月兩場講座，免費參加</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LINE 大橫幅 CTA -->
-<section class="line-banner">
-  <div class="container">
-    <div class="line-banner-inner">
-      <div class="line-banner-text">
-        <span class="line-banner-tag">LINE 社群</span>
-        <h2 class="line-banner-title">每個月固定舉辦兩次免費講座</h2>
-        <p class="line-banner-sub">報名請加入我的 LINE 社群</p>
-        <p class="line-banner-note">講座連結會分享在社群記事本</p>
-        <a class="line-banner-cta" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener">
-          加入 LINE 社群 ↗
+        <a class="intro-line-cta" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener">
+          <span class="cta-main">加入 LINE 社群</span>
+          <span class="cta-sub">每月兩場講座，免費參加</span>
         </a>
       </div>
-      <div class="line-banner-icon" aria-label="LINE 社群">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M12 2C6.48 2 2 5.84 2 10.55c0 4.22 3.55 7.76 8.34 8.42.32.07.76.21.87.49.1.25.07.65.03.91l-.14.84c-.04.25-.2.99.87.54 1.07-.45 5.79-3.41 7.9-5.84C21.46 14.46 22 12.61 22 10.55 22 5.84 17.52 2 12 2zm-4.7 11.07h-1.99c-.29 0-.52-.23-.52-.52V8.5c0-.29.23-.52.52-.52s.52.23.52.52v3.55h1.47c.29 0 .52.23.52.52s-.23.5-.52.5zm2.04-.52c0 .29-.23.52-.52.52s-.52-.23-.52-.52V8.5c0-.29.23-.52.52-.52s.52.23.52.52v4.05zm5.05 0c0 .22-.14.42-.36.49-.05.02-.11.03-.16.03-.16 0-.31-.07-.41-.21l-2.1-2.84v2.53c0 .29-.23.52-.52.52s-.52-.23-.52-.52V8.5c0-.22.14-.42.36-.49.05-.02.11-.03.16-.03.16 0 .31.07.41.21l2.1 2.84V8.5c0-.29.23-.52.52-.52s.52.23.52.52v4.05zm3.27-2.55c.29 0 .52.23.52.52s-.23.52-.52.52h-1.47v.95h1.47c.29 0 .52.23.52.52s-.23.52-.52.52h-1.99c-.29 0-.52-.23-.52-.52V8.5c0-.29.23-.52.52-.52h1.99c.29 0 .52.23.52.52s-.23.52-.52.52h-1.47v.95h1.47z"/>
-        </svg>
-      </div>
     </div>
-  </div>
-</section>
 
-<!-- 社群膠囊按鈕（完整名 + 品牌色 dot + 降飽和暖白底） -->
-<section class="social-pills-section">
-  <div class="container">
-    <div class="eyebrow">找我的方法</div>
-    <h2 class="section-title">在這裡 <span class="italic">找我</span></h2>
-    <p class="section-sub" style="margin: 0 auto;">每個平台分工不同，挑你常用的追。</p>
+    <!-- 6 圓 icon SVG logo（一列） -->
+    <div class="social-circles">
+      <a class="social-circle line" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener" aria-label="LINE 社群">
+        <div class="circle-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+          </svg>
+        </div>
+        <span class="caption">LINE 社群</span>
+      </a>
 
-    <div class="social-pills">
-      <a class="social-pill" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener">
-        <span class="pill-dot line"></span>
-        <span>LINE 社群</span>
-        <span class="pill-arrow">↗</span>
+      <a class="social-circle line" href="https://line.me/R/ti/p/@713kczfc" target="_blank" rel="noopener" aria-label="LINE 官方帳號">
+        <div class="circle-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+          </svg>
+        </div>
+        <span class="caption">LINE OA</span>
       </a>
-      <a class="social-pill" href="https://line.me/R/ti/p/@713kczfc" target="_blank" rel="noopener">
-        <span class="pill-dot line"></span>
-        <span>LINE 官方帳號</span>
-        <span class="pill-arrow">↗</span>
+
+      <a class="social-circle threads" href="https://www.threads.com/@jiang_yude_coach" target="_blank" rel="noopener" aria-label="Threads">
+        <div class="circle-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/>
+          </svg>
+        </div>
+        <span class="caption">Threads</span>
       </a>
-      <a class="social-pill" href="https://www.threads.com/@jiang_yude_coach" target="_blank" rel="noopener">
-        <span class="pill-dot threads"></span>
-        <span>Threads</span>
-        <span class="pill-arrow">↗</span>
+
+      <a class="social-circle vocus" href="https://vocus.cc/salon/Jiang_Coach" target="_blank" rel="noopener" aria-label="方格子">
+        <div class="circle-btn">
+          <span class="vocus-text">方</span>
+        </div>
+        <span class="caption">方格子</span>
       </a>
-      <a class="social-pill" href="https://vocus.cc/salon/Jiang_Coach" target="_blank" rel="noopener">
-        <span class="pill-dot vocus"></span>
-        <span>方格子</span>
-        <span class="pill-arrow">↗</span>
+
+      <a class="social-circle ig" href="https://www.instagram.com/jiang_yude_coach/" target="_blank" rel="noopener" aria-label="Instagram">
+        <div class="circle-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </div>
+        <span class="caption">IG</span>
       </a>
-      <a class="social-pill" href="https://www.instagram.com/jiang_yude_coach/" target="_blank" rel="noopener">
-        <span class="pill-dot ig"></span>
-        <span>Instagram</span>
-        <span class="pill-arrow">↗</span>
-      </a>
-      <a class="social-pill" href="https://www.youtube.com/@aipkmcc" target="_blank" rel="noopener">
-        <span class="pill-dot yt"></span>
-        <span>YouTube</span>
-        <span class="pill-arrow">↗</span>
+
+      <a class="social-circle yt" href="https://www.youtube.com/@aipkmcc" target="_blank" rel="noopener" aria-label="YouTube">
+        <div class="circle-btn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </div>
+        <span class="caption">YT</span>
       </a>
     </div>
   </div>

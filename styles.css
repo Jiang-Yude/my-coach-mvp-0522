@@ -785,6 +785,40 @@ footer .foot-meta {
   font-weight: 500;
 }
 
+/* 介紹區內的 LINE CTA 按鈕（主行 + 副行兩段） */
+.intro-line-cta {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 26px;
+  background: #06C755;
+  color: white;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: background .25s, transform .25s, box-shadow .25s;
+  margin-top: 6px;
+}
+.intro-line-cta:hover {
+  background: #04a847;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(6, 199, 85, 0.32);
+}
+.intro-line-cta .cta-main {
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+.intro-line-cta .cta-sub {
+  font-size: 0.82rem;
+  opacity: 0.88;
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 720px) {
+  .intro-line-cta { align-self: center; }
+}
+
 /* ─── LINE 大橫幅 CTA（暖深底 + LINE 綠 + 暖白字） ─── */
 .line-banner {
   padding: 0;
@@ -939,6 +973,65 @@ footer .foot-meta {
   color: var(--c-sand);
   transform: translateX(2px);
 }
+
+/* ─── 圓 icon row（6 平台一列，真實 SVG logo） ─── */
+.social-circles {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin: 36px auto 0;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+.social-circle {
+  display: flex; flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: transform .25s ease;
+}
+.social-circle:hover { transform: translateY(-3px); }
+
+.social-circle .circle-btn {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .25s, box-shadow .25s, background .25s;
+}
+.social-circle:hover .circle-btn {
+  border-color: var(--c-sand);
+  box-shadow: 0 10px 22px rgba(107, 74, 42, 0.12);
+}
+.social-circle .circle-btn svg {
+  width: 24px; height: 24px;
+  transition: transform .25s;
+}
+.social-circle:hover .circle-btn svg { transform: scale(1.05); }
+
+/* 品牌色（圖示色） */
+.social-circle.line .circle-btn svg { fill: #06C755; }
+.social-circle.threads .circle-btn svg { fill: #1a1a1a; }
+.social-circle.ig .circle-btn svg { fill: url(#ig-gradient); }
+.social-circle.yt .circle-btn svg { fill: #FF0000; }
+.social-circle.vocus .circle-btn .vocus-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #C53030;
+  line-height: 1;
+}
+
+.social-circle .caption {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color .2s;
+}
+.social-circle:hover .caption { color: var(--ink); }
 
 /* ─── Hero 下方 mini icons row（小圖示 + hover tooltip） ─── */
 .social-icons-row {
