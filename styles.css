@@ -515,11 +515,11 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
   line-height: 1.75;
 }
 
-/* ─── Footer（極簡：只剩簽名檔） ─── */
+/* ─── Footer（全置中，品牌+連結+meta） ─── */
 footer {
   background: var(--bg-soft);
   border-top: 1px solid var(--line);
-  padding: 48px 0;
+  padding: 64px 0 36px;
   margin-top: 48px;
   position: relative;
   overflow: hidden;
@@ -732,9 +732,9 @@ footer .foot-meta {
 .intro-grid {
   display: grid;
   grid-template-columns: 1fr 320px;     /* 文字左、人物右 */
-  gap: 64px;
+  gap: 32px;                             /* 縮小 gap，人跟文字更靠近 */
   align-items: center;
-  max-width: 960px;
+  max-width: 880px;                      /* 容器也縮一點對應 */
   margin: 0 auto;
   position: relative; z-index: 2;
 }
