@@ -30,5 +30,22 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.btn-spot, .entry-card, .list-card, .skill-card').forEach(attachLocal);
+
+    // 漢堡選單 toggle
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('.nav-menu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('open');
+        menu.classList.toggle('open');
+      });
+      // 點 menu 連結後收起
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          toggle.classList.remove('open');
+          menu.classList.remove('open');
+        });
+      });
+    }
   });
 })();

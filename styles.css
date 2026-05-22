@@ -85,7 +85,7 @@ body.spotlight::after {
 }
 body.no-page-spotlight::after { display: none; }
 
-/* ─── 頂部導覽 ─── */
+/* ─── 頂部導覽（簽名檔當 logo + 漢堡選單） ─── */
 nav.top {
   position: sticky; top: 0;
   background: rgba(254, 252, 248, 0.92);
@@ -96,30 +96,58 @@ nav.top {
 }
 nav.top .container {
   display: flex; align-items: center; justify-content: space-between;
-  padding-top: 18px; padding-bottom: 18px;
+  padding-top: 14px; padding-bottom: 14px;
+  gap: 16px;
 }
-.logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem; font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--ink);
+.nav-brand {
+  display: flex; align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity .2s;
 }
-.logo .eye {
-  font-family: "Caveat", cursive; font-weight: 500;
-  color: var(--c-sand); margin-right: 6px;
-  font-size: 1.1rem;
+.nav-brand:hover { opacity: 0.8; }
+.nav-brand img {
+  height: 40px;
+  width: auto;
+  display: block;
 }
-nav.top ul {
-  display: flex; gap: 32px; list-style: none; margin: 0; padding: 0;
-  font-size: 0.96rem;
+nav.top ul.nav-menu {
+  display: flex; gap: 28px; list-style: none; margin: 0; padding: 0;
+  font-size: 0.95rem;
 }
-nav.top ul a {
+nav.top ul.nav-menu a {
   color: var(--ink-soft);
   transition: color .2s;
   font-weight: 500;
 }
-nav.top ul a:hover { color: var(--ink); }
-nav.top ul a.active { color: var(--ink-soft); }  /* 跟其他連結同色，不高亮 */
+nav.top ul.nav-menu a:hover { color: var(--ink); }
+nav.top ul.nav-menu a.active { color: var(--ink-soft); }
+
+/* 漢堡按鈕（手機才顯示） */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  width: 36px; height: 36px;
+  position: relative;
+}
+.nav-toggle span {
+  display: block;
+  position: absolute;
+  left: 8px; right: 8px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform .25s, opacity .25s, top .25s;
+}
+.nav-toggle span:nth-child(1) { top: 11px; }
+.nav-toggle span:nth-child(2) { top: 17px; }
+.nav-toggle span:nth-child(3) { top: 23px; }
+.nav-toggle.open span:nth-child(1) { top: 17px; transform: rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { top: 17px; transform: rotate(-45deg); }
 
 /* ─── 區塊與標題 ─── */
 section { padding: 88px 0; position: relative; overflow: hidden; }
@@ -487,11 +515,11 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
   line-height: 1.75;
 }
 
-/* ─── Footer（全置中，簽名圖在最上） ─── */
+/* ─── Footer（極簡：只剩簽名檔） ─── */
 footer {
   background: var(--bg-soft);
   border-top: 1px solid var(--line);
-  padding: 72px 0 36px;
+  padding: 48px 0;
   margin-top: 48px;
   position: relative;
   overflow: hidden;
@@ -1711,7 +1739,7 @@ footer .foot-meta {
 
 /* ─── 響應式 ─── */
 @media (max-width: 720px) {
-  .container { padding: 0 20px; }
+  .container { padding: 0 18px; }
   .hero { padding: 90px 0 70px; }
   .hero h1 { font-size: 3.6rem; }
   .hero .subtitle { font-size: 1.05rem; }
@@ -1720,11 +1748,42 @@ footer .foot-meta {
   .entry-grid { grid-template-columns: 1fr; gap: 20px; }
   .entry-card { padding: 28px 24px; min-height: auto; }
   .entry-card h3 { font-size: 1.7rem; }
-  nav.top ul { gap: 18px; font-size: 0.9rem; }
-  nav.top .container { flex-direction: column; gap: 14px; padding: 14px 20px; }
   section { padding: 60px 0; }
   .page-header h1 { font-size: 2.6rem; }
   .group-header h2 { font-size: 1.5rem; }
+
+  /* 手機 nav：更窄 + 漢堡選單 */
+  nav.top .container {
+    padding-top: 10px; padding-bottom: 10px;
+    padding-left: 16px; padding-right: 12px;
+  }
+  .nav-brand img { height: 32px; }
+  .nav-toggle { display: block; }
+  nav.top ul.nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: rgba(254, 252, 248, 0.98);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0;
+    box-shadow: 0 10px 24px rgba(107, 74, 42, 0.08);
+  }
+  nav.top ul.nav-menu.open { display: flex; }
+  nav.top ul.nav-menu li {
+    padding: 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  nav.top ul.nav-menu li:last-child { border-bottom: none; }
+  nav.top ul.nav-menu a {
+    display: block;
+    padding: 14px 20px;
+    font-size: 0.98rem;
+  }
 }
 
 /* ─── 無動畫偏好：陰影固定中心，不跟滑鼠 ─── */
