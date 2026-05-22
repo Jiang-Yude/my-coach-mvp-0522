@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Footer 簽名檔 Tuner · 江江教練</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body { background: var(--bg); }
+  body.spotlight::after { display: none; }
+  .tuner-header {
+    padding: 56px 0 32px;
+    text-align: center;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line);
+  }
+  .tuner-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 500; margin: 8px 0;
+  }
+  .tuner-header p {
+    color: var(--ink-soft); max-width: 540px; margin: 0 auto;
+    font-size: 0.92rem; line-height: 1.7;
+  }
+  .back-link {
+    display: inline-block; font-size: 0.85rem; color: var(--ink-faint);
+    border-bottom: 1px dashed var(--line); padding-bottom: 2px; margin-bottom: 12px;
+  }
+  .back-link:hover { color: var(--c-coral); border-color: var(--c-coral); }
+
+  .controls {
+    background: var(--paper);
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 18px rgba(107, 74, 42, 0.06);
+  }
+  .controls .container {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
+    align-items: end; max-width: 980px;
+  }
+  @media (max-width: 720px) { .controls .container { grid-template-columns: 1fr; gap: 18px; } }
+  .control { display: flex; flex-direction: column; gap: 6px; }
+  .control label {
+    display: flex; justify-content: space-between;
+    font-size: 0.85rem; color: var(--ink-soft); font-weight: 500;
+  }
+  .control label .val {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+    color: var(--c-coral); background: var(--bg-soft);
+    padding: 2px 8px; border-radius: 6px;
+  }
+  .control input[type=range] { width: 100%; }
+
+  .copy-btn {
+    padding: 12px 22px;
+    background: var(--ink); color: var(--paper);
+    border: none; border-radius: 999px;
+    cursor: pointer; font-family: -apple-system, "PingFang TC", sans-serif;
+    font-size: 0.92rem; font-weight: 500;
+    transition: background .2s;
+  }
+  .copy-btn:hover { background: var(--c-coral); }
+  .copy-btn.copied { background: var(--c-mint, #4d9c7d); }
+
+  .preview-label {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--c-sand);
+    font-size: 1.05rem;
+    margin: 40px 0 -20px;
+  }
+
+  /* Demo footer (跟正式 footer 完全一樣) */
+  .demo-footer {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    padding: 72px 0 36px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  .demo-footer .container {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 24px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .demo-sig {
+    width: 100%;
+    max-width: var(--tx-sig-max, 200px);
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    opacity: var(--tx-sig-opacity, 0.85);
+  }
+  .demo-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+  }
+  .demo-brand-name .eye {
+    font-family: 'Caveat', cursive; color: var(--c-sand); margin-right: 6px;
+  }
+  .demo-slogan {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1rem; color: var(--c-sand);
+  }
+  .demo-links {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 6px; max-width: 600px; font-size: 0.9rem;
+  }
+  .demo-links a {
+    padding: 4px 12px;
+    border-right: 1px solid var(--line);
+    color: var(--ink-soft); white-space: nowrap;
+  }
+  .demo-links a:last-child { border-right: none; }
+  .demo-meta {
+    margin-top: 12px; padding-top: 22px;
+    border-top: 1px dashed var(--line);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 0.86rem;
+    color: var(--c-sand);
+    width: 100%; max-width: 600px;
+  }
+
+  /* 預設尺寸快選 */
+  .presets {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .preset {
+    padding: 5px 12px; border: 1px solid var(--line);
+    border-radius: 999px; background: var(--bg-soft);
+    font-size: 0.78rem; cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink-soft);
+    transition: all .2s;
+  }
+  .preset:hover { border-color: var(--ink); }
+  .preset.active { background: var(--c-coral); color: white; border-color: var(--c-coral); }
+
+  .output {
+    background: var(--bg-soft);
+    padding: 14px 18px; border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-top: 8px;
+    white-space: pre-wrap;
+  }
+</style>
+</head>
+<body class="spotlight">
+
+<div class="tuner-header">
+  <div class="container">
+    <a class="back-link" href="index.html">← 回首頁</a>
+    <div class="eyebrow" style="margin-bottom:4px;">局部校稿｜Footer 簽名檔</div>
+    <h1>調簽名檔大小</h1>
+    <p>拉滑桿即時看效果。調好按「複製 CSS」貼給我，我套到全站 4 個頁面。</p>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="container">
+    <div class="control">
+      <label>長邊 max-width <span class="val" id="val-w">200px</span></label>
+      <input type="range" id="ctl-w" min="80" max="500" value="200" />
+      <div class="presets" id="presets-w">
+        <span class="preset" data-w="120">120</span>
+        <span class="preset" data-w="160">160</span>
+        <span class="preset active" data-w="200">200</span>
+        <span class="preset" data-w="280">280</span>
+        <span class="preset" data-w="360">360</span>
+        <span class="preset" data-w="480">480</span>
+      </div>
+    </div>
+    <div class="control">
+      <label>透明度 opacity <span class="val" id="val-o">0.85</span></label>
+      <input type="range" id="ctl-o" min="30" max="100" value="85" />
+    </div>
+    <div class="control" style="justify-content:flex-end;">
+      <button class="copy-btn" id="copy-btn">複製 CSS</button>
+      <div class="output" id="output"></div>
+    </div>
+  </div>
+</div>
+
+<div class="preview-label">↓ 即時預覽（跟線上 footer 一樣的結構）</div>
+
+<footer class="demo-footer">
+  <div class="container">
+    <img class="demo-sig" src="images/footer-signature.png" alt="江江教練 | 江昱德" />
+    <div>
+      <div class="demo-brand-name"><span class="eye">江江教練的</span>AI 知識管理</div>
+      <div class="demo-slogan">提煉 · 累積 · 應用你的知識資產</div>
+    </div>
+    <div class="demo-links">
+      <a>首頁</a><a>課程預告</a><a>學習資源</a><a>Skills 下載</a>
+      <a>LINE 社群</a><a>LINE OA</a><a>Threads</a><a>方格子</a><a>IG</a><a>YouTube</a><a>GitHub</a>
+    </div>
+    <div class="demo-meta">v0.7 · MVP 大雜燴版 · 2026-05-22</div>
+  </div>
+</footer>
+
+<script>
+  const ctlW = document.getElementById('ctl-w');
+  const ctlO = document.getElementById('ctl-o');
+  const valW = document.getElementById('val-w');
+  const valO = document.getElementById('val-o');
+  const output = document.getElementById('output');
+
+  function update() {
+    const w = ctlW.value, o = (ctlO.value/100).toFixed(2);
+    valW.textContent = w + 'px';
+    valO.textContent = o;
+    document.documentElement.style.setProperty('--tx-sig-max', w + 'px');
+    document.documentElement.style.setProperty('--tx-sig-opacity', o);
+    output.textContent =
+`/* styles.css 的 .footer-signature {} 內 */
+max-width: ${w}px;
+opacity: ${o};`;
+
+    // preset highlight
+    document.querySelectorAll('.preset').forEach(p => {
+      p.classList.toggle('active', parseInt(p.dataset.w) === parseInt(w));
+    });
+  }
+  ctlW.addEventListener('input', update);
+  ctlO.addEventListener('input', update);
+
+  document.querySelectorAll('.preset').forEach(p => {
+    p.addEventListener('click', () => {
+      ctlW.value = p.dataset.w;
+      update();
+    });
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(output.textContent);
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = '複製 CSS'; btn.classList.remove('copied'); }, 1800);
+    } catch(e) { alert('複製失敗：' + e.message); }
+  });
+
+  update();
+</script>
+</body>
+</html>

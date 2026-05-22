@@ -507,13 +507,14 @@ footer .container {
   position: relative; z-index: 2;
 }
 
-/* 簽名檔圖（footer 頂部主視覺） */
+/* 簽名檔圖（footer 頂部主視覺，數值可在 footer-tuner.html 調好複製） */
 .footer-signature {
   width: 100%;
-  max-width: 680px;
+  max-width: 200px;                      /* 雷哥要長邊 200，數值由 tuner 微調 */
   height: auto;
   display: block;
   margin: 0 auto;
+  opacity: 0.85;                          /* 微透明，融入暖色底 */
 }
 .footer-signature-placeholder {
   width: 100%;
@@ -702,7 +703,7 @@ footer .foot-meta {
 }
 .intro-grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 1fr 320px;     /* 文字左、人物右 */
   gap: 64px;
   align-items: center;
   max-width: 960px;
@@ -711,13 +712,15 @@ footer .foot-meta {
 }
 @media (max-width: 720px) {
   .intro-grid { grid-template-columns: 1fr; gap: 32px; justify-items: center; text-align: center; }
+  .intro-photo { order: -1; }            /* 手機時人物在最上方 */
 }
 .intro-photo {
-  width: 300px; height: 300px;
+  width: 320px;
+  aspect-ratio: 4 / 5;                  /* 跟原圖比例同，不裁切 */
   border-radius: 20px;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(135deg, var(--paper) 0%, var(--bg-soft) 100%);
+  background: transparent;               /* 透明，融入網頁底色 */
   border: 1.5px dashed var(--c-sand);
   display: flex; align-items: center; justify-content: center;
   color: var(--ink-faint);
@@ -729,9 +732,15 @@ footer .foot-meta {
 }
 .intro-photo.has-photo {
   border: none;
+  background: transparent;               /* 去背 PNG 直接吃 intro-section bg-soft */
+  border-radius: 0;                      /* 拿掉圓角，去背圖自然呈現 */
+  overflow: visible;                     /* 讓去背圖可以微微超出 */
 }
 .intro-photo img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
+  width: 100%; height: 100%;
+  object-fit: contain;                   /* 不裁切，整張完整顯示 */
+  object-position: center bottom;        /* 底部對齊（人物站姿） */
+  display: block;
 }
 
 .intro-eye {
