@@ -85,7 +85,7 @@ body.spotlight::after {
 }
 body.no-page-spotlight::after { display: none; }
 
-/* ─── 頂部導覽（簽名檔當 logo + 漢堡選單） ─── */
+/* ─── 頂部導覽（三欄：左文字 logo / 中簽名圖 / 右按鈕） ─── */
 nav.top {
   position: sticky; top: 0;
   background: rgba(254, 252, 248, 0.92);
@@ -95,24 +95,53 @@ nav.top {
   z-index: 100;
 }
 nav.top .container {
-  display: flex; align-items: center; justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
   padding-top: 14px; padding-bottom: 14px;
-  gap: 16px;
 }
-.nav-brand {
+
+/* 左：文字 logo */
+.nav-brand-text {
+  justify-self: start;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  text-decoration: none;
+  transition: opacity .2s;
+  white-space: nowrap;
+}
+.nav-brand-text:hover { opacity: 0.7; }
+.nav-brand-text .eye {
+  font-family: 'Caveat', cursive;
+  font-weight: 500;
+  color: var(--c-sand);
+  margin-right: 6px;
+  font-size: 1rem;
+}
+
+/* 中：簽名檔圖 */
+.nav-brand-img {
+  justify-self: center;
   display: flex; align-items: center;
   text-decoration: none;
   flex-shrink: 0;
   transition: opacity .2s;
 }
-.nav-brand:hover { opacity: 0.8; }
-.nav-brand img {
+.nav-brand-img:hover { opacity: 0.8; }
+.nav-brand-img img {
   height: 40px;
   width: auto;
   display: block;
 }
+
+/* 右：menu */
 nav.top ul.nav-menu {
-  display: flex; gap: 28px; list-style: none; margin: 0; padding: 0;
+  justify-self: end;
+  display: flex; gap: 26px; list-style: none; margin: 0; padding: 0;
   font-size: 0.95rem;
 }
 nav.top ul.nav-menu a {
@@ -1752,13 +1781,19 @@ footer .foot-meta {
   .page-header h1 { font-size: 2.6rem; }
   .group-header h2 { font-size: 1.5rem; }
 
-  /* 手機 nav：更窄 + 漢堡選單 */
+  /* 手機 nav：拿掉文字 logo、只剩中簽名 + 右漢堡 */
   nav.top .container {
+    grid-template-columns: 1fr auto 1fr;
     padding-top: 10px; padding-bottom: 10px;
     padding-left: 16px; padding-right: 12px;
+    gap: 12px;
   }
-  .nav-brand img { height: 32px; }
-  .nav-toggle { display: block; }
+  .nav-brand-text { display: none; }
+  .nav-brand-img img { height: 32px; }
+  .nav-toggle {
+    display: block;
+    justify-self: end;
+  }
   nav.top ul.nav-menu {
     display: none;
     position: absolute;
