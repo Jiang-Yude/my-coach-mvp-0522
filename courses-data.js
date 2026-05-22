@@ -49,9 +49,10 @@ window.COURSES = [
     materials: [],
     registration: {
       status: "open",
-      url: "https://www.threads.net/@thedav1035",
-      label: "追 Threads 看連結 ↗",
-      note: "免費，每場新講座 Zoom 連結會在 Threads 公布"
+      url: "https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ",
+      label: "免費參加 ↗",
+      tooltip: "我每月固定舉辦兩場免費線上講座，\n講座資訊請看我的 LINE 社群",
+      note: "免費，加入 LINE 社群收到 Zoom 連結"
     }
   },
   {

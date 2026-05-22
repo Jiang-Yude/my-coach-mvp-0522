@@ -663,33 +663,93 @@ footer .foot-meta {
 }
 .course-card:not(.has-thumb) .card-body { padding: 26px 28px 24px; }
 
-/* 沒圖的卡片：用奶油底 + 大日期當佔位 */
+/* 沒圖卡片：明信片風（漸層底 + 月份戳 + 大日期 + 課程標題 + 主辦） */
 .course-card:not(.has-thumb) .card-thumbnail-placeholder {
   aspect-ratio: 4 / 5;
-  background: linear-gradient(135deg, var(--bg-soft), var(--paper));
+  background:
+    linear-gradient(135deg, #faf3e4 0%, #f0e3cf 60%, #e8d7b6 100%);
   display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 8px;
+  justify-content: space-between;
+  padding: 22px 24px 24px;
   position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
 }
-.course-card:not(.has-thumb) .card-thumbnail-placeholder .ph-month {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
+
+/* 背景水彩斑點 */
+.ph-decor {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  pointer-events: none;
+}
+.ph-decor-a {
+  width: 200px; height: 200px;
+  top: -60px; right: -60px;
+  background: rgba(232, 136, 75, 0.25);
+}
+.ph-decor-b {
+  width: 160px; height: 160px;
+  bottom: -50px; left: -40px;
+  background: rgba(160, 129, 68, 0.20);
+}
+
+.ph-top, .ph-mid, .ph-bottom { position: relative; z-index: 2; }
+
+/* 頂部月份戳 */
+.ph-top .ph-month-mark {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
   color: var(--c-sand);
-  font-size: 1.3rem;
+  border-bottom: 1px solid var(--c-sand);
+  padding-bottom: 4px;
+  display: inline-block;
 }
-.course-card:not(.has-thumb) .card-thumbnail-placeholder .ph-day {
+
+/* 中央大日期 */
+.ph-mid {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 8px 0;
+}
+.ph-mid .ph-day {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 4.5rem;
+  font-size: 6.4rem;
   font-weight: 500;
   color: var(--ink);
-  line-height: 1;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
 }
-.course-card:not(.has-thumb) .card-thumbnail-placeholder .ph-label {
-  font-size: 0.78rem;
-  color: var(--ink-faint);
-  letter-spacing: 0.1em;
-  margin-top: 8px;
+.ph-mid .ph-month-cn {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--c-sand);
+}
+
+/* 底部：課程標題 + 主辦 */
+.ph-bottom .ph-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 8px;
+  /* 長標題自然截斷 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ph-bottom .ph-org {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  border-top: 1px dashed rgba(106, 99, 90, 0.3);
+  padding-top: 10px;
 }
 
 /* 模式 badge（線上/實體 + 開放/專場） */
@@ -749,6 +809,54 @@ footer .foot-meta {
   background: var(--paper);
   color: var(--c-coral);
   transform: translateY(-1px);
+}
+
+/* CTA 按鈕 hover tooltip（給有 data-tip 的按鈕） */
+.course-cta .cta-has-tip { position: relative; }
+.course-cta .cta-has-tip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 11px 16px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 400;
+  font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
+  white-space: pre-wrap;
+  width: max-content;
+  max-width: 280px;
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .22s ease, transform .22s ease;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  z-index: 50;
+  text-align: center;
+}
+.course-cta .cta-has-tip::before {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .22s ease, transform .22s ease;
+  z-index: 50;
+}
+.course-cta .cta-has-tip:hover::after,
+.course-cta .cta-has-tip:hover::before,
+.course-cta .cta-has-tip:focus-visible::after,
+.course-cta .cta-has-tip:focus-visible::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 .course-cta .cta-note {
   margin: 8px 0 0;

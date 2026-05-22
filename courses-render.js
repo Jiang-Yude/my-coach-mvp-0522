@@ -30,12 +30,13 @@
         if (r.url) {
           const label = r.label || D.open_label || '報名 ↗';
           const note = r.note ? `<p class="cta-note">${escapeHtml(r.note)}</p>` : '';
+          const tipAttr = r.tooltip ? ` data-tip="${escapeHtml(r.tooltip)}"` : '';
+          const tipClass = r.tooltip ? ' cta-has-tip' : '';
           return `<div class="course-cta open">
-            <a class="cta-btn" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>
+            <a class="cta-btn${tipClass}" href="${escapeHtml(r.url)}" target="_blank" rel="noopener"${tipAttr}>${escapeHtml(label)}</a>
             ${note}
           </div>`;
         }
-        // url 還沒給
         const note = r.note ? escapeHtml(r.note) : (D.open_url_pending || '即將開放報名');
         return `<div class="course-cta pending"><p class="cta-note">${note}</p></div>`;
       }
@@ -79,14 +80,27 @@
     return parts.length ? `<div class="card-modes">${parts.join('')}</div>` : '';
   }
 
-  // ─── 沒圖時的佔位（大日期） ───
+  // ─── 沒圖時的佔位（明信片風：漸層底 + 月份 + 大日期 + 標題 + 主辦） ───
   function placeholderHTML(c) {
     const d = parseDate(c.date);
-    const monthEn = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
+    const monthEn = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'][d.getMonth()];
+    const monthShort = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
+    const r = c.registration || {};
+    const orgLabel = (r.status === 'private' && r.host_org) ? `主辦：${r.host_org}` : c.type_label;
     return `<div class="card-thumbnail-placeholder">
-      <div class="ph-month">${monthEn}</div>
-      <div class="ph-day">${d.getDate()}</div>
-      <div class="ph-label">${escapeHtml(c.type_label)}</div>
+      <div class="ph-decor ph-decor-a"></div>
+      <div class="ph-decor ph-decor-b"></div>
+      <div class="ph-top">
+        <span class="ph-month-mark">${monthEn}</span>
+      </div>
+      <div class="ph-mid">
+        <div class="ph-day">${d.getDate()}</div>
+        <div class="ph-month-cn">${monthShort}</div>
+      </div>
+      <div class="ph-bottom">
+        <div class="ph-title">${escapeHtml(c.title)}</div>
+        <div class="ph-org">${escapeHtml(orgLabel)}</div>
+      </div>
     </div>`;
   }
 
