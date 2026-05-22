@@ -21,28 +21,72 @@
     return String(s||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
   }
 
+  // ─── CTA（報名按鈕 / 主辦 / 待定） ───
+  function ctaHTML(c) {
+    const r = c.registration || {};
+    const D = window.CTA_DEFAULTS || {};
+    switch (r.status) {
+      case "open": {
+        if (r.url) {
+          const label = r.label || D.open_label || '報名 ↗';
+          const note = r.note ? `<p class="cta-note">${escapeHtml(r.note)}</p>` : '';
+          return `<div class="course-cta open">
+            <a class="cta-btn" href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>
+            ${note}
+          </div>`;
+        }
+        // url 還沒給
+        const note = r.note ? escapeHtml(r.note) : (D.open_url_pending || '即將開放報名');
+        return `<div class="course-cta pending"><p class="cta-note">${note}</p></div>`;
+      }
+      case "private": {
+        const org = r.host_org || c.host;
+        const note = r.note ? `<p class="cta-note">${escapeHtml(r.note)}</p>` : '';
+        return `<div class="course-cta private">
+          <p class="cta-private-tag"><span class="cta-dot"></span>${escapeHtml(D.private_prefix || '主辦：')}<strong>${escapeHtml(org)}</strong>${escapeHtml(D.private_suffix || '（封閉場次）')}</p>
+          ${note}
+        </div>`;
+      }
+      case "pending": {
+        const note = r.note ? escapeHtml(r.note) : (D.pending_text || '時間／報名方式待公告');
+        return `<div class="course-cta pending"><p class="cta-note">${note}</p></div>`;
+      }
+      default:
+        return '';
+    }
+  }
+
   // ─── 單張卡片 HTML ───
   function cardHTML(c) {
     const badges = [`<span class="badge ${c.type}">${escapeHtml(c.type_label)}</span>`];
     (c.status_tags || []).forEach(t => badges.push(`<span class="badge planning">${escapeHtml(t)}</span>`));
 
-    const linkParts = [];
-    if (c.venue) linkParts.push(`<span>${escapeHtml(c.venue)}</span>`);
-    if (c.register_url) linkParts.push(`<a href="${escapeHtml(c.register_url)}" target="_blank" rel="noopener">報名 ↗</a>`);
-    if (c.detail_url) linkParts.push(`<a href="${escapeHtml(c.detail_url)}">看詳細 →</a>`);
-    const links = linkParts.length
-      ? `<div class="card-links">${linkParts.join('')}</div>`
+    const thumb = c.image
+      ? `<div class="card-thumbnail"><img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.title)}" loading="lazy" /></div>`
+      : '';
+
+    const venue = c.venue
+      ? `<p class="card-venue"><span class="venue-icon">📍</span>${escapeHtml(c.venue)}${c.host && c.host !== '江江教練' ? ` · ${escapeHtml(c.host)}` : ''}</p>`
+      : '';
+
+    const detailLink = c.detail_url
+      ? `<div class="card-detail-link"><a href="${escapeHtml(c.detail_url)}">看課程詳情 →</a></div>`
       : '';
 
     return `
-      <div class="list-card" data-course-id="${escapeHtml(c.id)}">
-        <div class="card-meta">
-          <span class="card-date">${escapeHtml(fmtDate(c))}</span>
-          ${badges.join('')}
+      <div class="list-card course-card${c.image ? ' has-thumb' : ''}" data-course-id="${escapeHtml(c.id)}">
+        ${thumb}
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-date">${escapeHtml(fmtDate(c))}</span>
+            ${badges.join('')}
+          </div>
+          <h3>${escapeHtml(c.title)}</h3>
+          <p>${escapeHtml(c.summary)}</p>
+          ${venue}
+          ${ctaHTML(c)}
+          ${detailLink}
         </div>
-        <h3>${escapeHtml(c.title)}</h3>
-        <p>${escapeHtml(c.summary)}</p>
-        ${links}
       </div>`;
   }
 
