@@ -640,11 +640,17 @@ footer .foot-meta {
 .wc-lavender { background: var(--c-lavender); opacity: 0.14; }
 
 /* ─── 課程卡（4:5 圖 + 極簡資訊：日期/標題/模式 badge/CTA） ─── */
-.course-card { padding: 0 !important; overflow: hidden; display: flex; flex-direction: column; }
+.course-card {
+  padding: 0 !important;
+  overflow: visible !important;      /* tooltip 才能伸出卡片不被切 */
+  display: flex; flex-direction: column;
+}
+/* 卡片底色用 ::after 包一層，確保圓角＋hover spotlight 仍在內側 */
 .course-card .card-thumbnail {
-  aspect-ratio: 4 / 5;        /* 預設 4:5 直幅，原圖完整呈現不裁切 */
+  aspect-ratio: 4 / 5;
   background: var(--bg-soft);
-  overflow: hidden;
+  overflow: hidden;                  /* 圖片自己裁切圓角 */
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   position: relative;
 }
 .course-card .card-thumbnail img {
@@ -674,6 +680,7 @@ footer .foot-meta {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;  /* 上方圓角 */
 }
 
 /* 背景水彩斑點 */
@@ -811,45 +818,46 @@ footer .foot-meta {
   transform: translateY(-1px);
 }
 
-/* CTA 按鈕 hover tooltip（給有 data-tip 的按鈕） */
+/* CTA 按鈕 hover tooltip（暖白底 + 沙金邊 + 智慧定位） */
 .course-cta .cta-has-tip { position: relative; }
 .course-cta .cta-has-tip::after {
   content: attr(data-tip);
   position: absolute;
-  bottom: calc(100% + 10px);
+  bottom: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(6px);
-  background: var(--ink);
-  color: var(--paper);
-  padding: 11px 16px;
-  border-radius: 10px;
-  font-size: 0.82rem;
-  font-weight: 400;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--c-sand);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.84rem;
+  font-weight: 500;
   font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
   white-space: pre-wrap;
   width: max-content;
-  max-width: 280px;
+  max-width: 240px;
   letter-spacing: 0.02em;
-  line-height: 1.55;
+  line-height: 1.6;
   pointer-events: none;
   opacity: 0;
   transition: opacity .22s ease, transform .22s ease;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
-  z-index: 50;
+  box-shadow: 0 12px 28px rgba(107, 74, 42, 0.18), 0 0 0 4px rgba(160, 129, 68, 0.08);
+  z-index: 200;
   text-align: center;
 }
 .course-cta .cta-has-tip::before {
   content: '';
   position: absolute;
-  bottom: calc(100% + 4px);
+  bottom: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%) translateY(6px);
-  border: 6px solid transparent;
-  border-top-color: var(--ink);
+  border: 7px solid transparent;
+  border-top-color: var(--c-sand);
   pointer-events: none;
   opacity: 0;
   transition: opacity .22s ease, transform .22s ease;
-  z-index: 50;
+  z-index: 200;
 }
 .course-cta .cta-has-tip:hover::after,
 .course-cta .cta-has-tip:hover::before,
