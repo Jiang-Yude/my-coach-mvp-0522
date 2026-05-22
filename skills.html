@@ -30,7 +30,7 @@
   <div class="container narrow">
     <div class="eyebrow">把方法包起來</div>
     <h1>Skills <span class="italic">下載</span></h1>
-    <p>把工作方法做成可以 clone 的 Claude Skills 技能包。Claude Code、Codex、Cowork、ChatGPT 都能讀。MIT 授權，免費商用。</p>
+    <p>把工作方法做成可以 clone 的 Claude Skills 技能包。Claude Code、Codex、Cowork、ChatGPT 都能讀。多為 MIT 授權，免費商用。</p>
   </div>
 </div>
 
@@ -49,178 +49,223 @@
       <p class="note-foot">不熟 GitHub 沒關係，每個技能包的 README 都有使用說明，照著做就會跑。</p>
     </div>
 
-    <!-- 評估與篩選 -->
-    <div class="group-header">
-      <h2>評估與篩選</h2>
-      <span class="group-count">2 包</span>
+    <!-- 標籤過濾 -->
+    <div class="filter-bar">
+      <div class="filter-bar-label">依分類過濾 ↓</div>
+      <div class="filter-chips" id="filter-chips">
+        <span class="filter-chip active" data-tag="all">全部 <span class="count" id="count-all">9</span></span>
+        <span class="filter-chip" data-tag="evaluation">評估篩選 <span class="count">2</span></span>
+        <span class="filter-chip" data-tag="distill">知識提煉 <span class="count">2</span></span>
+        <span class="filter-chip" data-tag="business">商業策略 <span class="count">1</span></span>
+        <span class="filter-chip" data-tag="persona">AI 顧問人格 <span class="count">1</span></span>
+        <span class="filter-chip" data-tag="tools">工具整合 <span class="count">2</span></span>
+        <span class="filter-chip" data-tag="experience">體驗包 <span class="count">1</span></span>
+        <span class="filter-chip" data-tag="mit">MIT 授權 <span class="count">8</span></span>
+        <span class="filter-chip" data-tag="bilingual">中英雙版 <span class="count">3</span></span>
+      </div>
     </div>
-    <div class="list-grid cols-2">
 
-      <div class="list-card">
-        <div class="card-meta">
-          <span class="card-date">teacher-fit-evaluator</span>
-          <span class="badge free">MIT</span>
-        </div>
-        <h3>這個老師適不適合我</h3>
-        <p>三節奏（學習地圖 / 快速評估 / 深度評估）+ 五維度（契合度 / 產出力 / 可信度 / 投資產出比 / 不可替代性）。判斷一個老師、課程、PDF、論文、GitHub repo 值不值得學。</p>
-        <div class="card-links">
-          <a href="https://github.com/Jiang-Yude/teacher-fit-evaluator" target="_blank" rel="noopener">GitHub repo ↗</a>
-          <span>觸發詞：「這個老師適不適合我」「值不值得學」</span>
-        </div>
+    <!-- 評估與篩選 -->
+    <div class="skill-section" data-section="evaluation">
+      <div class="skill-section-head">
+        <h2>評估與篩選</h2>
+        <span class="count">2 包</span>
       </div>
+      <div class="skills-grid">
 
-      <div class="list-card">
-        <div class="card-meta">
-          <span class="card-date">skill-curator</span>
-          <span class="badge free">MIT · 中/英</span>
-        </div>
-        <h3>技能包大總管</h3>
-        <p>管你整個工作流裡技能包之間的關係。四模式：觸發詞健檢、Skill 快篩、整併與拆分、更新檢查。避免技能包越加越多卻互相打架。</p>
-        <div class="card-links">
-          <a href="https://github.com/Jiang-Yude/skill-curator" target="_blank" rel="noopener">中文版 ↗</a>
-          <a href="https://github.com/Jiang-Yude/skill-curator-en" target="_blank" rel="noopener">English ↗</a>
-        </div>
+        <article class="skill-card" data-tags="evaluation mit">
+          <div class="skill-id">teacher-fit-evaluator</div>
+          <h3>這個老師適不適合我</h3>
+          <p>三節奏（學習地圖／快速評估／深度評估）+ 五維度（契合度／產出力／可信度／投資產出比／不可替代性）評分。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">評估</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-links">
+            <a href="https://github.com/Jiang-Yude/teacher-fit-evaluator" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
+
+        <article class="skill-card" data-tags="evaluation mit bilingual">
+          <div class="skill-id">skill-curator</div>
+          <h3>技能包大總管</h3>
+          <p>管你整個工作流裡技能包之間的關係。四模式：觸發詞健檢、Skill 快篩、整併與拆分、更新檢查。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">評估</span>
+            <span class="skill-tag">中/英</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-links">
+            <a href="https://github.com/Jiang-Yude/skill-curator" target="_blank" rel="noopener">中文 ↗</a>
+            <a href="https://github.com/Jiang-Yude/skill-curator-en" target="_blank" rel="noopener">English ↗</a>
+          </div>
+        </article>
+
       </div>
-
     </div>
 
     <!-- 提煉與訪談 -->
-    <div class="group-header">
-      <h2>提煉與訪談</h2>
-      <span class="group-count">2 包</span>
-    </div>
-    <div class="list-grid cols-2">
-
-      <div class="list-card">
-        <div class="card-meta">
-          <span class="card-date">persona-mind-distiller</span>
-          <span class="badge free">MIT · 中/英</span>
-        </div>
-        <h3>擬人化 AI 顧問提煉器</h3>
-        <p>把書、論文、影片、Podcast、想法提煉成擬人化 AI 顧問的標準流程。10 區塊人格 + 思維引擎 + 知識圖譜更新。</p>
-        <div class="card-links">
-          <a href="https://github.com/Jiang-Yude/persona-mind-distiller" target="_blank" rel="noopener">中文版 ↗</a>
-          <a href="https://github.com/Jiang-Yude/persona-mind-distiller-en" target="_blank" rel="noopener">English ↗</a>
-        </div>
+    <div class="skill-section" data-section="distill">
+      <div class="skill-section-head">
+        <h2>知識提煉</h2>
+        <span class="count">2 包</span>
       </div>
+      <div class="skills-grid">
 
-      <div class="list-card">
-        <div class="card-meta">
-          <span class="card-date">real-needs-investigation</span>
-          <span class="badge free">MIT</span>
-        </div>
-        <h3>問出客戶真心話</h3>
-        <p>客戶都說很棒，但就是不買單？一套幫你問出客戶真心話的訪談與問卷設計工具。給做 MVP、做產品驗證、跑客戶訪談的人。</p>
-        <div class="card-links">
-          <a href="https://github.com/Jiang-Yude/real-needs-investigation" target="_blank" rel="noopener">GitHub repo ↗</a>
-        </div>
+        <article class="skill-card" data-tags="distill mit bilingual">
+          <div class="skill-id">persona-mind-distiller</div>
+          <h3>擬人化 AI 顧問提煉器</h3>
+          <p>把書、論文、影片、Podcast、想法提煉成擬人化 AI 顧問的標準流程。10 區塊人格 + 思維引擎。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">提煉</span>
+            <span class="skill-tag">中/英</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-links">
+            <a href="https://github.com/Jiang-Yude/persona-mind-distiller" target="_blank" rel="noopener">中文 ↗</a>
+            <a href="https://github.com/Jiang-Yude/persona-mind-distiller-en" target="_blank" rel="noopener">English ↗</a>
+          </div>
+        </article>
+
+        <article class="skill-card" data-tags="distill mit">
+          <div class="skill-id">real-needs-investigation</div>
+          <h3>問出客戶真心話</h3>
+          <p>客戶都說很棒就是不買單？一套幫你問出真心話的訪談與問卷設計工具。給跑 MVP、做產品驗證的人。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">訪談</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-links">
+            <a href="https://github.com/Jiang-Yude/real-needs-investigation" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
+
       </div>
-
     </div>
 
-    <!-- 一人公司與商業 -->
-    <div class="group-header">
-      <h2>一人公司與商業</h2>
-      <span class="group-count">1 包</span>
-    </div>
-    <div class="list-grid cols-2">
-
-      <div class="list-card">
-        <div class="card-meta">
-          <span class="card-date">ai-native-solo-company</span>
-          <span class="badge free">MIT</span>
-        </div>
-        <h3>AI 原生一人公司</h3>
-        <p>整合 Anthropic Founder's Playbook + 四階段 SOP（Idea / MVP / Launch / Scale）+ 一人公司方法論 + 從打工腦轉商業腦的賺錢心法。三層協作架構。</p>
-        <div class="card-links">
-          <a href="https://github.com/Jiang-Yude/ai-native-solo-company" target="_blank" rel="noopener">GitHub repo ↗</a>
-        </div>
+    <!-- 商業策略 -->
+    <div class="skill-section" data-section="business">
+      <div class="skill-section-head">
+        <h2>商業策略</h2>
+        <span class="count">1 包</span>
       </div>
+      <div class="skills-grid">
 
-    </div>
+        <article class="skill-card" data-tags="business mit">
+          <div class="skill-id">ai-native-solo-company</div>
+          <h3>AI 原生一人公司</h3>
+          <p>整合 Anthropic Founder's Playbook + 四階段 SOP（Idea / MVP / Launch / Scale）+ 一人公司方法論 + 賺錢心法。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">商業</span>
+            <span class="skill-tag">一人公司</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-links">
+            <a href="https://github.com/Jiang-Yude/ai-native-solo-company" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
 
-    <!-- 顧問人格 -->
-    <div class="group-header">
-      <h2>AI 顧問人格</h2>
-      <span class="group-count">1 包</span>
-    </div>
-    <div class="list-grid cols-2">
-
-      <div class="list-card">
-        <div class="card-meta">
-          <span class="card-date">naval-ravikant-skill</span>
-          <span class="badge free">MIT · 中/英</span>
-        </div>
-        <h3>納瓦爾·拉維坎特數位分身</h3>
-        <p>直接跟 Naval 聊財富、槓桿、幸福、決策、自我、關係。雙軌設計：Track A 是 Naval 自己的話、Track B 是公開討論。</p>
-        <div class="card-links">
-          <a href="https://github.com/Jiang-Yude/naval-ravikant-skill" target="_blank" rel="noopener">中文版 ↗</a>
-          <a href="https://github.com/Jiang-Yude/naval-ravikant-skill-en" target="_blank" rel="noopener">English ↗</a>
-        </div>
       </div>
+    </div>
 
+    <!-- AI 顧問人格 -->
+    <div class="skill-section" data-section="persona">
+      <div class="skill-section-head">
+        <h2>AI 顧問人格</h2>
+        <span class="count">1 包</span>
+      </div>
+      <div class="skills-grid">
+
+        <article class="skill-card" data-tags="persona mit bilingual">
+          <div class="skill-id">naval-ravikant-skill</div>
+          <h3>納瓦爾·拉維坎特數位分身</h3>
+          <p>直接跟 Naval 聊財富、槓桿、幸福、決策、自我、關係。雙軌：Naval 自己的話 + 公開討論。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">人格</span>
+            <span class="skill-tag">中/英</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-links">
+            <a href="https://github.com/Jiang-Yude/naval-ravikant-skill" target="_blank" rel="noopener">中文 ↗</a>
+            <a href="https://github.com/Jiang-Yude/naval-ravikant-skill-en" target="_blank" rel="noopener">English ↗</a>
+          </div>
+        </article>
+
+      </div>
     </div>
 
     <!-- 工具與整合 -->
-    <div class="group-header">
-      <h2>工具與整合</h2>
-      <span class="group-count">2 包</span>
-    </div>
-    <div class="list-grid cols-2">
-
-      <div class="list-card">
-        <div class="card-meta">
-          <span class="card-date">notebooklm-connector</span>
-          <span class="badge free">MIT</span>
-        </div>
-        <h3>NotebookLM 連接器</h3>
-        <p>把 Codex CLI / Claude Code 透過 MCP 接到 Google NotebookLM。可在 Agent 裡直接讀寫你的 NotebookLM 筆記本。</p>
-        <div class="card-links">
-          <a href="https://github.com/Jiang-Yude/notebooklm-connector" target="_blank" rel="noopener">GitHub repo ↗</a>
-        </div>
+    <div class="skill-section" data-section="tools">
+      <div class="skill-section-head">
+        <h2>工具整合</h2>
+        <span class="count">2 包</span>
       </div>
+      <div class="skills-grid">
 
-      <div class="list-card">
-        <div class="card-meta">
-          <span class="card-date">prose-novel-layout</span>
-          <span class="badge free">MIT</span>
-        </div>
-        <h3>散文／小說網頁排版</h3>
-        <p>把給媽媽、爸爸、家人的文章變成漂亮網頁。母親節版型示範頁、單篇散文模式、連載章回模式都有。</p>
-        <div class="card-links">
-          <a href="https://github.com/Jiang-Yude/prose-novel-layout" target="_blank" rel="noopener">GitHub repo ↗</a>
-        </div>
+        <article class="skill-card" data-tags="tools mit">
+          <div class="skill-id">notebooklm-connector</div>
+          <h3>NotebookLM 連接器</h3>
+          <p>把 Codex CLI / Claude Code 透過 MCP 接到 Google NotebookLM。在 Agent 裡直接讀寫你的筆記本。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">MCP</span>
+            <span class="skill-tag">NotebookLM</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-links">
+            <a href="https://github.com/Jiang-Yude/notebooklm-connector" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
+
+        <article class="skill-card" data-tags="tools mit">
+          <div class="skill-id">prose-novel-layout</div>
+          <h3>散文／小說網頁排版</h3>
+          <p>把給媽媽、爸爸、家人的文章變成漂亮網頁。單篇散文模式、連載章回模式都有。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">網頁排版</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-links">
+            <a href="https://github.com/Jiang-Yude/prose-novel-layout" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </article>
+
       </div>
-
     </div>
 
     <!-- 體驗包 -->
-    <div class="group-header">
-      <h2>體驗包</h2>
-      <span class="group-count">1 包</span>
-    </div>
-    <div class="list-grid cols-2">
-
-      <div class="list-card">
-        <div class="card-meta">
-          <span class="card-date">digital-twin-gathering-agent</span>
-          <span class="badge free">數位分身小聚</span>
-        </div>
-        <h3>數位分身小聚 · Agent 下載版</h3>
-        <p>用 AI Agent 開啟就能進村莊聊天、辯論、深度討論。歷史人物、客座講師、村民分身共聚一堂，討論 AI、學習、人生與意識。</p>
-        <div class="card-links">
-          <a href="https://github.com/Jiang-Yude/digital-twin-github" target="_blank" rel="noopener">主 repo ↗</a>
-          <a href="https://github.com/Jiang-Yude/digital-twin-gathering-agent" target="_blank" rel="noopener">Agent 下載版 ↗</a>
-        </div>
+    <div class="skill-section" data-section="experience">
+      <div class="skill-section-head">
+        <h2>體驗包</h2>
+        <span class="count">1 包</span>
       </div>
+      <div class="skills-grid">
 
+        <article class="skill-card" data-tags="experience">
+          <div class="skill-id">digital-twin-gathering-agent</div>
+          <h3>數位分身小聚 · Agent 下載版</h3>
+          <p>用 AI Agent 開啟就能進村莊聊天、辯論、深度討論。歷史人物、客座講師、村民分身共聚一堂。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">數位分身</span>
+            <span class="skill-tag">體驗</span>
+          </div>
+          <div class="skill-links">
+            <a href="https://github.com/Jiang-Yude/digital-twin-github" target="_blank" rel="noopener">主 repo ↗</a>
+            <a href="https://github.com/Jiang-Yude/digital-twin-gathering-agent" target="_blank" rel="noopener">Agent 版 ↗</a>
+          </div>
+        </article>
+
+      </div>
     </div>
+
+    <!-- 沒結果 -->
+    <p class="filter-empty" id="filter-empty">這個分類目前沒有技能包。</p>
 
     <!-- 更多 -->
     <div class="cta-box">
       <p>這裡是公開技能包的精選。完整清單（含內部開發中的）在 GitHub。</p>
       <div class="btn-row">
         <a class="button" href="https://github.com/Jiang-Yude" target="_blank" rel="noopener">所有公開 repos ↗</a>
+        <a class="button ghost" href="tuner.html">調網站配色 🎨</a>
       </div>
     </div>
 
@@ -248,5 +293,38 @@
 </footer>
 
 <script src="spotlight.js" defer></script>
+<script>
+  // ─── Skills 標籤過濾 ───
+  (function () {
+    const chips = document.querySelectorAll('#filter-chips .filter-chip');
+    const cards = document.querySelectorAll('.skill-card');
+    const sections = document.querySelectorAll('.skill-section');
+    const empty = document.getElementById('filter-empty');
+
+    function filterBy(tag) {
+      let totalVisible = 0;
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || '').split(/\s+/);
+        const match = (tag === 'all') || tags.includes(tag);
+        card.classList.toggle('filtered-out', !match);
+        if (match) totalVisible++;
+      });
+      // 區段：如果該區段裡沒有任何 visible card 就隱藏
+      sections.forEach(sec => {
+        const visibleInSec = sec.querySelectorAll('.skill-card:not(.filtered-out)').length;
+        sec.classList.toggle('section-hidden', visibleInSec === 0);
+      });
+      empty.classList.toggle('show', totalVisible === 0);
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        filterBy(chip.dataset.tag);
+      });
+    });
+  })();
+</script>
 </body>
 </html>

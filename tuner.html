@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>色彩 Tuner · 江江教練</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<style>
+  :root {
+    --bg: #fefcf8;
+    --bg-soft: #faf5ec;
+    --paper: #ffffff;
+    --ink: #1a1612;
+    --ink-soft: #3a342d;
+    --ink-faint: #6a635a;
+    --line: #d8cdb8;
+    --c-coral: #e85a4f;
+    --c-sand: #a08144;
+    --c-mint: #4d9c7d;
+    --c-sage: #5f7553;
+
+    /* tuner 變數（受控） */
+    --tx-h: 335;
+    --tx-s: 100%;
+    --tx-l: 72%;
+    --tx-a-page: 0.18;
+    --tx-a-card: 0.38;
+    --tx-r-page: 360px;
+    --tx-r-card: 260px;
+
+    --sp-shadow: hsla(var(--tx-h), var(--tx-s), var(--tx-l), var(--tx-a-page));
+    --sp-shadow-edge: hsla(var(--tx-h), var(--tx-s), calc(var(--tx-l) + 8%), calc(var(--tx-a-page) * 0.2));
+    --sp-card-shadow: hsla(var(--tx-h), var(--tx-s), var(--tx-l), var(--tx-a-card));
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
+    font-size: 16px; line-height: 1.7;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  body.spotlight {
+    position: relative;
+    overflow-x: hidden;
+  }
+  body.spotlight::after {
+    content: '';
+    position: fixed; inset: 0;
+    background: radial-gradient(
+      var(--tx-r-page) circle at var(--mx, 50%) var(--my, 50%),
+      var(--sp-shadow) 0%,
+      var(--sp-shadow-edge) 45%,
+      transparent 75%
+    );
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: var(--tx-blend, multiply);
+    transition: background 0.06s linear;
+  }
+  body.no-page::after { display: none; }
+
+  .serif { font-family: 'Cormorant Garamond', serif; }
+  .hand { font-family: 'Caveat', cursive; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    min-height: 100vh;
+  }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+
+  /* ─── 左側控制面板 ─── */
+  aside.panel {
+    background: var(--paper);
+    border-right: 1px solid var(--line);
+    padding: 32px 28px;
+    position: sticky; top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 10;
+  }
+  aside.panel h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 500;
+    margin: 0 0 4px;
+  }
+  aside.panel .sub {
+    color: var(--ink-faint); font-size: 0.85rem;
+    margin: 0 0 24px;
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+  }
+
+  .control-group {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px dashed var(--line);
+  }
+  .control-group:last-of-type { border-bottom: none; }
+  .control-group .group-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--c-sand);
+    font-size: 1rem;
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  .control {
+    margin-bottom: 14px;
+  }
+  .control label {
+    display: flex; justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .control label .val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--c-coral);
+    background: var(--bg-soft);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .control input[type=range] {
+    width: 100%;
+    appearance: none;
+    background: transparent;
+    height: 20px;
+  }
+  .control input[type=range]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: var(--line);
+    border-radius: 999px;
+  }
+  .control input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--c-coral);
+    margin-top: -7px;
+    cursor: pointer;
+    border: 2px solid var(--paper);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  /* hue slider 特別：彩虹底 */
+  .control.hue input[type=range]::-webkit-slider-runnable-track {
+    background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff, #ff0000);
+    height: 8px;
+  }
+  .control.hue input[type=range]::-webkit-slider-thumb {
+    margin-top: -5px;
+  }
+
+  /* preset 色卡 */
+  .presets {
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .preset-swatch {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    border: 2px solid var(--line);
+    cursor: pointer;
+    transition: transform .2s, border-color .2s;
+  }
+  .preset-swatch:hover {
+    transform: scale(1.1);
+    border-color: var(--ink);
+  }
+  .preset-swatch.active {
+    border-color: var(--ink);
+    box-shadow: 0 0 0 2px var(--c-coral);
+  }
+
+  /* blend mode pills */
+  .blend-pills {
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
+  .blend-pill {
+    padding: 5px 11px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--paper);
+    font-size: 0.78rem;
+    cursor: pointer;
+    color: var(--ink-soft);
+    transition: all .2s;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .blend-pill:hover { border-color: var(--ink-soft); }
+  .blend-pill.active {
+    background: var(--c-coral);
+    color: var(--paper);
+    border-color: var(--c-coral);
+  }
+
+  /* toggle */
+  .toggle {
+    display: flex; align-items: center; gap: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+  .toggle input { display: none; }
+  .toggle .switch {
+    width: 38px; height: 22px;
+    background: var(--line);
+    border-radius: 999px;
+    position: relative;
+    transition: background .2s;
+  }
+  .toggle .switch::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 18px; height: 18px;
+    background: var(--paper);
+    border-radius: 50%;
+    transition: transform .25s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  .toggle input:checked + .switch { background: var(--c-coral); }
+  .toggle input:checked + .switch::after { transform: translateX(16px); }
+
+  /* 輸出區 */
+  .output-box {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px;
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.6;
+  }
+  .copy-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: -apple-system, "PingFang TC", sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    transition: background .2s;
+  }
+  .copy-btn:hover { background: var(--c-coral); }
+  .copy-btn.copied { background: var(--c-mint); }
+
+  /* ─── 右側預覽 ─── */
+  main.preview {
+    padding: 56px 48px;
+    background: var(--bg);
+  }
+  main.preview .hero-demo {
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+    padding: 80px 40px;
+    border-radius: 28px;
+    border: 1px solid var(--line);
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  main.preview .hero-demo .eye {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--c-coral);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  main.preview .hero-demo h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem; font-weight: 500;
+    margin-bottom: 16px;
+  }
+  main.preview .hero-demo h2 .italic { font-style: italic; color: var(--c-sand); }
+  main.preview .hero-demo p {
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  main.preview .cards-demo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 700px) { main.preview .cards-demo { grid-template-columns: 1fr; } }
+
+  .demo-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 24px;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    min-height: 180px;
+  }
+  .demo-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(
+      var(--tx-r-card) circle at var(--bx, 50%) var(--by, 50%),
+      var(--sp-card-shadow) 0%,
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity .25s;
+    z-index: -1;
+    mix-blend-mode: var(--tx-blend, multiply);
+  }
+  .demo-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--c-sand);
+    box-shadow: 0 10px 24px rgba(107,74,42,0.10);
+  }
+  .demo-card:hover::before { opacity: 1; }
+
+  .demo-card .card-eye {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--c-sand);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+  .demo-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 500;
+    margin: 0 0 8px;
+  }
+  .demo-card p {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .preview-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--c-sand);
+    font-size: 1.1rem;
+    margin: 24px 0 12px;
+  }
+
+  /* nav back */
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 2px;
+  }
+  .back-link:hover { color: var(--c-coral); border-color: var(--c-coral); }
+</style>
+</head>
+<body class="spotlight">
+
+<div class="layout">
+
+  <!-- ─── 左：控制面板 ─── -->
+  <aside class="panel">
+    <a href="index.html" class="back-link">← 回首頁</a>
+    <h1>色彩 Tuner</h1>
+    <p class="sub">調出你要的粉色／光暈／陰影，複製去 styles.css</p>
+
+    <!-- 色相 -->
+    <div class="control-group">
+      <div class="group-label">色相 & 飽和度</div>
+
+      <div class="control hue">
+        <label>色相 H <span class="val" id="val-h">335°</span></label>
+        <input type="range" id="ctl-h" min="0" max="360" value="335" />
+      </div>
+      <div class="control">
+        <label>飽和度 S <span class="val" id="val-s">100%</span></label>
+        <input type="range" id="ctl-s" min="0" max="100" value="100" />
+      </div>
+      <div class="control">
+        <label>明度 L <span class="val" id="val-l">72%</span></label>
+        <input type="range" id="ctl-l" min="0" max="100" value="72" />
+      </div>
+
+      <div style="margin-top:10px;">
+        <label style="font-size:0.85rem;color:var(--ink-soft);font-weight:500;display:block;margin-bottom:6px;">色卡預設</label>
+        <div class="presets" id="presets"></div>
+      </div>
+    </div>
+
+    <!-- 透明度 -->
+    <div class="control-group">
+      <div class="group-label">透明度</div>
+      <div class="control">
+        <label>整頁光暈 α <span class="val" id="val-ap">0.18</span></label>
+        <input type="range" id="ctl-ap" min="0" max="100" value="18" />
+      </div>
+      <div class="control">
+        <label>卡片內光暈 α <span class="val" id="val-ac">0.38</span></label>
+        <input type="range" id="ctl-ac" min="0" max="100" value="38" />
+      </div>
+    </div>
+
+    <!-- 半徑 -->
+    <div class="control-group">
+      <div class="group-label">光暈範圍</div>
+      <div class="control">
+        <label>整頁半徑 <span class="val" id="val-rp">360px</span></label>
+        <input type="range" id="ctl-rp" min="100" max="900" value="360" />
+      </div>
+      <div class="control">
+        <label>卡片半徑 <span class="val" id="val-rc">260px</span></label>
+        <input type="range" id="ctl-rc" min="80" max="600" value="260" />
+      </div>
+    </div>
+
+    <!-- Blend mode + 整頁開關 -->
+    <div class="control-group">
+      <div class="group-label">混合模式 & 開關</div>
+      <label style="font-size:0.85rem;color:var(--ink-soft);font-weight:500;display:block;margin-bottom:8px;">Blend Mode</label>
+      <div class="blend-pills" id="blend-pills">
+        <span class="blend-pill active" data-mode="multiply">multiply</span>
+        <span class="blend-pill" data-mode="screen">screen</span>
+        <span class="blend-pill" data-mode="overlay">overlay</span>
+        <span class="blend-pill" data-mode="soft-light">soft-light</span>
+        <span class="blend-pill" data-mode="normal">normal</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="ctl-page" checked />
+        <span class="switch"></span>
+        <span>整頁光暈開啟（關掉只剩卡片）</span>
+      </label>
+    </div>
+
+    <!-- 輸出 -->
+    <div class="control-group">
+      <div class="group-label">輸出 CSS</div>
+      <div class="output-box" id="output"></div>
+      <button class="copy-btn" id="copy-btn">複製 CSS 變數</button>
+    </div>
+
+  </aside>
+
+  <!-- ─── 右：預覽 ─── -->
+  <main class="preview">
+    <div class="preview-label">整頁光暈預覽（滑鼠移動）</div>
+    <div class="hero-demo">
+      <div class="eye">江江教練的</div>
+      <h2>AI <span class="italic">知識管理</span></h2>
+      <p>滑鼠到處走，看粉色暈染在淺底上的效果。整頁的光暈就是這層。</p>
+    </div>
+
+    <div class="preview-label">卡片內光暈預覽（hover 看效果）</div>
+    <div class="cards-demo">
+      <div class="demo-card">
+        <div class="card-eye">課程預告</div>
+        <h3>講師的 Agent 工作流</h3>
+        <p>滑鼠移到卡片內，粉色光暈會局部跟著你走。</p>
+      </div>
+      <div class="demo-card">
+        <div class="card-eye">學習資源</div>
+        <h3>創業點子驗證術</h3>
+        <p>調整左側「卡片內光暈 α」看亮度變化。</p>
+      </div>
+      <div class="demo-card">
+        <div class="card-eye">Skills</div>
+        <h3>技能包大總管</h3>
+        <p>調 blend mode 試 multiply / screen 差別。</p>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+<script>
+  // ─── 滑鼠追蹤 ───
+  let mx = 0.5, my = 0.5, ticking = false;
+  function updateMouse() {
+    document.body.style.setProperty('--mx', (mx*100)+'%');
+    document.body.style.setProperty('--my', (my*100)+'%');
+    ticking = false;
+  }
+  window.addEventListener('mousemove', (e) => {
+    mx = e.clientX / window.innerWidth;
+    my = e.clientY / window.innerHeight;
+    if (!ticking) { requestAnimationFrame(updateMouse); ticking = true; }
+  }, { passive: true });
+
+  // 卡片局部追蹤
+  document.querySelectorAll('.demo-card').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--bx', ((e.clientX - r.left) / r.width * 100) + '%');
+      el.style.setProperty('--by', ((e.clientY - r.top) / r.height * 100) + '%');
+    }, { passive: true });
+  });
+
+  // ─── 預設色卡 ───
+  const PRESETS = [
+    { name: '亮粉',    h: 335, s: 100, l: 72 },
+    { name: '玫瑰粉',  h: 350, s: 75,  l: 68 },
+    { name: '桃紅',    h: 340, s: 85,  l: 65 },
+    { name: '櫻花粉',  h: 350, s: 90,  l: 85 },
+    { name: '蜜桃橙',  h: 22,  s: 85,  l: 70 },
+    { name: '珊瑚紅',  h: 5,   s: 78,  l: 62 },
+    { name: '琥珀金',  h: 42,  s: 92,  l: 60 },
+    { name: '沙金',    h: 35,  s: 45,  l: 50 },
+    { name: '薄荷綠',  h: 155, s: 35,  l: 50 },
+    { name: '鼠尾草',  h: 105, s: 18,  l: 42 },
+    { name: '天空藍',  h: 210, s: 38,  l: 55 },
+    { name: '薰衣草',  h: 260, s: 28,  l: 58 },
+  ];
+
+  const presetsEl = document.getElementById('presets');
+  PRESETS.forEach((p, i) => {
+    const sw = document.createElement('div');
+    sw.className = 'preset-swatch';
+    sw.style.background = `hsl(${p.h}, ${p.s}%, ${p.l}%)`;
+    sw.title = p.name;
+    sw.dataset.h = p.h; sw.dataset.s = p.s; sw.dataset.l = p.l;
+    sw.addEventListener('click', () => {
+      document.getElementById('ctl-h').value = p.h;
+      document.getElementById('ctl-s').value = p.s;
+      document.getElementById('ctl-l').value = p.l;
+      document.querySelectorAll('.preset-swatch').forEach(x => x.classList.remove('active'));
+      sw.classList.add('active');
+      updateAll();
+    });
+    if (i === 0) sw.classList.add('active');
+    presetsEl.appendChild(sw);
+  });
+
+  // ─── 控制更新 ───
+  const ctlH  = document.getElementById('ctl-h');
+  const ctlS  = document.getElementById('ctl-s');
+  const ctlL  = document.getElementById('ctl-l');
+  const ctlAp = document.getElementById('ctl-ap');
+  const ctlAc = document.getElementById('ctl-ac');
+  const ctlRp = document.getElementById('ctl-rp');
+  const ctlRc = document.getElementById('ctl-rc');
+  const ctlPage = document.getElementById('ctl-page');
+
+  function updateAll() {
+    const h = ctlH.value, s = ctlS.value, l = ctlL.value;
+    const ap = (ctlAp.value / 100).toFixed(2);
+    const ac = (ctlAc.value / 100).toFixed(2);
+    const rp = ctlRp.value, rc = ctlRc.value;
+
+    document.getElementById('val-h').textContent = h + '°';
+    document.getElementById('val-s').textContent = s + '%';
+    document.getElementById('val-l').textContent = l + '%';
+    document.getElementById('val-ap').textContent = ap;
+    document.getElementById('val-ac').textContent = ac;
+    document.getElementById('val-rp').textContent = rp + 'px';
+    document.getElementById('val-rc').textContent = rc + 'px';
+
+    const root = document.documentElement.style;
+    root.setProperty('--tx-h', h);
+    root.setProperty('--tx-s', s + '%');
+    root.setProperty('--tx-l', l + '%');
+    root.setProperty('--tx-a-page', ap);
+    root.setProperty('--tx-a-card', ac);
+    root.setProperty('--tx-r-page', rp + 'px');
+    root.setProperty('--tx-r-card', rc + 'px');
+
+    document.body.classList.toggle('no-page', !ctlPage.checked);
+
+    updateOutput(h, s, l, ap, ac, rp, rc);
+  }
+
+  function updateOutput(h, s, l, ap, ac, rp, rc) {
+    const edgeL = Math.min(100, parseInt(l) + 8);
+    const edgeA = (parseFloat(ap) * 0.2).toFixed(3);
+    const blend = document.querySelector('.blend-pill.active').dataset.mode;
+    const css =
+`/* 在 styles.css 的 :root {} 內貼入這段 */
+--sp-shadow: hsla(${h}, ${s}%, ${l}%, ${ap});
+--sp-shadow-edge: hsla(${h}, ${s}%, ${edgeL}%, ${edgeA});
+--sp-card-shadow: hsla(${h}, ${s}%, ${l}%, ${ac});
+--sp-radius: ${rp}px;
+--sp-card-radius: ${rc}px;
+
+/* 如果改了 blend mode，在 body.spotlight::after 改 mix-blend-mode */
+mix-blend-mode: ${blend};
+
+/* 整頁光暈：${ctlPage.checked ? '開啟' : '關閉 (body 加 class="spotlight no-page-spotlight")'} */`;
+    document.getElementById('output').textContent = css;
+  }
+
+  [ctlH, ctlS, ctlL, ctlAp, ctlAc, ctlRp, ctlRc].forEach(el => {
+    el.addEventListener('input', updateAll);
+  });
+  ctlPage.addEventListener('change', updateAll);
+
+  // blend mode pills
+  document.querySelectorAll('.blend-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.blend-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      document.documentElement.style.setProperty('--tx-blend', pill.dataset.mode);
+      updateAll();
+    });
+  });
+
+  // 複製
+  document.getElementById('copy-btn').addEventListener('click', async () => {
+    const text = document.getElementById('output').textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = '✓ 已複製';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '複製 CSS 變數';
+        btn.classList.remove('copied');
+      }, 1800);
+    } catch (e) { alert('複製失敗：' + e.message); }
+  });
+
+  updateAll();
+</script>
+</body>
+</html>
