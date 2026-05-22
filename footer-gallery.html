@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Footer 版型畫廊 · 江江教練</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body { background: var(--bg); padding-bottom: 0; }
+  body.spotlight::after { display: none; }
+
+  .gallery-header {
+    padding: 60px 0 40px;
+    text-align: center;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--line);
+  }
+  .gallery-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 500;
+    margin: 8px 0 12px;
+  }
+  .gallery-header p {
+    color: var(--ink-soft);
+    max-width: 540px; margin: 0 auto;
+    font-size: 0.95rem;
+  }
+  .back-link {
+    display: inline-block;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 2px;
+    margin-bottom: 12px;
+  }
+  .back-link:hover { color: var(--c-coral); border-color: var(--c-coral); }
+
+  .version {
+    border-top: 24px solid var(--bg);
+    background: var(--bg);
+  }
+  .version-tag {
+    background: var(--paper);
+    padding: 28px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .version-tag .container {
+    display: flex; align-items: baseline; gap: 18px;
+    flex-wrap: wrap;
+  }
+  .version-tag .v-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 2.2rem;
+    color: var(--c-coral);
+    line-height: 1;
+  }
+  .version-tag .v-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  .version-tag .v-desc {
+    color: var(--ink-soft);
+    font-size: 0.9rem;
+    margin-left: auto;
+    max-width: 420px;
+    line-height: 1.55;
+  }
+  .pick-tag {
+    display: inline-block;
+    padding: 4px 11px;
+    background: var(--c-sand);
+    color: var(--paper);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-left: 10px;
+  }
+
+  /* ─── V1 目前版（兩段橫排） ─── */
+  .footer-v1 {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    padding: 56px 0 32px;
+  }
+  .footer-v1 .container {
+    display: flex; justify-content: space-between;
+    flex-wrap: wrap; gap: 28px;
+  }
+  .footer-v1 .brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+  }
+  .footer-v1 .brand .logo .eye {
+    font-family: 'Caveat', cursive; color: var(--c-sand); margin-right: 6px;
+  }
+  .footer-v1 .brand p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--c-sand);
+    margin: 8px 0 0;
+  }
+  .footer-v1 .links {
+    display: flex; gap: 22px; flex-wrap: wrap;
+    font-size: 0.92rem; color: var(--ink-soft);
+  }
+  .footer-v1 .meta {
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 1px dashed var(--line);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--c-sand);
+  }
+
+  /* ─── V2 三欄分區（品牌 / 導航 / 社群） ─── */
+  .footer-v2 {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    padding: 72px 0 32px;
+  }
+  .footer-v2 .grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 720px) { .footer-v2 .grid { grid-template-columns: 1fr; gap: 36px; } }
+  .footer-v2 .col-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: #7a5c3a;
+    font-size: 1.05rem;
+    margin: 0 0 16px;
+    letter-spacing: 0.02em;
+  }
+  .footer-v2 .brand-col h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+  .footer-v2 .brand-col h3 .eye {
+    font-family: 'Caveat', cursive; color: var(--c-sand); margin-right: 6px; font-size: 1.1rem;
+  }
+  .footer-v2 .brand-col p {
+    color: var(--ink-soft); font-size: 0.92rem;
+    line-height: 1.7; margin: 0 0 16px;
+  }
+  .footer-v2 .brand-col .quote {
+    font-family: 'Caveat', cursive;
+    color: var(--c-sand);
+    font-size: 1.3rem;
+    font-weight: 600;
+  }
+  .footer-v2 ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .footer-v2 ul a {
+    color: var(--ink-soft); font-size: 0.95rem;
+    transition: color .2s;
+  }
+  .footer-v2 ul a:hover { color: var(--c-coral); }
+  .footer-v2 .meta {
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+
+  /* ─── V3 大品牌主視覺（左大 slogan 右細連結） ─── */
+  .footer-v3 {
+    background: linear-gradient(180deg, var(--bg-soft) 0%, #f0e3cf 100%);
+    border-top: 1px solid var(--line);
+    padding: 96px 0 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .footer-v3::before {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    top: -100px; right: -100px;
+    background: var(--c-sand);
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  .footer-v3 .container { position: relative; z-index: 2; }
+  .footer-v3 .grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 720px) { .footer-v3 .grid { grid-template-columns: 1fr; gap: 36px; align-items: start; } }
+  .footer-v3 .brand h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    margin: 0 0 18px;
+    line-height: 1.1;
+  }
+  .footer-v3 .brand h2 .italic { font-style: italic; color: var(--c-sand); }
+  .footer-v3 .brand .slogan {
+    font-family: 'Caveat', cursive;
+    color: var(--c-sand);
+    font-size: 1.6rem;
+    margin: 0 0 24px;
+    font-weight: 600;
+  }
+  .footer-v3 .brand .verb {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+  .footer-v3 .right-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 32px;
+  }
+  .footer-v3 .col-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: #7a5c3a;
+    font-size: 0.95rem;
+    margin: 0 0 10px;
+  }
+  .footer-v3 ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .footer-v3 ul a { color: var(--ink-soft); font-size: 0.88rem; transition: color .2s; }
+  .footer-v3 ul a:hover { color: var(--c-coral); }
+  .footer-v3 .meta {
+    padding-top: 24px;
+    border-top: 1px dashed var(--line);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--c-sand);
+    font-size: 0.88rem;
+  }
+
+  /* ─── V4 極簡單行 ─── */
+  .footer-v4 {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    padding: 36px 0;
+  }
+  .footer-v4 .container {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 18px;
+  }
+  .footer-v4 .left {
+    display: flex; align-items: baseline; gap: 12px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .footer-v4 .left .logo {
+    font-size: 1.1rem; font-weight: 500;
+  }
+  .footer-v4 .left .logo .eye {
+    font-family: 'Caveat', cursive; color: var(--c-sand); margin-right: 6px;
+  }
+  .footer-v4 .left .sep {
+    color: var(--ink-faint);
+  }
+  .footer-v4 .left .slogan {
+    font-style: italic;
+    color: var(--c-sand);
+    font-size: 0.95rem;
+  }
+  .footer-v4 .right {
+    display: flex; gap: 6px; align-items: center;
+    font-size: 0.85rem; color: var(--ink-soft);
+    flex-wrap: wrap;
+  }
+  .footer-v4 .right a {
+    padding: 0 10px;
+    border-right: 1px solid var(--line);
+    transition: color .2s;
+  }
+  .footer-v4 .right a:last-child { border-right: none; }
+  .footer-v4 .right a:hover { color: var(--c-coral); }
+
+  /* ─── V5 卡片風 + 訂閱 + 社群圓圖標 ─── */
+  .footer-v5 {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    padding: 72px 0 32px;
+  }
+  .footer-v5 .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 36px;
+  }
+  @media (max-width: 720px) { .footer-v5 .grid { grid-template-columns: 1fr; } }
+  .footer-v5 .brand-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 32px;
+  }
+  .footer-v5 .brand-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+  .footer-v5 .brand-card h3 .eye {
+    font-family: 'Caveat', cursive; color: var(--c-sand); margin-right: 6px;
+  }
+  .footer-v5 .brand-card .quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--c-sand);
+    margin: 8px 0 0;
+  }
+  .footer-v5 .links-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 32px;
+  }
+  .footer-v5 .links-card .col-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: #7a5c3a;
+    font-size: 0.95rem;
+    margin: 0 0 14px;
+  }
+  .footer-v5 .links-card .nav-row {
+    display: flex; flex-wrap: wrap; gap: 8px 18px;
+    margin-bottom: 22px;
+  }
+  .footer-v5 .links-card .nav-row a {
+    color: var(--ink); font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .footer-v5 .links-card .nav-row a:hover { color: var(--c-coral); }
+  .footer-v5 .social-row {
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .footer-v5 .social-circle {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ink);
+    transition: all .25s;
+  }
+  .footer-v5 .social-circle:hover {
+    transform: translateY(-2px);
+    border-color: var(--c-sand);
+  }
+  .footer-v5 .social-circle.line { background: rgba(6,199,85,0.08); color: #06C755; }
+  .footer-v5 .social-circle.threads { background: #1a1a1a; color: white; border-color: #1a1a1a; }
+  .footer-v5 .social-circle.vocus { background: rgba(197,48,48,0.08); color: #C53030; }
+  .footer-v5 .social-circle.ig { background: linear-gradient(135deg, rgba(250,126,30,0.12), rgba(214,41,118,0.12)); color: #d62976; }
+  .footer-v5 .social-circle.yt { background: rgba(255,0,0,0.08); color: #FF0000; }
+  .footer-v5 .meta {
+    padding-top: 24px;
+    border-top: 1px dashed var(--line);
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+
+</style>
+</head>
+<body class="spotlight">
+
+<!-- 頁面說明 -->
+<div class="gallery-header">
+  <div class="container">
+    <a class="back-link" href="index.html">← 回首頁</a>
+    <div class="eyebrow">局部校稿｜頁尾畫廊</div>
+    <h1>Footer 版型 5 選 1</h1>
+    <p>網頁最下方那塊在設計上叫 <strong>頁尾 / Footer</strong>。下面 5 種版型挑一個，跟我說「用 #3」我就套全站。</p>
+  </div>
+</div>
+
+<!-- ─── V1 目前版（兩段橫排，現況） ─── -->
+<div class="version">
+  <div class="version-tag">
+    <div class="container">
+      <span class="v-num">#1</span>
+      <span class="v-name">兩段橫排</span>
+      <span class="pick-tag">目前版</span>
+      <span class="v-desc">左品牌、右連結平排，最下方一行版權。資訊最緊湊但平淡。</span>
+    </div>
+  </div>
+  <footer class="footer-v1">
+    <div class="container">
+      <div class="brand">
+        <div class="logo"><span class="eye">江江教練的</span>AI 知識管理</div>
+        <p>提煉 · 累積 · 應用你的知識資產</p>
+      </div>
+      <div class="links">
+        <a>首頁</a><a>課程預告</a><a>學習資源</a><a>Skills 下載</a>
+        <a>LINE 社群 ↗</a><a>LINE OA ↗</a><a>Threads ↗</a><a>方格子 ↗</a><a>IG ↗</a><a>YouTube ↗</a><a>GitHub ↗</a>
+      </div>
+    </div>
+    <div class="container meta">v0.7 · MVP 大雜燴版 · 2026-05-22 · 完整版製作中</div>
+  </footer>
+</div>
+
+<!-- ─── V2 三欄分區 ─── -->
+<div class="version">
+  <div class="version-tag">
+    <div class="container">
+      <span class="v-num">#2</span>
+      <span class="v-name">三欄分區</span>
+      <span class="v-desc">品牌欄（左）／導航（中）／社群（右）分欄，最常見的「正經」企業官網版型。</span>
+    </div>
+  </div>
+  <footer class="footer-v2">
+    <div class="container">
+      <div class="grid">
+        <div class="brand-col">
+          <div class="col-title">關於</div>
+          <h3><span class="eye">江江教練的</span>AI 知識管理</h3>
+          <p>協助專業人士，只需會寫文件跟分類資料夾，就能打造自己的 AI 助理與知識庫。</p>
+          <span class="quote">用 AI 放大你的亮點。</span>
+        </div>
+        <div>
+          <div class="col-title">網站導覽</div>
+          <ul>
+            <li><a>首頁</a></li>
+            <li><a>課程預告</a></li>
+            <li><a>學習資源</a></li>
+            <li><a>Skills 下載</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="col-title">找我的方法</div>
+          <ul>
+            <li><a>LINE 社群 ↗</a></li>
+            <li><a>LINE 官方帳號 ↗</a></li>
+            <li><a>Threads ↗</a></li>
+            <li><a>方格子 ↗</a></li>
+            <li><a>Instagram ↗</a></li>
+            <li><a>YouTube ↗</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="meta">
+        <span>江昱德 · 江江教練 © 2026</span>
+        <span>v0.7 · MVP 大雜燴</span>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ─── V3 大品牌主視覺 ─── -->
+<div class="version">
+  <div class="version-tag">
+    <div class="container">
+      <span class="v-num">#3</span>
+      <span class="v-name">大品牌主視覺</span>
+      <span class="v-desc">左大標題＋手寫 slogan 收尾，右兩小欄連結。情感記憶點強，個人品牌官網常用。</span>
+    </div>
+  </div>
+  <footer class="footer-v3">
+    <div class="container">
+      <div class="grid">
+        <div class="brand">
+          <h2>AI <span class="italic">知識管理</span></h2>
+          <p class="slogan">用 AI 放大你的亮點</p>
+          <p class="verb">提煉 → 累積 → 應用</p>
+        </div>
+        <div class="right-col">
+          <div>
+            <div class="col-title">站內</div>
+            <ul>
+              <li><a>首頁</a></li>
+              <li><a>課程預告</a></li>
+              <li><a>學習資源</a></li>
+              <li><a>Skills 下載</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="col-title">社群</div>
+            <ul>
+              <li><a>LINE 社群 ↗</a></li>
+              <li><a>Threads ↗</a></li>
+              <li><a>方格子 ↗</a></li>
+              <li><a>Instagram ↗</a></li>
+              <li><a>YouTube ↗</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="meta">江昱德 · 江江教練 · 2026</div>
+    </div>
+  </footer>
+</div>
+
+<!-- ─── V4 極簡單行 ─── -->
+<div class="version">
+  <div class="version-tag">
+    <div class="container">
+      <span class="v-num">#4</span>
+      <span class="v-name">極簡單行</span>
+      <span class="v-desc">一行品牌 ＋ 一行連結（中間 │ 分隔）。最輕量、最不搶戲，內容才是主角。</span>
+    </div>
+  </div>
+  <footer class="footer-v4">
+    <div class="container">
+      <div class="left">
+        <span class="logo"><span class="eye">江江教練的</span>AI 知識管理</span>
+        <span class="sep">·</span>
+        <span class="slogan">用 AI 放大你的亮點</span>
+      </div>
+      <div class="right">
+        <a>LINE 社群</a>
+        <a>Threads</a>
+        <a>方格子</a>
+        <a>IG</a>
+        <a>YouTube</a>
+        <a>GitHub</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ─── V5 卡片風 ─── -->
+<div class="version">
+  <div class="version-tag">
+    <div class="container">
+      <span class="v-num">#5</span>
+      <span class="v-name">卡片風 + 社群圓圖標</span>
+      <span class="v-desc">品牌卡 + 連結卡兩張並列，社群用圓 icon，跟整站「卡片化」語言一致。</span>
+    </div>
+  </div>
+  <footer class="footer-v5">
+    <div class="container">
+      <div class="grid">
+        <div class="brand-card">
+          <h3><span class="eye">江江教練的</span>AI 知識管理</h3>
+          <p style="color:var(--ink-soft);font-size:0.92rem;margin:0;">隱性知識提煉師 / 知識工作者的 AI 應用。協助你打造自己的 AI 助理與知識庫。</p>
+          <p class="quote">用 AI 放大你的亮點。</p>
+        </div>
+        <div class="links-card">
+          <div class="col-title">網站導覽</div>
+          <div class="nav-row">
+            <a>首頁</a><a>課程預告</a><a>學習資源</a><a>Skills 下載</a>
+          </div>
+          <div class="col-title">找我的方法</div>
+          <div class="social-row">
+            <a class="social-circle line" title="LINE 社群">L+</a>
+            <a class="social-circle line" title="LINE 官方">LINE</a>
+            <a class="social-circle threads" title="Threads">@</a>
+            <a class="social-circle vocus" title="方格子">方</a>
+            <a class="social-circle ig" title="Instagram">IG</a>
+            <a class="social-circle yt" title="YouTube">YT</a>
+          </div>
+        </div>
+      </div>
+      <div class="meta">v0.7 · MVP 大雜燴版 · 2026-05-22 · © 江昱德</div>
+    </div>
+  </footer>
+</div>
+
+<!-- 收尾 -->
+<div style="padding: 80px 0; text-align: center; background: var(--bg-soft);">
+  <p style="color: var(--ink-soft); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem;">
+    挑好了跟我說「用 #X」我就套到全站 4 個頁面。<br />
+    想要混搭（例如 #3 大標 + #5 圓 icon）也可以。
+  </p>
+  <a class="button" href="index.html" style="margin-top: 18px;">← 回首頁</a>
+</div>
+
+</body>
+</html>
