@@ -17,13 +17,18 @@
 
   // 按鈕 / 卡片 spotlight（局部跟隨）
   function attachLocal(el) {
+    if (el._spotAttached) return;          // 避免重複綁
+    el._spotAttached = true;
     el.addEventListener('mousemove', (e) => {
       const r = el.getBoundingClientRect();
       el.style.setProperty('--bx', ((e.clientX - r.left) / r.width * 100) + '%');
       el.style.setProperty('--by', ((e.clientY - r.top) / r.height * 100) + '%');
     }, { passive: true });
   }
+  // 暴露給動態渲染後的卡片用
+  window.attachLocalSpotlight = attachLocal;
+
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.btn-spot, .entry-card, .list-card').forEach(attachLocal);
+    document.querySelectorAll('.btn-spot, .entry-card, .list-card, .skill-card').forEach(attachLocal);
   });
 })();

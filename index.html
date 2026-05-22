@@ -43,6 +43,21 @@
   </div>
 </section>
 
+<!-- 最近的課（自動讀 courses-data.js 過濾未來 3 場） -->
+<section style="padding: 60px 0 40px;">
+  <div class="container">
+    <div class="section-head-center">
+      <div class="eyebrow">最近的課</div>
+      <h2 class="section-title">接下來這幾場 <span class="italic">可以一起學</span></h2>
+      <p class="section-sub">依日期自動排序，過了就不在這裡了。完整課表（含過去紀錄）在 <a href="courses.html" style="color:var(--c-coral);border-bottom:1px dashed var(--c-coral);">課程預告</a>。</p>
+    </div>
+    <div class="list-grid cols-2" id="home-upcoming" style="grid-template-columns: repeat(3, 1fr);"></div>
+    <div style="text-align:center; margin-top: 32px;">
+      <a class="button ghost" href="courses.html">看全部課程 →</a>
+    </div>
+  </div>
+</section>
+
 <!-- 三入口 -->
 <section style="padding-top: 40px;">
   <div class="container">
@@ -118,6 +133,8 @@
   </div>
 </footer>
 
+<script src="courses-data.js" defer></script>
+<script src="courses-render.js" defer></script>
 <script src="spotlight.js" defer></script>
 </body>
 </html>
