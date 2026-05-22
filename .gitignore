@@ -1,0 +1,8 @@
+.DS_Store
+.vercel/
+node_modules/
+*.log
+.env
+.env.*
+_自動備份/
+.obsidian/
