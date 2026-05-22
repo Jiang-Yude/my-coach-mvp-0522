@@ -80,7 +80,7 @@ window.COURSES = [
     time: "10:00",
     title: "永力社 AI 應用工作坊",
     type_label: "外部授課",
-    image: null,  // ⚠️ 待補圖（永力 5/30 宣傳簡章圖，請存到 11圖片待整/）
+    image: "images/courses/2026-05-30-yongli-ai-workshop.jpg",
     venue_mode: "physical",
     host: "江江教練",
     tags: ["扶輪社", "ChatGPT", "Gemini", "NotebookLM", "商會"],
