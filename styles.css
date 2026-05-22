@@ -639,6 +639,258 @@ footer .foot-meta {
 .wc-sage     { background: var(--c-sage);     opacity: 0.12; }
 .wc-lavender { background: var(--c-lavender); opacity: 0.14; }
 
+/* ─── 介紹區 v2：左照片 300×300 + 右文字 ─── */
+.intro-section {
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+.intro-section .watercolor.wc-sand-bg {
+  width: 360px; height: 320px;
+  top: -80px; right: -80px;
+  opacity: 0.10;
+}
+.intro-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative; z-index: 2;
+}
+@media (max-width: 720px) {
+  .intro-grid { grid-template-columns: 1fr; gap: 32px; justify-items: center; text-align: center; }
+}
+.intro-photo {
+  width: 300px; height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, var(--paper) 0%, var(--bg-soft) 100%);
+  border: 1.5px dashed var(--c-sand);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-faint);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+.intro-photo.has-photo {
+  border: none;
+}
+.intro-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+.intro-eye {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #7a5c3a;
+  margin-bottom: 6px;
+}
+.intro-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 12px;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+.intro-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--c-sand);
+  margin: 0 0 22px;
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  font-weight: 500;
+}
+.intro-desc {
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+  line-height: 1.85;
+  margin: 0 0 22px;
+}
+.intro-desc em {
+  font-style: normal;
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: var(--c-sand);
+  font-weight: 600;
+}
+.intro-hook {
+  display: inline-block;
+  padding: 8px 18px;
+  background: var(--paper);
+  border: 1px solid var(--c-sand);
+  border-radius: 999px;
+  color: var(--c-sand);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ─── LINE 大橫幅 CTA（暖深底 + LINE 綠 + 暖白字） ─── */
+.line-banner {
+  padding: 0;
+  background: linear-gradient(135deg, #2a221a 0%, #3a2f24 60%, #2c1f15 100%);
+  position: relative;
+  overflow: hidden;
+  color: #fef9f0;
+}
+.line-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(6, 199, 85, 0.10), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212, 165, 90, 0.10), transparent 50%);
+  pointer-events: none;
+}
+.line-banner .container {
+  position: relative; z-index: 2;
+  padding-top: 72px; padding-bottom: 72px;
+}
+.line-banner-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 56px;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (max-width: 720px) {
+  .line-banner-inner { grid-template-columns: 1fr; gap: 32px; text-align: center; justify-items: center; }
+}
+.line-banner-text { min-width: 0; }
+.line-banner-tag {
+  display: inline-block;
+  padding: 5px 13px;
+  background: rgba(6, 199, 85, 0.18);
+  color: #4ddb88;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+.line-banner-title {
+  font-family: 'Cormorant Garamond', "Noto Sans TC", serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #fef9f0;
+  margin: 0 0 16px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+.line-banner-sub {
+  font-size: 1rem;
+  color: #e8dccb;
+  margin: 0 0 8px;
+  line-height: 1.7;
+}
+.line-banner-note {
+  font-size: 0.88rem;
+  color: #a89887;
+  margin: 0 0 24px;
+  font-style: italic;
+}
+.line-banner-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px;
+  background: #06C755;
+  color: white;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: none;
+  transition: transform .25s, box-shadow .25s, background .25s;
+  text-decoration: none;
+}
+.line-banner-cta:hover {
+  background: #04a847;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(6, 199, 85, 0.4);
+}
+.line-banner-icon {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: #06C755;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(6, 199, 85, 0.35), inset 0 -6px 16px rgba(0,0,0,0.15);
+}
+.line-banner-icon svg {
+  width: 80px; height: 80px;
+  fill: white;
+}
+
+/* ─── 社群膠囊按鈕（完整平台名 + 品牌色 dot + 低飽和暖白底） ─── */
+.social-pills-section {
+  padding: 80px 0 100px;
+  text-align: center;
+}
+.social-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 22px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.96rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: all .25s ease;
+  text-decoration: none;
+}
+.social-pill:hover {
+  border-color: var(--c-sand);
+  background: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(107, 74, 42, 0.10);
+}
+.social-pill .pill-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.social-pill .pill-dot.line { background: #06C755; box-shadow: 0 0 8px rgba(6, 199, 85, 0.4); }
+.social-pill .pill-dot.threads { background: #1a1a1a; }
+.social-pill .pill-dot.vocus { background: #C53030; box-shadow: 0 0 8px rgba(197, 48, 48, 0.4); }
+.social-pill .pill-dot.ig {
+  background: linear-gradient(135deg, #fa7e1e, #d62976, #962fbf);
+  box-shadow: 0 0 8px rgba(214, 41, 118, 0.4);
+}
+.social-pill .pill-dot.yt { background: #FF0000; box-shadow: 0 0 8px rgba(255, 0, 0, 0.4); }
+.social-pill .pill-arrow {
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  transition: color .2s, transform .2s;
+}
+.social-pill:hover .pill-arrow {
+  color: var(--c-sand);
+  transform: translateX(2px);
+}
+
 /* ─── Hero 下方 mini icons row（小圖示 + hover tooltip） ─── */
 .social-icons-row {
   display: flex;

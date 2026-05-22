@@ -40,16 +40,6 @@
     <div class="verb-chain">
       提煉 <span>→</span> 累積 <span>→</span> 應用
     </div>
-
-    <!-- 社群小圖示 row（hover 看簡介） -->
-    <div class="social-icons-row">
-      <a class="social-icon-mini line" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener" data-tip="LINE 社群｜每個月固定舉辦 1-2 場免費線上講座" aria-label="LINE 社群">L+</a>
-      <a class="social-icon-mini line-oa" href="https://line.me/R/ti/p/@713kczfc" target="_blank" rel="noopener" data-tip="LINE 官方帳號｜方案詢問、合作邀約可以在這裡傳訊" aria-label="LINE 官方帳號">LINE</a>
-      <a class="social-icon-mini threads" href="https://www.threads.com/@jiang_yude_coach" target="_blank" rel="noopener" data-tip="Threads｜分享知識管理、AI 應用小技巧" aria-label="Threads">@</a>
-      <a class="social-icon-mini vocus" href="https://vocus.cc/salon/Jiang_Coach" target="_blank" rel="noopener" data-tip="方格子｜深度教學文章＋立即可用的提示詞" aria-label="方格子">方</a>
-      <a class="social-icon-mini ig" href="https://www.instagram.com/jiang_yude_coach/" target="_blank" rel="noopener" data-tip="Instagram｜基礎 AI 知識小科普" aria-label="Instagram">IG</a>
-      <a class="social-icon-mini yt" href="https://www.youtube.com/@aipkmcc" target="_blank" rel="noopener" data-tip="YouTube｜完整課程講座影片" aria-label="YouTube">YT</a>
-    </div>
   </div>
 </section>
 
@@ -102,84 +92,89 @@
   </div>
 </section>
 
-<!-- 簡短自介 -->
-<section class="about-section">
-  <div class="watercolor wc-mint"></div>
-  <div class="watercolor wc-lavender"></div>
-  <div class="container narrow" style="text-align: center;">
-    <div class="eyebrow">關於江江</div>
-    <h2 class="section-title">用 AI，累積一個會跟你 <span class="italic">一起長大</span> 的知識資產。</h2>
-    <p style="color: var(--ink-soft); font-size: 1.08rem; max-width: 620px; margin: 0 auto 36px; line-height: 1.85;">
-      我是江昱德，朋友都叫我江江教練。<br />
-      過去十多年在影像、教學、跨領域顧問之間工作，現在主軸放在「教大家用 AI 把自己的隱性知識變成可以累積、可以應用的資產」。<br /><br />
-      <em style="font-family: 'Caveat', cursive; font-style: normal; font-size: 1.4rem; color: var(--c-sand); font-weight: 600;">我相信 AI 不是來替你做事的，是來陪你把自己累積起來的。</em>
-    </p>
-    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
-      <a class="button" href="courses.html">看看最近的課</a>
+<!-- 介紹：左照片 300×300 + 右文字 -->
+<section class="intro-section">
+  <div class="watercolor wc-sand-bg"></div>
+  <div class="container">
+    <div class="intro-grid">
+      <!-- 照片預留 300×300（之後把 intro-photo 改成 has-photo + 放 img） -->
+      <div class="intro-photo">
+        照片預留<br />300 × 300
+      </div>
+      <div class="intro-text">
+        <div class="intro-eye">關於我</div>
+        <h2 class="intro-name">江昱德</h2>
+        <p class="intro-title">隱性知識提煉師 / 知識工作者的 AI 應用</p>
+        <p class="intro-desc">
+          協助專業人士，只需會寫文件跟分類資料夾，<br />
+          就能打造自己的 AI 助理與知識庫。<br />
+          <em>用 AI 放大你的亮點。</em>
+        </p>
+        <span class="intro-hook">每月兩場講座，免費參加</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 找我的方法：5 平台社群卡 -->
-<section style="padding: 80px 0;">
-  <div class="container narrow" style="text-align: center;">
+<!-- LINE 大橫幅 CTA -->
+<section class="line-banner">
+  <div class="container">
+    <div class="line-banner-inner">
+      <div class="line-banner-text">
+        <span class="line-banner-tag">LINE 社群</span>
+        <h2 class="line-banner-title">每個月固定舉辦兩次免費講座</h2>
+        <p class="line-banner-sub">報名請加入我的 LINE 社群</p>
+        <p class="line-banner-note">講座連結會分享在社群記事本</p>
+        <a class="line-banner-cta" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener">
+          加入 LINE 社群 ↗
+        </a>
+      </div>
+      <div class="line-banner-icon" aria-label="LINE 社群">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 5.84 2 10.55c0 4.22 3.55 7.76 8.34 8.42.32.07.76.21.87.49.1.25.07.65.03.91l-.14.84c-.04.25-.2.99.87.54 1.07-.45 5.79-3.41 7.9-5.84C21.46 14.46 22 12.61 22 10.55 22 5.84 17.52 2 12 2zm-4.7 11.07h-1.99c-.29 0-.52-.23-.52-.52V8.5c0-.29.23-.52.52-.52s.52.23.52.52v3.55h1.47c.29 0 .52.23.52.52s-.23.5-.52.5zm2.04-.52c0 .29-.23.52-.52.52s-.52-.23-.52-.52V8.5c0-.29.23-.52.52-.52s.52.23.52.52v4.05zm5.05 0c0 .22-.14.42-.36.49-.05.02-.11.03-.16.03-.16 0-.31-.07-.41-.21l-2.1-2.84v2.53c0 .29-.23.52-.52.52s-.52-.23-.52-.52V8.5c0-.22.14-.42.36-.49.05-.02.11-.03.16-.03.16 0 .31.07.41.21l2.1 2.84V8.5c0-.29.23-.52.52-.52s.52.23.52.52v4.05zm3.27-2.55c.29 0 .52.23.52.52s-.23.52-.52.52h-1.47v.95h1.47c.29 0 .52.23.52.52s-.23.52-.52.52h-1.99c-.29 0-.52-.23-.52-.52V8.5c0-.29.23-.52.52-.52h1.99c.29 0 .52.23.52.52s-.23.52-.52.52h-1.47v.95h1.47z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 社群膠囊按鈕（完整名 + 品牌色 dot + 降飽和暖白底） -->
+<section class="social-pills-section">
+  <div class="container">
     <div class="eyebrow">找我的方法</div>
     <h2 class="section-title">在這裡 <span class="italic">找我</span></h2>
-    <p class="section-sub">每個平台分工不同，挑你常用的追。</p>
+    <p class="section-sub" style="margin: 0 auto;">每個平台分工不同，挑你常用的追。</p>
 
-    <div class="social-grid">
-      <a class="social-card" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener">
-        <div class="social-icon line">LINE</div>
-        <div class="social-content">
-          <div class="name">LINE 社群</div>
-          <p class="desc">每個月固定舉辦 1-2 場免費線上講座</p>
-        </div>
-        <span class="social-arrow">↗</span>
+    <div class="social-pills">
+      <a class="social-pill" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener">
+        <span class="pill-dot line"></span>
+        <span>LINE 社群</span>
+        <span class="pill-arrow">↗</span>
       </a>
-
-      <a class="social-card" href="https://line.me/R/ti/p/@713kczfc" target="_blank" rel="noopener">
-        <div class="social-icon line-oa">LINE</div>
-        <div class="social-content">
-          <div class="name">LINE 官方帳號</div>
-          <p class="desc">方案詢問、合作邀約可以在這裡傳訊</p>
-        </div>
-        <span class="social-arrow">↗</span>
+      <a class="social-pill" href="https://line.me/R/ti/p/@713kczfc" target="_blank" rel="noopener">
+        <span class="pill-dot line"></span>
+        <span>LINE 官方帳號</span>
+        <span class="pill-arrow">↗</span>
       </a>
-
-      <a class="social-card" href="https://www.threads.com/@jiang_yude_coach" target="_blank" rel="noopener">
-        <div class="social-icon threads">@</div>
-        <div class="social-content">
-          <div class="name">Threads</div>
-          <p class="desc">分享知識管理、AI 應用小技巧</p>
-        </div>
-        <span class="social-arrow">↗</span>
+      <a class="social-pill" href="https://www.threads.com/@jiang_yude_coach" target="_blank" rel="noopener">
+        <span class="pill-dot threads"></span>
+        <span>Threads</span>
+        <span class="pill-arrow">↗</span>
       </a>
-
-      <a class="social-card" href="https://vocus.cc/salon/Jiang_Coach" target="_blank" rel="noopener">
-        <div class="social-icon vocus">方</div>
-        <div class="social-content">
-          <div class="name">方格子</div>
-          <p class="desc">分享深度教學文章＋立即可用的提示詞</p>
-        </div>
-        <span class="social-arrow">↗</span>
+      <a class="social-pill" href="https://vocus.cc/salon/Jiang_Coach" target="_blank" rel="noopener">
+        <span class="pill-dot vocus"></span>
+        <span>方格子</span>
+        <span class="pill-arrow">↗</span>
       </a>
-
-      <a class="social-card" href="https://www.instagram.com/jiang_yude_coach/" target="_blank" rel="noopener">
-        <div class="social-icon ig">IG</div>
-        <div class="social-content">
-          <div class="name">Instagram</div>
-          <p class="desc">基礎 AI 知識 小科普</p>
-        </div>
-        <span class="social-arrow">↗</span>
+      <a class="social-pill" href="https://www.instagram.com/jiang_yude_coach/" target="_blank" rel="noopener">
+        <span class="pill-dot ig"></span>
+        <span>Instagram</span>
+        <span class="pill-arrow">↗</span>
       </a>
-
-      <a class="social-card" href="https://www.youtube.com/@aipkmcc" target="_blank" rel="noopener">
-        <div class="social-icon yt">YT</div>
-        <div class="social-content">
-          <div class="name">YouTube</div>
-          <p class="desc">完整課程講座影片</p>
-        </div>
-        <span class="social-arrow">↗</span>
+      <a class="social-pill" href="https://www.youtube.com/@aipkmcc" target="_blank" rel="noopener">
+        <span class="pill-dot yt"></span>
+        <span>YouTube</span>
+        <span class="pill-arrow">↗</span>
       </a>
     </div>
   </div>
