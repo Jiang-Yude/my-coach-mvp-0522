@@ -45,7 +45,7 @@ window.COURSES = [
     host: "江江教練",
     tags: ["講師", "Agent", "工作流", "備課"],
     summary: "給講師、知識工作者：用 AI Agent 重新設計備課、知識管理、教材生產流程。",
-    detail_url: null,
+    detail_url: "https://jiang-yude.github.io/my-0523-teacher-agent-workflow/",
     materials: [],
     registration: {
       status: "open",
