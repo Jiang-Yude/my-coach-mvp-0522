@@ -35,27 +35,6 @@
 
 window.COURSES = [
   {
-    id: "2026-05-23-agent-workflow",
-    date: "2026-05-23",
-    time: "20:00",
-    title: "講師的 Agent 工作流",
-    type_label: "免費線上講座",
-    image: "images/courses/2026-05-23-agent-workflow.jpg",
-    venue_mode: "online",
-    host: "江江教練",
-    tags: ["講師", "Agent", "工作流", "備課"],
-    summary: "給講師、知識工作者：用 AI Agent 重新設計備課、知識管理、教材生產流程。",
-    detail_url: "/courses/2026-05-23-agent-workflow/",
-    materials: [],
-    registration: {
-      status: "open",
-      url: "https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ",
-      label: "免費參加 ↗",
-      tooltip: "我每月固定舉辦兩場免費線上講座，\n講座資訊請看我的 LINE 社群",
-      note: "免費，加入 LINE 社群收到 Zoom 連結"
-    }
-  },
-  {
     id: "2026-05-25-mobile-product-photo",
     date: "2026-05-25",
     time: "14:00",
