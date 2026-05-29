@@ -105,6 +105,15 @@
   }
 
   // ─── 單張卡片 HTML（極簡版：圖 + 日期 + 標題 + 模式 badges + CTA） ───
+  // ─── 延伸資源（簡報、技能包等）───
+  function materialsHTML(c) {
+    if (!c.materials || !c.materials.length) return '';
+    const links = c.materials.map(m =>
+      `<a class="course-material" href="${escapeHtml(m.url)}" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;margin-right:14px;font-size:0.95rem;font-weight:600;color:var(--c-coral);border-bottom:1px dashed var(--c-coral);text-decoration:none;">${escapeHtml(m.label || '資源 ↗')}</a>`
+    ).join('');
+    return `<div class="card-materials">${links}</div>`;
+  }
+
   function cardHTML(c) {
     const thumb = c.image
       ? `<div class="card-thumbnail"><img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.title)}" loading="lazy" /></div>`
@@ -120,6 +129,7 @@
           <h3>${escapeHtml(c.title)}</h3>
           ${modeBadgesHTML(c)}
           ${ctaHTML(c)}
+          ${materialsHTML(c)}
         </div>
       </div>`;
   }

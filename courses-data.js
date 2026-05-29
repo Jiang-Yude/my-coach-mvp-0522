@@ -65,7 +65,9 @@ window.COURSES = [
     tags: ["扶輪社", "ChatGPT", "Gemini", "NotebookLM", "商會"],
     summary: "給商會社員：ChatGPT 專案、Gemini Gem、NotebookLM 三套工具的實作整合。",
     detail_url: null,
-    materials: [],
+    materials: [
+      { label: "📊 上課簡報", url: "https://jiang-yude.github.io/my-yongli-0530-deck/" }
+    ],
     registration: {
       status: "private",
       host_org: "永力扶輪社",
