@@ -4,7 +4,19 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Skills 下載 · 江江教練 · AI 知識管理</title>
-<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="江江教練開源的 Claude Code Skills 技能包，下載即用，內含說明書與範例。" />
+<link rel="canonical" href="https://ai-km-jiang.vercel.app/skills.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ai-km-jiang.vercel.app/skills.html" />
+<meta property="og:title" content="Skills 下載 · 江江教練 · AI 知識管理" />
+<meta property="og:description" content="江江教練開源的 Claude Code Skills 技能包，下載即用，內含說明書與範例。" />
+<meta property="og:image" content="https://ai-km-jiang.vercel.app/images/intro-jiang.png" />
+<meta property="og:locale" content="zh_TW" />
+<meta property="og:site_name" content="江江教練 · AI 知識管理" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Skills 下載 · 江江教練 · AI 知識管理" />
+<meta name="twitter:description" content="江江教練開源的 Claude Code Skills 技能包，下載即用，內含說明書與範例。" />
+<meta name="twitter:image" content="https://ai-km-jiang.vercel.app/images/intro-jiang.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" />
@@ -22,6 +34,7 @@
       <li><a href="courses.html">課程預告</a></li>
       <li><a href="resources.html">學習資源</a></li>
       <li><a href="skills.html" class="active">Skills 下載</a></li>
+      <li><a href="cases.html">合作案例</a></li>
     </ul>
   </div>
 </nav>
@@ -42,27 +55,22 @@
     <!-- 使用說明 -->
     <div class="note-box">
       <div class="eyebrow">怎麼用？</div>
-      <h3>三步驟把技能包接上你的 AI</h3>
-      <ol>
-        <li>到 GitHub repo 按 <code>Code → Download ZIP</code>，或 <code>git clone</code> 整包到本機</li>
-        <li>把整個資料夾放到你 Agent 的 <code>.claude/skills/</code> 或對應的技能包資料夾裡</li>
-        <li>跟 AI 講對應的觸發詞，AI 會自動載入技能包並照流程走</li>
-      </ol>
-      <p class="note-foot">不熟 GitHub 沒關係，每個技能包的 README 都有使用說明，照著做就會跑。</p>
+      <h3>按「複製連結」→ 貼給你的 Agent</h3>
+      <p class="note-emphasis">叫它幫你<strong>說明這個技能包</strong>、<strong>做風險評估</strong>、<strong>檢查惡意指令</strong>、<strong>檢查跟使用者現有的系統、Skills 會不會衝突</strong>，如果都沒問題，並且使用者確認、同意後，<strong>協助下載安裝</strong>。</p>
     </div>
 
     <!-- 標籤過濾 -->
     <div class="filter-bar">
       <div class="filter-bar-label">依分類過濾 ↓</div>
       <div class="filter-chips" id="filter-chips">
-        <span class="filter-chip active" data-tag="all">全部 <span class="count" id="count-all">9</span></span>
-        <span class="filter-chip" data-tag="evaluation">評估篩選 <span class="count">2</span></span>
+        <span class="filter-chip active" data-tag="all">全部 <span class="count" id="count-all">12</span></span>
+        <span class="filter-chip" data-tag="evaluation">評估篩選 <span class="count">4</span></span>
         <span class="filter-chip" data-tag="distill">知識提煉 <span class="count">2</span></span>
         <span class="filter-chip" data-tag="business">商業策略 <span class="count">1</span></span>
         <span class="filter-chip" data-tag="persona">AI 顧問人格 <span class="count">1</span></span>
-        <span class="filter-chip" data-tag="tools">工具整合 <span class="count">2</span></span>
+        <span class="filter-chip" data-tag="tools">工具整合 <span class="count">3</span></span>
         <span class="filter-chip" data-tag="experience">體驗包 <span class="count">1</span></span>
-        <span class="filter-chip" data-tag="mit">MIT 授權 <span class="count">8</span></span>
+        <span class="filter-chip" data-tag="mit">MIT 授權 <span class="count">10</span></span>
         <span class="filter-chip" data-tag="bilingual">中英雙版 <span class="count">3</span></span>
       </div>
     </div>
@@ -71,7 +79,7 @@
     <div class="skill-section" data-section="evaluation">
       <div class="skill-section-head">
         <h2>評估與篩選</h2>
-        <span class="count">2 包</span>
+        <span class="count">4 包</span>
       </div>
       <div class="skills-grid">
 
@@ -83,8 +91,11 @@
             <span class="skill-tag">評估</span>
             <span class="skill-tag">MIT</span>
           </div>
-          <div class="skill-links">
-            <a href="https://github.com/Jiang-Yude/teacher-fit-evaluator" target="_blank" rel="noopener">GitHub ↗</a>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/teacher-fit-evaluator" target="_blank" rel="noopener">GitHub 完整說明</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/teacher-fit-evaluator">複製連結</button>
+            </div>
           </div>
         </article>
 
@@ -97,9 +108,47 @@
             <span class="skill-tag">中/英</span>
             <span class="skill-tag">MIT</span>
           </div>
-          <div class="skill-links">
-            <a href="https://github.com/Jiang-Yude/skill-curator" target="_blank" rel="noopener">中文 ↗</a>
-            <a href="https://github.com/Jiang-Yude/skill-curator-en" target="_blank" rel="noopener">English ↗</a>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/skill-curator" target="_blank" rel="noopener">中文版 GitHub</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/skill-curator">複製連結</button>
+            </div>
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/skill-curator-en" target="_blank" rel="noopener">English GitHub</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/skill-curator-en">複製連結</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="skill-card" data-tags="evaluation mit">
+          <div class="skill-id">skill-master</div>
+          <h3>技能包大師</h3>
+          <p>中文版技能包全生命週期管理系統。整合 Anthropic + OpenAI 官方做法與實戰經驗，從零開始寫技能包到迭代維護。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">工程</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/skill-master" target="_blank" rel="noopener">GitHub 完整說明</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/skill-master">複製連結</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="skill-card" data-tags="evaluation mit">
+          <div class="skill-id">ai-beginner-simulator</div>
+          <h3>AI 新手模擬器</h3>
+          <p>四要素新手模型（技術×認知×情緒×目的）+ 三種模式（模擬/檢測/壓測）+ 8 大錯誤類型。給技能包設計者、課程設計者從新手視角壓測自己的設計。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">壓測</span>
+            <span class="skill-tag">MIT</span>
+          </div>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/ai-beginner-simulator" target="_blank" rel="noopener">GitHub 完整說明</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/ai-beginner-simulator">複製連結</button>
+            </div>
           </div>
         </article>
 
@@ -123,9 +172,15 @@
             <span class="skill-tag">中/英</span>
             <span class="skill-tag">MIT</span>
           </div>
-          <div class="skill-links">
-            <a href="https://github.com/Jiang-Yude/persona-mind-distiller" target="_blank" rel="noopener">中文 ↗</a>
-            <a href="https://github.com/Jiang-Yude/persona-mind-distiller-en" target="_blank" rel="noopener">English ↗</a>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/persona-mind-distiller" target="_blank" rel="noopener">中文版 GitHub</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/persona-mind-distiller">複製連結</button>
+            </div>
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/persona-mind-distiller-en" target="_blank" rel="noopener">English GitHub</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/persona-mind-distiller-en">複製連結</button>
+            </div>
           </div>
         </article>
 
@@ -137,8 +192,11 @@
             <span class="skill-tag">訪談</span>
             <span class="skill-tag">MIT</span>
           </div>
-          <div class="skill-links">
-            <a href="https://github.com/Jiang-Yude/real-needs-investigation" target="_blank" rel="noopener">GitHub ↗</a>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/real-needs-investigation" target="_blank" rel="noopener">GitHub 完整說明</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/real-needs-investigation">複製連結</button>
+            </div>
           </div>
         </article>
 
@@ -162,8 +220,11 @@
             <span class="skill-tag">一人公司</span>
             <span class="skill-tag">MIT</span>
           </div>
-          <div class="skill-links">
-            <a href="https://github.com/Jiang-Yude/ai-native-solo-company" target="_blank" rel="noopener">GitHub ↗</a>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/ai-native-solo-company" target="_blank" rel="noopener">GitHub 完整說明</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/ai-native-solo-company">複製連結</button>
+            </div>
           </div>
         </article>
 
@@ -187,9 +248,15 @@
             <span class="skill-tag">中/英</span>
             <span class="skill-tag">MIT</span>
           </div>
-          <div class="skill-links">
-            <a href="https://github.com/Jiang-Yude/naval-ravikant-skill" target="_blank" rel="noopener">中文 ↗</a>
-            <a href="https://github.com/Jiang-Yude/naval-ravikant-skill-en" target="_blank" rel="noopener">English ↗</a>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/naval-ravikant-skill" target="_blank" rel="noopener">中文版 GitHub</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/naval-ravikant-skill">複製連結</button>
+            </div>
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/naval-ravikant-skill-en" target="_blank" rel="noopener">English GitHub</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/naval-ravikant-skill-en">複製連結</button>
+            </div>
           </div>
         </article>
 
@@ -200,7 +267,7 @@
     <div class="skill-section" data-section="tools">
       <div class="skill-section-head">
         <h2>工具整合</h2>
-        <span class="count">2 包</span>
+        <span class="count">3 包</span>
       </div>
       <div class="skills-grid">
 
@@ -213,8 +280,11 @@
             <span class="skill-tag">NotebookLM</span>
             <span class="skill-tag">MIT</span>
           </div>
-          <div class="skill-links">
-            <a href="https://github.com/Jiang-Yude/notebooklm-connector" target="_blank" rel="noopener">GitHub ↗</a>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/notebooklm-connector" target="_blank" rel="noopener">GitHub 完整說明</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/notebooklm-connector">複製連結</button>
+            </div>
           </div>
         </article>
 
@@ -226,8 +296,27 @@
             <span class="skill-tag">網頁排版</span>
             <span class="skill-tag">MIT</span>
           </div>
-          <div class="skill-links">
-            <a href="https://github.com/Jiang-Yude/prose-novel-layout" target="_blank" rel="noopener">GitHub ↗</a>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/prose-novel-layout" target="_blank" rel="noopener">GitHub 完整說明</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/prose-novel-layout">複製連結</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="skill-card" data-tags="tools">
+          <div class="skill-id">html-quick-editor</div>
+          <h3>HTML 快速編輯器</h3>
+          <p>給 Agent 產出的 HTML 網頁或簡報做最後微調。匯入檔案後可直接改文字、字級、配色，再下載修正版。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">G 網工具</span>
+            <span class="skill-tag">小助理</span>
+          </div>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://jiang-yude.github.io/system-html-quick-editor/" target="_blank" rel="noopener">直接打開工具</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://jiang-yude.github.io/system-html-quick-editor/">複製連結</button>
+            </div>
           </div>
         </article>
 
@@ -250,9 +339,15 @@
             <span class="skill-tag">數位分身</span>
             <span class="skill-tag">體驗</span>
           </div>
-          <div class="skill-links">
-            <a href="https://github.com/Jiang-Yude/digital-twin-github" target="_blank" rel="noopener">主 repo ↗</a>
-            <a href="https://github.com/Jiang-Yude/digital-twin-gathering-agent" target="_blank" rel="noopener">Agent 版 ↗</a>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/digital-twin-github" target="_blank" rel="noopener">主 repo GitHub</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/digital-twin-github">複製連結</button>
+            </div>
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/Jiang-Yude/digital-twin-gathering-agent" target="_blank" rel="noopener">Agent 版 GitHub</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/Jiang-Yude/digital-twin-gathering-agent">複製連結</button>
+            </div>
           </div>
         </article>
 
@@ -286,6 +381,7 @@
       <a href="courses.html">課程預告</a>
       <a href="resources.html">學習資源</a>
       <a href="skills.html">Skills 下載</a>
+      <a href="cases.html">合作案例</a>
       <a href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener">LINE 社群 ↗</a>
       <a href="https://line.me/R/ti/p/@713kczfc" target="_blank" rel="noopener">LINE OA ↗</a>
       <a href="https://www.threads.com/@jiang_yude_coach" target="_blank" rel="noopener">Threads ↗</a>
@@ -331,6 +427,29 @@
         chips.forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
         filterBy(chip.dataset.tag);
+      });
+    });
+// ─── 複製 GitHub URL：炫光 + 浮字回饋 ───
+    document.querySelectorAll('.skill-btn-copy').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const url = btn.dataset.copyUrl;
+        if (!url) return;
+        const row = btn.parentElement;
+        let isError = false;
+        try {
+          await navigator.clipboard.writeText(url);
+        } catch (e) {
+          isError = true;
+        }
+        // 1. 按鈕本體炫光
+        btn.classList.add('copied');
+        setTimeout(() => btn.classList.remove('copied'), 900);
+        // 2. 浮出 toast
+        const toast = document.createElement('span');
+        toast.className = 'copy-toast' + (isError ? ' error' : '');
+        toast.textContent = isError ? '複製失敗' : '✓ 已複製連結';
+        row.appendChild(toast);
+        setTimeout(() => toast.remove(), 1500);
       });
     });
   })();
