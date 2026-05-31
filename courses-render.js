@@ -5,17 +5,20 @@
 
   // ─── 工具 ───
   function parseDate(s) { return new Date(s); }
-  function isUpcoming(c) { return parseDate(c.date) >= TODAY; }
-  function isPast(c) { return parseDate(c.date) < TODAY; }
+  function isIncubating(c) { return c.phase === "incubating"; }
+  function isUpcoming(c) { return !isIncubating(c) && parseDate(c.date) >= TODAY; }
+  function isPast(c) { return !isIncubating(c) && parseDate(c.date) < TODAY; }
   function monthKey(c) { return c.date.slice(0, 7); }   // "2026-05"
   function fmtDate(c) {
     const d = parseDate(c.date);
+    // 沒給時間 = 時間未定 → 顯示模糊「M 月 · 時間待定」
+    if (!c.time) {
+      return `${d.getMonth()+1} 月 · 時間待定`;
+    }
     const wk = ['日','一','二','三','四','五','六'][d.getDay()];
     const mm = String(d.getMonth()+1).padStart(2,'0');
     const dd = String(d.getDate()).padStart(2,'0');
-    let s = `${mm}-${dd} (${wk})`;
-    if (c.time) s += ` ${c.time}`;
-    return s;
+    return `${mm}-${dd} (${wk}) ${c.time}`;
   }
   function escapeHtml(s) {
     return String(s||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
@@ -53,6 +56,11 @@
         const note = r.note ? escapeHtml(r.note) : (D.pending_text || '時間／報名方式待公告');
         return `<div class="course-cta pending"><p class="cta-note">${note}</p></div>`;
       }
+      case "ended": {
+        const note = r.note ? escapeHtml(r.note) : '已結束';
+        const host = r.host_org ? `<p class="cta-private-tag">主辦：<strong>${escapeHtml(r.host_org)}</strong></p>` : '';
+        return `<div class="course-cta ended">${host}<p class="cta-note">${note}</p></div>`;
+      }
       default:
         return '';
     }
@@ -69,14 +77,16 @@
   const REG_LABEL = {
     open: '開放報名',
     private: '專場',
-    pending: '待開放'
+    pending: '待開放',
+    ended: '已結束'
   };
   function modeBadgesHTML(c) {
     const v = c.venue_mode || (c.type === 'podcast' ? 'podcast' : null);
     const r = (c.registration && c.registration.status) || null;
     const parts = [];
+    if (isIncubating(c)) parts.push(`<span class="mode-badge phase-incubating">籌備中 · 徵求夥伴</span>`);
     if (v) parts.push(`<span class="mode-badge venue-${v}">${escapeHtml(VENUE_LABEL[v] || v)}</span>`);
-    if (r) parts.push(`<span class="mode-badge reg-${r}">${escapeHtml(REG_LABEL[r] || r)}</span>`);
+    if (r && !isIncubating(c)) parts.push(`<span class="mode-badge reg-${r}">${escapeHtml(REG_LABEL[r] || r)}</span>`);
     return parts.length ? `<div class="card-modes">${parts.join('')}</div>` : '';
   }
 
@@ -104,16 +114,13 @@
     </div>`;
   }
 
-  // ─── 單張卡片 HTML（極簡版：圖 + 日期 + 標題 + 模式 badges + CTA） ───
-  // ─── 延伸資源（簡報、技能包等）───
-  function materialsHTML(c) {
-    if (!c.materials || !c.materials.length) return '';
-    const links = c.materials.map(m =>
-      `<a class="course-material" href="${escapeHtml(m.url)}" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;margin-right:14px;font-size:0.95rem;font-weight:600;color:var(--c-coral);border-bottom:1px dashed var(--c-coral);text-decoration:none;">${escapeHtml(m.label || '資源 ↗')}</a>`
-    ).join('');
-    return `<div class="card-materials">${links}</div>`;
+  // ─── 課程詳細頁連結（有 detail_url 才顯示） ───
+  function detailLinkHTML(c) {
+    if (!c.detail_url) return '';
+    return `<a class="course-detail-link" href="${escapeHtml(c.detail_url)}" target="_blank" rel="noopener">📄 完整課程內容與簡報 ↗</a>`;
   }
 
+  // ─── 單張卡片 HTML（極簡版：圖 + 日期 + 標題 + 模式 badges + 詳細連結 + CTA） ───
   function cardHTML(c) {
     const thumb = c.image
       ? `<div class="card-thumbnail"><img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.title)}" loading="lazy" /></div>`
@@ -128,8 +135,8 @@
           </div>
           <h3>${escapeHtml(c.title)}</h3>
           ${modeBadgesHTML(c)}
+          ${detailLinkHTML(c)}
           ${ctaHTML(c)}
-          ${materialsHTML(c)}
         </div>
       </div>`;
   }
@@ -180,13 +187,14 @@
       return true;
     });
 
-    // 排序：未來升序、過去降序（最近的在前）
+    // 排序：籌備中 → 未來升序 → 過去降序
+    const incubating = filtered.filter(isIncubating);
     const upcoming = filtered.filter(isUpcoming).sort((a,b)=>parseDate(a.date)-parseDate(b.date));
     const past = filtered.filter(isPast).sort((a,b)=>parseDate(b.date)-parseDate(a.date));
 
     // 沒結果
     const emptyEl = document.getElementById('no-courses-results');
-    if (emptyEl) emptyEl.classList.toggle('show', upcoming.length === 0 && past.length === 0);
+    if (emptyEl) emptyEl.classList.toggle('show', incubating.length === 0 && upcoming.length === 0 && past.length === 0);
 
     function groupByMonth(arr) {
       const groups = {};
@@ -208,19 +216,53 @@
             <h2>${y}-${m} ${monthLabel}</h2>
             <span class="group-count">${items.length} 場</span>
           </div>
-          <div class="list-grid cols-2">
+          <div class="list-grid cols-3">
             ${items.map(cardHTML).join('')}
           </div>`;
       }).join('');
     }
 
+    // 把 upcoming 拆三段：本月 / 下月 / 後續檔期
+    const todayMonth = TODAY.getMonth();
+    const todayYear = TODAY.getFullYear();
+    const nextMonth = (todayMonth + 1) % 12;
+    const nextYear = todayMonth === 11 ? todayYear + 1 : todayYear;
+    function bucketOf(c) {
+      const d = parseDate(c.date);
+      if (d.getFullYear() === todayYear && d.getMonth() === todayMonth) return 'current';
+      if (d.getFullYear() === nextYear && d.getMonth() === nextMonth) return 'next';
+      return 'later';
+    }
+    const currentMonth = upcoming.filter(c => bucketOf(c) === 'current');
+    const nextMonthArr = upcoming.filter(c => bucketOf(c) === 'next');
+    const later = upcoming.filter(c => bucketOf(c) === 'later');
+
+    function subsection(title, items, intro) {
+      if (!items.length) return '';
+      const introHTML = intro ? `<p class="group-intro">${intro}</p>` : '';
+      return `
+        <div class="group-header">
+          <h2>${title}</h2>
+          <span class="group-count">${items.length} 場</span>
+        </div>
+        ${introHTML}
+        <div class="list-grid cols-3">
+          ${items.map(cardHTML).join('')}
+        </div>`;
+    }
+
     let html = '';
-    if (upcoming.length) {
-      const groups = groupByMonth(upcoming);
-      html += `<div style="margin-bottom: 24px;">
-        <div class="eyebrow">未來的課</div>
-      </div>`;
-      html += renderGroup(groups, (a,b)=>a.localeCompare(b));
+    const hasUpcoming = incubating.length || upcoming.length;
+    if (hasUpcoming) {
+      html += `<div style="margin-bottom: 12px;"><div class="eyebrow">未來的課</div></div>`;
+      html += subsection(
+        '🌱 籌備中 · 徵求夥伴',
+        incubating,
+        '等邀約、等夥伴、等啟動的課。如果你有合適的場域、社群或學員，歡迎來聊聊一起辦。'
+      );
+      html += subsection('本月', currentMonth);
+      html += subsection('下月', nextMonthArr);
+      html += subsection('後續檔期', later, '更後面的場次與時間未定的課程。');
     }
     if (past.length) {
       const groups = groupByMonth(past);

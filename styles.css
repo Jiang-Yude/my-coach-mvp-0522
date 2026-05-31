@@ -46,7 +46,7 @@ html, body {
   background: var(--bg);
   color: var(--ink);
   font-family: -apple-system, "PingFang TC", "Noto Sans TC", "Inter", sans-serif;
-  font-size: 17px;
+  font-size: 1.06rem;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   text-wrap: pretty;
@@ -120,7 +120,7 @@ nav.top .container {
   font-weight: 500;
   color: var(--c-sand);
   margin-right: 6px;
-  font-size: 1rem;
+  font-size: 1.06rem;
 }
 
 /* 中：簽名檔圖 */
@@ -141,13 +141,16 @@ nav.top .container {
 /* 右：menu */
 nav.top ul.nav-menu {
   justify-self: end;
-  display: flex; gap: 26px; list-style: none; margin: 0; padding: 0;
+  display: flex; gap: 22px; list-style: none; margin: 0; padding: 0;
   font-size: 0.95rem;
+  white-space: nowrap;
 }
 nav.top ul.nav-menu a {
   color: var(--ink-soft);
   transition: color .2s;
   font-weight: 500;
+  font-size: 0.95rem;
+  white-space: nowrap;
 }
 nav.top ul.nav-menu a:hover { color: var(--ink); }
 nav.top ul.nav-menu a.active { color: var(--ink-soft); }
@@ -199,7 +202,7 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
 }
 .section-title .italic { font-style: italic; color: var(--c-sand); }
 .section-sub {
-  color: var(--ink-soft); font-size: 1.05rem;
+  color: var(--ink-soft); font-size: 1.06rem;
   max-width: 660px; line-height: 1.75;
 }
 .section-head-center { text-align: center; margin: 0 auto 56px; position: relative; z-index: 2; }
@@ -251,7 +254,7 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
   padding: 12px 26px;
   border: 1.5px solid var(--ink);
   border-radius: var(--radius-pill);
-  font-size: 0.95rem;
+  font-size: 1.06rem;
   color: var(--ink);
   background: var(--paper);
   cursor: pointer;
@@ -364,7 +367,7 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
 .entry-card p {
   color: var(--ink-soft);
   margin: 0 0 24px;
-  font-size: 1rem;
+  font-size: 1.06rem;
   flex-grow: 1;
   line-height: 1.75;
 }
@@ -386,6 +389,36 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
 }
 @media (min-width: 720px) {
   .list-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .list-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1080px) {
+  .list-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* 籌備中 badge */
+.mode-badge.phase-incubating {
+  background: #f3e8d5;
+  color: #8b6f47;
+  border: 1px dashed #c4a274;
+}
+/* 籌備區整段樣式 */
+.incubating-section {
+  background: linear-gradient(135deg, #faf3e8 0%, #f5ecd9 100%);
+  border: 1px dashed #d9c3a3;
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  margin: 0 0 56px;
+}
+.incubating-section .group-header {
+  border-bottom-color: #d9c3a3;
+}
+.incubating-section .group-header h2 {
+  color: #8b6f47;
+}
+.incubating-section .group-intro {
+  color: var(--ink-soft);
+  font-size: 1.06rem;
+  margin: 8px 0 0;
 }
 
 .list-card {
@@ -420,7 +453,7 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
 
 .list-card .card-meta {
   display: flex; align-items: center; gap: 10px;
-  font-size: 0.85rem;
+  font-size: 1.06rem;
   color: var(--ink-faint);
   margin-bottom: 10px;
   flex-wrap: wrap;
@@ -428,7 +461,7 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
 .list-card .card-date {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.06rem;
   color: var(--c-coral);
   font-weight: 600;
 }
@@ -467,13 +500,13 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
 .list-card p {
   color: var(--ink-soft);
   margin: 0 0 14px;
-  font-size: 0.95rem;
+  font-size: 1.06rem;
   line-height: 1.7;
 }
 .list-card .card-links {
   display: flex; flex-wrap: wrap;
   gap: 14px;
-  font-size: 0.88rem;
+  font-size: 1.06rem;
   padding-top: 12px;
   border-top: 1px dashed var(--line);
 }
@@ -487,7 +520,7 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
   color: var(--c-coral);
   border-bottom-color: var(--c-coral);
 }
-.list-card .card-links span { color: var(--ink-faint); font-size: 0.85rem; }
+.list-card .card-links span { color: var(--ink-faint); font-size: 1.06rem; }
 
 /* ─── 分組 header ─── */
 .group-header {
@@ -507,7 +540,7 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
 .group-header .group-count {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1rem;
+  font-size: 1.06rem;
   color: var(--c-sand);
   font-weight: 500;
 }
@@ -538,7 +571,7 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
 .page-header h1 .italic { font-style: italic; color: var(--c-sand); }
 .page-header p {
   color: var(--ink-soft);
-  font-size: 1.05rem;
+  font-size: 1.06rem;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.75;
@@ -560,7 +593,7 @@ footer .container {
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  font-size: 0.92rem; color: var(--ink-soft);
+  font-size: 1.06rem; color: var(--ink-soft);
   position: relative; z-index: 2;
 }
 
@@ -584,7 +617,7 @@ footer .container {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   color: var(--ink-faint);
-  font-size: 0.95rem;
+  font-size: 1.06rem;
   text-align: center;
   padding: 16px;
   line-height: 1.5;
@@ -601,7 +634,7 @@ footer .foot-brand p {
   margin: 8px 0 0;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1rem;
+  font-size: 1.06rem;
   color: var(--c-sand);
 }
 footer .foot-links {
@@ -609,7 +642,7 @@ footer .foot-links {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 760px;
-  font-size: 0.9rem;
+  font-size: 1.06rem;
 }
 footer .foot-links a {
   padding: 4px 12px;
@@ -670,14 +703,25 @@ footer .foot-meta {
   padding: 3px 9px;
   border-radius: 6px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 1.06rem;
   color: var(--c-sand);
+}
+.note-box .note-emphasis {
+  font-size: 1.35rem;
+  line-height: 1.65;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 14px 0 4px;
+}
+.note-box .note-emphasis strong {
+  color: var(--c-coral);
+  font-weight: 700;
 }
 .note-box .note-foot {
   margin: 18px 0 0;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1rem;
+  font-size: 1.06rem;
   color: var(--ink-faint);
 }
 
@@ -783,7 +827,7 @@ footer .foot-meta {
   color: var(--ink-faint);
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 0.95rem;
+  font-size: 1.06rem;
   text-align: center;
   flex-shrink: 0;
 }
@@ -826,7 +870,7 @@ footer .foot-meta {
   font-weight: 500;
 }
 .intro-desc {
-  font-size: 1.02rem;
+  font-size: 1.06rem;
   color: var(--ink-soft);
   line-height: 1.85;
   margin: 0 0 22px;
@@ -847,7 +891,7 @@ footer .foot-meta {
   color: var(--c-sand);
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1rem;
+  font-size: 1.06rem;
   font-weight: 500;
 }
 
@@ -870,19 +914,40 @@ footer .foot-meta {
   box-shadow: 0 12px 26px rgba(6, 199, 85, 0.32);
 }
 .intro-line-cta .cta-main {
-  font-size: 1.08rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   line-height: 1.2;
 }
 .intro-line-cta .cta-sub {
-  font-size: 0.82rem;
-  opacity: 0.88;
-  margin-top: 4px;
+  font-size: 1.12rem;
+  opacity: 0.92;
+  margin-top: 8px;
   letter-spacing: 0.02em;
 }
 @media (max-width: 720px) {
   .intro-line-cta { align-self: center; }
+}
+
+/* 兩個 CTA 按鈕直立排列容器 */
+.intro-cta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
+  align-items: flex-start;
+}
+.intro-cta-row .intro-line-cta {
+  margin-top: 0;
+}
+@media (max-width: 720px) {
+  .intro-cta-row {
+    align-items: center;
+  }
+  .intro-cta-row .intro-line-cta {
+    width: 100%;
+    max-width: 360px;
+  }
 }
 
 /* ─── LINE 大橫幅 CTA（暖深底 + LINE 綠 + 暖白字） ─── */
@@ -939,13 +1004,13 @@ footer .foot-meta {
   letter-spacing: 0.01em;
 }
 .line-banner-sub {
-  font-size: 1rem;
+  font-size: 1.06rem;
   color: #e8dccb;
   margin: 0 0 8px;
   line-height: 1.7;
 }
 .line-banner-note {
-  font-size: 0.88rem;
+  font-size: 1.06rem;
   color: #a89887;
   margin: 0 0 24px;
   font-style: italic;
@@ -956,7 +1021,7 @@ footer .foot-meta {
   background: #06C755;
   color: white;
   border-radius: 999px;
-  font-size: 1rem;
+  font-size: 1.06rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   border: none;
@@ -1005,7 +1070,7 @@ footer .foot-meta {
   border-radius: 999px;
   background: var(--paper);
   color: var(--ink);
-  font-size: 0.96rem;
+  font-size: 1.06rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: all .25s ease;
@@ -1032,7 +1097,7 @@ footer .foot-meta {
 .social-pill .pill-dot.yt { background: #FF0000; box-shadow: 0 0 8px rgba(255, 0, 0, 0.4); }
 .social-pill .pill-arrow {
   color: var(--ink-faint);
-  font-size: 0.85rem;
+  font-size: 1.06rem;
   transition: color .2s, transform .2s;
 }
 .social-pill:hover .pill-arrow {
@@ -1087,6 +1152,14 @@ footer .foot-meta {
   font-size: 1.3rem;
   color: #C53030;
   line-height: 1;
+}
+.social-circle.portaly .circle-btn .portaly-text {
+  font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #FF5C00;
+  line-height: 1;
+  font-style: italic;
 }
 
 .social-circle .caption {
@@ -1211,7 +1284,7 @@ footer .foot-meta {
   display: flex; align-items: center; justify-content: center;
   color: white; font-weight: 700;
   font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
-  font-size: 0.9rem;
+  font-size: 1.06rem;
   letter-spacing: 0.04em;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
@@ -1221,7 +1294,7 @@ footer .foot-meta {
 .social-icon.ig {
   background: linear-gradient(135deg, #feda75 0%, #fa7e1e 25%, #d62976 60%, #962fbf 80%, #4f5bd5 100%);
 }
-.social-icon.yt { background: #FF0000; font-size: 0.95rem; }
+.social-icon.yt { background: #FF0000; font-size: 1.06rem; }
 
 .social-content { flex-grow: 1; min-width: 0; text-align: left; }
 .social-content .name {
@@ -1233,7 +1306,7 @@ footer .foot-meta {
   letter-spacing: 0.02em;
 }
 .social-content .desc {
-  font-size: 0.86rem;
+  font-size: 1.06rem;
   color: var(--ink-soft);
   margin: 0;
   line-height: 1.55;
@@ -1241,7 +1314,7 @@ footer .foot-meta {
 .social-arrow {
   color: var(--ink-faint);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 1rem;
+  font-size: 1.06rem;
   transition: color .2s, transform .2s;
   flex-shrink: 0;
 }
@@ -1364,7 +1437,7 @@ footer .foot-meta {
 .ph-bottom .ph-org {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 0.85rem;
+  font-size: 1.06rem;
   color: var(--ink-soft);
   border-top: 1px dashed rgba(106, 99, 90, 0.3);
   padding-top: 10px;
@@ -1417,7 +1490,7 @@ footer .foot-meta {
   background: #06C755;            /* LINE 綠（多數 open 按鈕都跳 LINE） */
   color: var(--paper);
   border-radius: 999px;
-  font-size: 0.88rem;
+  font-size: 1.06rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   transition: background .2s, transform .2s, box-shadow .2s;
@@ -1443,7 +1516,7 @@ footer .foot-meta {
   border: 1px solid var(--c-sand);
   padding: 12px 16px;
   border-radius: 12px;
-  font-size: 0.84rem;
+  font-size: 1.06rem;
   font-weight: 500;
   font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
   white-space: pre-wrap;
@@ -1480,13 +1553,13 @@ footer .foot-meta {
 }
 .course-cta .cta-note {
   margin: 8px 0 0;
-  font-size: 0.82rem;
+  font-size: 1.06rem;
   color: var(--ink-faint);
   line-height: 1.55;
 }
 .course-cta.private .cta-private-tag {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1.06rem;
   color: var(--c-sand);
   font-weight: 500;
   line-height: 1.6;
@@ -1506,14 +1579,14 @@ footer .foot-meta {
 }
 .course-cta.private .cta-private-sub {
   margin: 4px 0 0 15px;
-  font-size: 0.78rem;
+  font-size: 1.06rem;
   color: var(--ink-faint);
   font-style: italic;
   line-height: 1.5;
 }
 .course-cta.private .cta-note {
   margin: 6px 0 0;
-  font-size: 0.82rem;
+  font-size: 1.06rem;
   color: var(--ink-faint);
   font-style: italic;
   line-height: 1.55;
@@ -1522,18 +1595,34 @@ footer .foot-meta {
   color: var(--ink-faint);
   font-style: italic;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 0.95rem;
+  font-size: 1.06rem;
   margin: 0;
 }
 
-.course-card .card-detail-link {
-  margin-top: 12px;
-  font-size: 0.84rem;
-}
-.course-card .card-detail-link a {
-  color: var(--c-coral);
-  border-bottom: 1px dashed var(--c-coral);
+/* 課程卡的「完整課程內容與簡報」連結（detail_url 才顯示） */
+.course-detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 12px 0 14px;
+  padding: 8px 14px;
+  background: var(--bg-soft, #f6efe6);
+  color: var(--ink-soft);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  font-size: 1.06rem;
   font-weight: 500;
+  text-decoration: none;
+  transition: all .2s ease;
+  width: fit-content;
+}
+.course-detail-link:hover {
+  background: var(--paper);
+  color: var(--c-coral);
+  border-color: var(--c-coral);
+  border-style: solid;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(232, 90, 79, 0.12);
 }
 
 /* ─── 通用搜尋＋標籤過濾列（courses/resources/skills 共用） ─── */
@@ -1553,7 +1642,7 @@ footer .foot-meta {
 }
 .search-row .search-icon {
   position: absolute; left: 14px;
-  color: var(--ink-faint); font-size: 1rem;
+  color: var(--ink-faint); font-size: 1.06rem;
   pointer-events: none;
 }
 .search-input {
@@ -1562,7 +1651,7 @@ footer .foot-meta {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--bg-soft);
-  font-size: 0.95rem;
+  font-size: 1.06rem;
   font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
   color: var(--ink);
   transition: border-color .2s, background .2s;
@@ -1578,7 +1667,7 @@ footer .foot-meta {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   color: var(--c-sand);
-  font-size: 0.95rem;
+  font-size: 1.06rem;
   margin-right: 6px;
   white-space: nowrap;
 }
@@ -1608,7 +1697,7 @@ footer .foot-meta {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   color: var(--c-sand);
-  font-size: 1rem;
+  font-size: 1.06rem;
   margin-bottom: 12px;
   font-weight: 500;
 }
@@ -1697,7 +1786,7 @@ footer .foot-meta {
   color: var(--ink);
 }
 .skill-card p {
-  font-size: 0.86rem;
+  font-size: 1.06rem;
   color: var(--ink-soft);
   margin: 0 0 12px;
   line-height: 1.6;
@@ -1717,7 +1806,7 @@ footer .foot-meta {
 }
 .skill-card .skill-links {
   display: flex; flex-wrap: wrap; gap: 12px;
-  font-size: 0.8rem;
+  font-size: 1.06rem;
   padding-top: 10px;
   border-top: 1px dashed var(--line);
 }
@@ -1730,6 +1819,119 @@ footer .foot-meta {
 .skill-card .skill-links a:hover {
   color: var(--c-sand);
   border-bottom-color: var(--c-sand);
+}
+
+/* ─── skill-actions：等寬雙按鈕（淺褐 GitHub + 淺藍複製） ─── */
+.skill-card .skill-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line);
+}
+.skill-action-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+  position: relative;
+}
+
+/* GitHub 按鈕：低飽和淺褐 */
+.skill-btn-primary {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  background: #ead9c2;
+  color: #6b4a2a;
+  border: 1.5px solid #d9c2a4;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all .2s ease;
+  letter-spacing: 0.02em;
+  text-align: center;
+  line-height: 1.2;
+}
+.skill-btn-primary:hover {
+  background: #ddc8a8;
+  border-color: #c9ad84;
+  color: #5a3e22;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(168, 130, 80, 0.18);
+}
+
+/* 複製按鈕：低飽和淺藍 */
+.skill-btn-copy {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 16px;
+  background: #d8e4ee;
+  color: #3d5872;
+  border: 1.5px solid #bcd0e0;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .2s ease;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.skill-btn-copy:hover {
+  background: #c5d6e5;
+  border-color: #a4bccf;
+  color: #2a4258;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(120, 160, 200, 0.18);
+}
+
+/* 複製成功炫光 */
+.skill-btn-copy.copied {
+  background: linear-gradient(120deg, #d8e4ee 0%, #fff0c4 50%, #d8e4ee 100%);
+  background-size: 220% 100%;
+  border-color: #d9b774;
+  color: #6b4a2a;
+  animation: copyShine 0.9s ease;
+}
+@keyframes copyShine {
+  0%   { background-position: 220% 0; box-shadow: 0 0 0 rgba(232, 188, 100, 0); }
+  35%  { box-shadow: 0 0 18px rgba(232, 188, 100, 0.55); }
+  100% { background-position: -220% 0; box-shadow: 0 0 0 rgba(232, 188, 100, 0); }
+}
+
+/* 複製成功浮字 */
+.copy-toast {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  background: #5a3e22;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 1.06rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 20;
+  box-shadow: 0 6px 14px rgba(90, 62, 34, 0.25);
+  animation: copyToastFloat 1.4s ease forwards;
+  font-family: -apple-system, "PingFang TC", "Noto Sans TC", sans-serif;
+}
+.copy-toast.error {
+  background: #a04040;
+  box-shadow: 0 6px 14px rgba(160, 64, 64, 0.25);
+}
+@keyframes copyToastFloat {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(0) scale(0.9); }
+  18%  { opacity: 1; transform: translateX(-50%) translateY(-10px) scale(1); }
+  75%  { opacity: 1; transform: translateX(-50%) translateY(-22px) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-34px) scale(0.95); }
 }
 
 /* Skills 區段 */
@@ -1751,7 +1953,7 @@ footer .foot-meta {
 .skill-section-head .count {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 0.95rem;
+  font-size: 1.06rem;
   color: var(--c-sand);
   font-weight: 500;
 }
@@ -1772,7 +1974,7 @@ footer .foot-meta {
   .container { padding: 0 18px; }
   .hero { padding: 90px 0 70px; }
   .hero h1 { font-size: 3.6rem; }
-  .hero .subtitle { font-size: 1.05rem; }
+  .hero .subtitle { font-size: 1.06rem; }
   .hero .verb-chain { font-size: 1.7rem; }
   .section-title { font-size: 2.2rem; }
   .entry-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -1818,7 +2020,7 @@ footer .foot-meta {
   nav.top ul.nav-menu a {
     display: block;
     padding: 14px 20px;
-    font-size: 0.98rem;
+    font-size: 1.06rem;
   }
 }
 

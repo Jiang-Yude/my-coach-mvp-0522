@@ -16,10 +16,15 @@
  *   detail_url   - 該堂課的內頁 URL（之後做才填）
  *   materials    - 簡報、技能包等延伸資源（之後做才填）
  *
+ *   phase        - 課程階段：
+ *                  不填或 "scheduled" = 依日期排（未來/過去）
+ *                  "incubating"        = 籌備中（等邀約、等夥伴、等啟動），歸籌備區
+ *
  *   registration - 報名資訊：
  *     status: "open"    - 開放報名（給 url + label）
  *             "private" - 專場（顯示主辦：xxx）
  *             "pending" - 待開放
+ *             "ended"   - 已結束（過去場次用）
  *     url:    報名連結
  *     label:  按鈕文字（預設「報名 ↗」）
  *     host_org: 主辦單位（status=private 必填）
@@ -35,6 +40,27 @@
 
 window.COURSES = [
   {
+    id: "2026-05-23-agent-workflow",
+    date: "2026-05-23",
+    time: "20:00",
+    title: "講師的 Agent 工作流",
+    type_label: "免費線上講座",
+    image: "images/courses/2026-05-23-agent-workflow.jpg",
+    venue_mode: "online",
+    host: "江江教練",
+    tags: ["講師", "Agent", "工作流", "備課"],
+    summary: "給講師、知識工作者：用 AI Agent 重新設計備課、知識管理、教材生產流程。",
+    detail_url: "https://jiang-yude.github.io/my-0523-agent-workflow/",
+    materials: [],
+    registration: {
+      status: "open",
+      url: "https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ",
+      label: "免費參加 ↗",
+      tooltip: "我每月固定舉辦兩場免費線上講座，\n講座資訊請看我的 LINE 社群",
+      note: "免費，加入 LINE 社群收到 Zoom 連結"
+    }
+  },
+  {
     id: "2026-05-25-mobile-product-photo",
     date: "2026-05-25",
     time: "14:00",
@@ -45,7 +71,7 @@ window.COURSES = [
     host: "江江教練",
     tags: ["手機攝影", "AI", "商品照", "在地商家"],
     summary: "在地商家專屬。用手機 + AI 工具建立自家品牌的視覺資產庫，不依賴攝影師也能持續產出。",
-    detail_url: null,
+    detail_url: "https://jiang-yude.github.io/my-mobile-ai-product-photo/",
     materials: [],
     registration: {
       status: "private",
@@ -64,9 +90,9 @@ window.COURSES = [
     host: "江江教練",
     tags: ["扶輪社", "ChatGPT", "Gemini", "NotebookLM", "商會"],
     summary: "給商會社員：ChatGPT 專案、Gemini Gem、NotebookLM 三套工具的實作整合。",
-    detail_url: null,
+    detail_url: "https://ai-km-jiang.vercel.app/courses/2026-05-30-yongli-ai-workshop/",
     materials: [
-      { label: "📊 上課簡報", url: "https://jiang-yude.github.io/my-yongli-0530-deck/" }
+      { label: "📊 上課簡報", url: "https://ai-km-jiang.vercel.app/courses/2026-05-30-yongli-ai-workshop/" }
     ],
     registration: {
       status: "private",
@@ -75,54 +101,36 @@ window.COURSES = [
     }
   },
   {
-    id: "2026-06-01-joy-podcast",
-    date: "2026-06-01",
-    time: null,
-    title: "就享知 Joy Podcast 訪談",
-    type_label: "Podcast",
-    image: null,
-    venue_mode: "podcast",
-    host: "Joy",
-    tags: ["Podcast", "AI輔助決策", "一人公司", "MVP"],
-    summary: "主題：AI 輔助決策、一人公司、MVP、思維框架。",
-    detail_url: null,
-    materials: [],
-    registration: {
-      status: "pending",
-      note: "播出後會更新連結"
-    }
-  },
-  {
-    id: "2026-06-07-skill-workshop",
-    date: "2026-06-07",
-    time: null,
-    title: "技能包與工作流設計",
-    type_label: "免費工作坊",
+    id: "2026-06-14-confluence-workflow",
+    date: "2026-06-14",
+    time: "20:00",
+    title: "一人一隻手機就能完成的 團隊資訊匯流工作法",
+    type_label: "免費講座",
     image: null,
     venue_mode: "online",
     host: "江江教練",
-    tags: ["技能包", "工作流", "申請制"],
-    summary: "申請制限額。要報名需先貢獻一個你自己的工作痛點。",
+    tags: ["匯流工作法", "非同步協作", "共享知識庫", "申請制"],
+    summary: "一種現在就能開始做的新組織溝通方式，門檻很低。一人一隻手機、ChatGPT、一個共享知識庫，就可以開始。不用先學程式、自動化、複雜工具。",
     detail_url: null,
     materials: [],
     registration: {
       status: "open",
       url: null,                                    // ⚠️ 待補：申請表
       label: "填寫申請表 ↗",
-      note: "申請制限額，先寫工作痛點才會收到通知"
+      note: "申請制限額"
     }
   },
   {
-    id: "2026-06-10-boss-ai-strategy",
-    date: "2026-06-10",
+    id: "2026-06-21-founder-ai-strategy",
+    date: "2026-06-21",
     time: null,
-    title: "給企業主的 AI 駕馭策略課",
+    title: "給創業者的 AI 駕馭策略課",
     type_label: "付費工作坊",
     image: null,
     venue_mode: "tbd",
     host: "江江教練 × 陳明勇",
-    tags: ["企業主", "AI策略", "合開", "駕馭"],
-    summary: "與陳明勇老師合開。給老闆層級的 AI 思維課，不教操作、講駕馭策略。",
+    tags: ["創業者", "AI策略", "合開", "駕馭"],
+    summary: "與陳明勇老師合開。給創業者的 AI 思維課，不教操作、講駕馭策略。",
     detail_url: null,
     materials: [],
     registration: {
@@ -188,6 +196,25 @@ window.COURSES = [
     }
   },
   {
+    id: "tbd-ai-design-workshop",
+    date: "2026-12-31",
+    time: null,
+    title: "AI 圖文設計工作坊",
+    type_label: "工作坊",
+    image: "images/courses/tbd-ai-design-workshop.jpg",
+    venue_mode: "tbd",
+    host: "江江教練",
+    tags: ["AI設計", "圖文", "品牌資產", "三視圖", "定妝照"],
+    summary: "從一張圖到一套品牌資產。教你用三視圖定妝照、品牌風格檔，穩定產出整套品牌視覺。",
+    phase: "incubating",
+    detail_url: "https://jiang-yude.github.io/my-0523-agent-workflow/",
+    materials: [],
+    registration: {
+      status: "pending",
+      note: "歡迎課程主辦單位邀約合辦"
+    }
+  },
+  {
     id: "2026-08-xx-esg-agent",
     date: "2026-08-15",
     time: null,
@@ -204,10 +231,84 @@ window.COURSES = [
       status: "pending",
       note: "等小薇顧問 8 月考完試後敲定日期"
     }
-  }
+  },
 
-  /* ─── 過去課程歷史 ─── */
-  /* 之後補：5/20 關係不內耗、5/17 AI 辦公室、5/10 AI Agent 橫向對比、5/5 創業點子驗證術、5/3 書本變 AI 顧問 ... */
+  /* ─── 過去場次（5 場，從 my-resources 補上）─── */
+  {
+    id: "2026-05-20-relation-non-internal",
+    date: "2026-05-20",
+    time: "20:00",
+    title: "關係不內耗練習課",
+    type_label: "免費線上講座",
+    image: null,
+    venue_mode: "online",
+    host: "江江教練",
+    tags: ["關係", "情緒", "AI輔助", "練習課"],
+    summary: "用 AI 輔助練習處理人際關係內耗的線上講座。",
+    detail_url: "https://jiang-yude.github.io/my-poll-relation-0520/",
+    materials: [],
+    registration: { status: "ended", note: "已結束，可看課後落點分析與內容" }
+  },
+  {
+    id: "2026-05-05-mvp-validation",
+    date: "2026-05-05",
+    time: "19:00",
+    title: "創業點子驗證術：AI 幫你試水溫",
+    type_label: "外部授課",
+    image: null,
+    venue_mode: "online",
+    host: "江江教練",
+    tags: ["創業", "MVP", "OGSM", "嘉我好漾"],
+    summary: "嘉義縣勞青處青創課程。OGSM、MVP 最小成本驗證、三視角拷問（納瓦爾、一人公司、技術）、Mika MVP 迭代軌跡。",
+    detail_url: "https://jiang-yude.github.io/my-mvp-validation/",
+    materials: [],
+    registration: { status: "ended", host_org: "嘉我好漾", note: "已結束，完整資源含課後統整可在內頁查看" }
+  },
+  {
+    id: "2026-05-03-pdf-ai-advisor",
+    date: "2026-05-03",
+    time: "20:00",
+    title: "把書、影片、PDF 變成你的 AI 顧問",
+    type_label: "免費線上講座",
+    image: null,
+    venue_mode: "online",
+    host: "江江教練",
+    tags: ["人格提煉", "AI顧問", "知識管理", "PDF"],
+    summary: "人格思維提煉技能包的講座現場版。把書、論文、影片、Podcast 變成可對話的 AI 顧問。",
+    detail_url: "https://gamma.app/docs/2026-05-03-PDF-AI--xc4qvo8va75cjog?mode=doc",
+    materials: [],
+    registration: { status: "ended", note: "已結束，簡報可在內頁查看" }
+  },
+  {
+    id: "2026-04-29-harness-engineering",
+    date: "2026-04-29",
+    time: "20:00",
+    title: "給文科生的 Harness Engineering × LLM Wiki 通識課",
+    type_label: "免費線上講座",
+    image: null,
+    venue_mode: "online",
+    host: "江江教練",
+    tags: ["駕馭工程", "LLMWiki", "通識", "文科生"],
+    summary: "大語言模型應用規劃 + LLM Wiki 個人知識管理通識課。",
+    detail_url: "https://gamma.app/docs/Harness-Engineering-LLM-Wiki--hnq6v57py04hjch?mode=doc",
+    materials: [],
+    registration: { status: "ended", note: "已結束，簡報可在內頁查看" }
+  },
+  {
+    id: "2026-03-29-learning-map",
+    date: "2026-03-29",
+    time: "20:00",
+    title: "用 AI 打造你的學習地圖，從此不再資訊焦慮",
+    type_label: "免費線上講座",
+    image: null,
+    venue_mode: "online",
+    host: "江江教練",
+    tags: ["學習地圖", "知識管理", "資訊焦慮", "文科生"],
+    summary: "給文科生的工作流學習地圖入門。",
+    detail_url: "https://gamma.app/docs/-7dz617zxz58vjwi?mode=doc",
+    materials: [],
+    registration: { status: "ended", note: "已結束，簡報可在內頁查看" }
+  }
 ];
 
 /* ─── 全域 CTA 預設文案 ─── */
