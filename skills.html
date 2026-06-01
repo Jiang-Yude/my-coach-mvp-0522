@@ -63,13 +63,14 @@
     <div class="filter-bar">
       <div class="filter-bar-label">依分類過濾 ↓</div>
       <div class="filter-chips" id="filter-chips">
-        <span class="filter-chip active" data-tag="all">全部 <span class="count" id="count-all">11</span></span>
+        <span class="filter-chip active" data-tag="all">全部 <span class="count" id="count-all">14</span></span>
         <span class="filter-chip" data-tag="evaluation">評估篩選 <span class="count">4</span></span>
         <span class="filter-chip" data-tag="distill">知識提煉 <span class="count">2</span></span>
         <span class="filter-chip" data-tag="business">商業策略 <span class="count">1</span></span>
         <span class="filter-chip" data-tag="persona">AI 顧問人格 <span class="count">1</span></span>
-        <span class="filter-chip" data-tag="tools">工具整合 <span class="count">2</span></span>
+        <span class="filter-chip" data-tag="tools">工具整合 <span class="count">3</span></span>
         <span class="filter-chip" data-tag="experience">體驗包 <span class="count">1</span></span>
+        <span class="filter-chip" data-tag="external">好物分享 <span class="count">2</span></span>
         <span class="filter-chip" data-tag="mit">MIT 授權 <span class="count">10</span></span>
         <span class="filter-chip" data-tag="bilingual">中英雙版 <span class="count">3</span></span>
       </div>
@@ -356,6 +357,52 @@
 
     <!-- 沒結果 -->
     <p class="filter-empty" id="filter-empty">這個分類目前沒有技能包。</p>
+
+    <!-- 好物分享 -->
+    <div class="skill-section" data-section="external">
+      <div class="skill-section-head">
+        <h2>好物分享</h2>
+        <span class="count">2 個</span>
+      </div>
+      <p class="section-sub" style="max-width: 760px; margin: 0 0 18px;">這區放的不是我做的技能包，而是我實際推薦、值得拿去研究或安裝試用的外部作品。安裝前一樣先請 Agent 幫你讀說明、做風險評估，再決定要不要放進自己的工作流。</p>
+      <div class="skills-grid">
+
+        <article class="skill-card" data-tags="external">
+          <div class="skill-id">alchaincyf/huashu-design</div>
+          <h3>花叔 Design 技能包</h3>
+          <p>用 HTML 做高保真原型、設計 Demo、互動展示、簡報和動畫探索。適合想讓 Agent 做出更有設計感視覺稿的人，先看 README 和授權再使用。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">外部推薦</span>
+            <span class="skill-tag">設計</span>
+            <span class="skill-tag">HTML Demo</span>
+          </div>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/alchaincyf/huashu-design" target="_blank" rel="noopener">GitHub 完整說明</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/alchaincyf/huashu-design">複製連結</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="skill-card" data-tags="external">
+          <div class="skill-id">anthropics/skills/frontend-design</div>
+          <h3>Anthropic Frontend Design Skill</h3>
+          <p>Anthropic 官方 frontend design skill，主打做出更有觀點、更不像通用 AI 模板的前端介面。適合網站、 landing page、dashboard、React component 等前端設計任務。</p>
+          <div class="skill-tags">
+            <span class="skill-tag">外部推薦</span>
+            <span class="skill-tag">Anthropic</span>
+            <span class="skill-tag">Frontend</span>
+          </div>
+          <div class="skill-actions">
+            <div class="skill-action-row">
+              <a class="skill-btn-primary" href="https://github.com/anthropics/skills/tree/main/skills/frontend-design" target="_blank" rel="noopener">GitHub 完整說明</a>
+              <button class="skill-btn-copy" type="button" data-copy-url="https://github.com/anthropics/skills/tree/main/skills/frontend-design">複製連結</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
 
     <!-- 更多 -->
     <div class="cta-box">
