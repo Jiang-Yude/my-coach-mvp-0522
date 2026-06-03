@@ -152,6 +152,32 @@
       }
     },
     {
+      "id": "course-2026-06-01-joy-podcast",
+      "type": "course",
+      "title": "就享知 Joy Podcast 訪談",
+      "url": "/courses.html",
+      "summary": "就享知 Joy 的 Podcast 訪談主題參考，圍繞 AI 輔助決策、一人公司、MVP 與思維框架。",
+      "tags": {
+        "topic": ["AI 輔助決策", "一人公司 AI 工作法", "MVP 驗證"],
+        "level": ["觀念入門"],
+        "audience": ["創業者", "一人公司", "知識工作者"],
+        "content_type": ["Podcast"]
+      }
+    },
+    {
+      "id": "course-2026-06-04-house-design-agent-demo",
+      "type": "course",
+      "title": "房屋設計 AI Agent 30 分鐘示範",
+      "url": "/courses.html",
+      "summary": "給房屋設計公司的 30 分鐘概念示範：如果公司多一個 AI 員工，可以先從哪些房屋設計工作流開始試。",
+      "tags": {
+        "topic": ["AI Agent 工作流", "AI 員工", "組織 AI 導入"],
+        "level": ["工作流設計"],
+        "audience": ["組織管理者", "辦公室工作者"],
+        "content_type": ["外部說明會"]
+      }
+    },
+    {
       "id": "course-2026-06-17-wenzao-agent-workflow",
       "type": "course",
       "title": "文藻大學「講師的 Agent 工作流」",
@@ -165,15 +191,15 @@
       }
     },
     {
-      "id": "course-2026-06-21-founder-ai-strategy",
+      "id": "course-2026-06-10-boss-ai-strategy",
       "type": "course",
-      "title": "給創業者的 AI 駕馭策略課",
+      "title": "給企業主的 AI 駕馭策略課",
       "url": "/courses.html",
-      "summary": "給創業者與企業主的 AI 駕馭策略課，時間與報名資訊待開放。",
+      "summary": "與陳明勇老師合開。給企業主的 AI 思維課，不教操作、講駕馭策略。",
       "tags": {
-        "topic": ["一人公司 AI 工作法", "AI 知識管理"],
+        "topic": ["企業主的 AI 駕馭策略", "AI 知識管理", "組織 AI 導入"],
         "level": ["工作流設計"],
-        "audience": ["創業者", "一人公司"],
+        "audience": ["企業主", "創業者", "組織管理者"],
         "content_type": ["付費工作坊"]
       }
     },

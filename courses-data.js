@@ -101,6 +101,44 @@ window.COURSES = [
     }
   },
   {
+    id: "2026-06-01-joy-podcast",
+    date: "2026-06-01",
+    time: null,
+    title: "就享知 Joy Podcast 訪談",
+    type_label: "Podcast",
+    image: null,
+    venue_mode: "podcast",
+    host: "江江教練",
+    tags: ["就享知", "Podcast", "AI輔助決策", "一人公司", "MVP", "思維框架"],
+    summary: "就享知 Joy 的 Podcast 訪談主題參考，圍繞 AI 輔助決策、一人公司、MVP 與思維框架。",
+    detail_url: null,
+    materials: [],
+    registration: {
+      status: "pending",
+      note: "播出後會更新連結"
+    }
+  },
+  {
+    id: "2026-06-04-house-design-agent-demo",
+    date: "2026-06-04",
+    time: "14:00",
+    duration_min: 30,
+    title: "房屋設計 AI Agent 30 分鐘示範",
+    type_label: "外部說明會",
+    image: null,
+    venue_mode: "tbd",
+    host: "江江教練",
+    tags: ["房屋設計", "AI Agent", "外部說明會", "工作流示範"],
+    summary: "給房屋設計公司的 30 分鐘概念示範：如果公司多一個 AI 員工，可以先從哪些房屋設計工作流開始試。",
+    detail_url: null,
+    materials: [],
+    registration: {
+      status: "private",
+      host_org: "外部邀約",
+      note: "外部說明會，14:00 時間待確認"
+    }
+  },
+  {
     id: "2026-06-07-ai-employee",
     date: "2026-06-07",
     time: "20:00",
@@ -163,21 +201,22 @@ window.COURSES = [
     }
   },
   {
-    id: "2026-06-21-founder-ai-strategy",
-    date: "2026-06-21",
+    id: "2026-06-10-boss-ai-strategy",
+    date: "2026-06-10",
     time: null,
-    title: "給創業者的 AI 駕馭策略課",
+    duration_min: 300,
+    title: "給企業主的 AI 駕馭策略課",
     type_label: "付費工作坊",
     image: null,
     venue_mode: "tbd",
     host: "江江教練 × 陳明勇",
-    tags: ["創業者", "AI策略", "合開", "駕馭"],
-    summary: "與陳明勇老師合開。給創業者的 AI 思維課，不教操作、講駕馭策略。",
+    tags: ["企業主", "AI策略", "合開", "駕馭", "工作坊"],
+    summary: "與陳明勇老師合開。給企業主的 AI 思維課，不教操作、講駕馭策略。",
     detail_url: null,
     materials: [],
     registration: {
       status: "pending",
-      note: "6/1 開始推廣，屆時公布報名連結"
+      note: "設計中，6/1 開始推廣，屆時公布報名連結"
     }
   },
   {
