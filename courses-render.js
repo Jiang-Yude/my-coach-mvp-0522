@@ -196,14 +196,14 @@
       return true;
     });
 
-    // 排序：籌備中 → 未來升序 → 過去降序
+    // 排序：未來升序 → 過去降序。籌備中的課先保留在資料源，不公開顯示。
     const incubating = filtered.filter(isIncubating);
     const upcoming = filtered.filter(isUpcoming).sort((a,b)=>parseDate(a.date)-parseDate(b.date));
     const past = filtered.filter(isPast).sort((a,b)=>parseDate(b.date)-parseDate(a.date));
 
     // 沒結果
     const emptyEl = document.getElementById('no-courses-results');
-    if (emptyEl) emptyEl.classList.toggle('show', incubating.length === 0 && upcoming.length === 0 && past.length === 0);
+    if (emptyEl) emptyEl.classList.toggle('show', upcoming.length === 0 && past.length === 0);
 
     function groupByMonth(arr) {
       const groups = {};
@@ -261,14 +261,9 @@
     }
 
     let html = '';
-    const hasUpcoming = incubating.length || upcoming.length;
+    const hasUpcoming = upcoming.length;
     if (hasUpcoming) {
       html += `<div style="margin-bottom: 12px;"><div class="eyebrow">未來的課</div></div>`;
-      html += subsection(
-        '🌱 籌備中 · 徵求夥伴',
-        incubating,
-        '等邀約、等夥伴、等啟動的課。如果你有合適的場域、社群或學員，歡迎來聊聊一起辦。'
-      );
       html += subsection('本月', currentMonth);
       html += subsection('下月', nextMonthArr);
       html += subsection('後續檔期', later, '更後面的場次與時間未定的課程。');

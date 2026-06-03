@@ -78,7 +78,7 @@
       "type": "page",
       "title": "課程預告",
       "url": "/courses.html",
-      "summary": "免費線上講座、付費工作坊、外部授課與籌備中課程。",
+      "summary": "免費線上講座、付費工作坊與外部授課。",
       "tags": {
         "topic": ["AI 知識管理", "AI Agent 工作流"],
         "level": ["零基礎入門", "工作流設計"],
@@ -526,19 +526,6 @@
         "level": ["工具使用"],
         "audience": ["組織管理者", "商會社群"],
         "content_type": ["外部授課"]
-      }
-    },
-    {
-      "id": "course-tbd-ai-design-workshop",
-      "type": "course",
-      "title": "AI 圖文設計工作坊",
-      "url": "/courses.html",
-      "summary": "籌備中、徵求夥伴的 AI 圖文設計工作坊。",
-      "tags": {
-        "topic": ["一人公司 AI 工作法"],
-        "level": ["工具使用"],
-        "audience": ["創業者", "一人公司"],
-        "content_type": ["付費工作坊"]
       }
     },
     {
