@@ -2103,6 +2103,38 @@ footer .foot-meta {
   color: var(--c-coral);
   border-bottom-color: var(--c-coral);
 }
+.path-links {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+}
+.path-links a {
+  color: var(--c-coral);
+  font-weight: 700;
+  border-bottom: 1px solid rgba(184, 104, 76, 0.28);
+}
+.learning-board {
+  margin-top: 36px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 26px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.learning-board h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 1.75rem;
+  margin: 2px 0 8px;
+}
+.learning-board p {
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 680px;
+}
 .tag-dimension-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2153,6 +2185,8 @@ footer .foot-meta {
   .entry-grid, .entry-grid.five, .path-grid, .tag-dimension-grid { grid-template-columns: 1fr; gap: 20px; }
   .entry-card { padding: 28px 24px; min-height: auto; }
   .entry-card h3 { font-size: 1.7rem; }
+  .learning-board { display: grid; padding: 24px; }
+  .learning-board .button { justify-self: start; }
   section { padding: 60px 0; }
   .page-header h1 { font-size: 2.6rem; }
   .group-header h2 { font-size: 1.5rem; }

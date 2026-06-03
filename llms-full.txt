@@ -33,20 +33,20 @@
 ## 網站入口
 
 - 首頁：https://ai-km-jiang.vercel.app/
-- 學習地圖：https://ai-km-jiang.vercel.app/learn.html
 - 課程預告：https://ai-km-jiang.vercel.app/courses.html
-- 學習資源：https://ai-km-jiang.vercel.app/resources.html
+- 課後簡報：https://ai-km-jiang.vercel.app/resources.html
+- 學習地圖：https://ai-km-jiang.vercel.app/learn.html
 - Skills 下載：https://ai-km-jiang.vercel.app/skills.html
 - 合作案例：https://ai-km-jiang.vercel.app/cases.html
 
 ## 學習路徑
 
-學習地圖提供四條入口：
+學習地圖提供四條入口，每條路徑都串到實際課後簡報、課程、教學文章或技能包：
 
-- 新手入門：從免費線上講座與公開課程簡報開始。
-- 辦公室工作者：用公開資源與 Claude Skills 處理文件、會議、簡報等工作場景。
-- 講師與一人公司：從「講師的 Agent 工作流」入手，把備課、內容、產品整理成可複用工作流。
-- 組織知識管理：從已完成合作案例理解 AI 知識管理如何在組織、商會、培訓場景落地。
+- 新手入門：從永力社 AI 應用工作坊、PDF AI 顧問等課後簡報開始，再接免費線上講座。
+- 辦公室工作者：用商品照、文件整理、PDF AI 顧問與 Skills 處理真實工作場景。
+- 講師與一人公司：從「講師的 Agent 工作流」與 MVP 驗證簡報入手，把備課、內容、產品整理成可複用工作流。
+- 組織知識管理：從永力社工作坊與合作案例理解 AI 知識管理如何在組織、商會、培訓場景落地。
 
 ## 開源 Claude Code Skills 技能包
 

@@ -7,20 +7,20 @@
 ## Core Pages
 
 - [首頁](https://ai-km-jiang.vercel.app/): 個人定位、最近的課、社群入口
-- [學習地圖](https://ai-km-jiang.vercel.app/learn.html): 新手、辦公室工作者、講師與一人公司、組織知識管理四條學習路徑
 - [課程預告](https://ai-km-jiang.vercel.app/courses.html): 尚未上課與即將上課的線上講座、付費工作坊、外部授課
-- [學習資源](https://ai-km-jiang.vercel.app/resources.html): 已上完課程的簡報、封面課程卡、公開課程素材、文章與短分享
+- [課後簡報](https://ai-km-jiang.vercel.app/resources.html): 已上完課程的公開簡報、封面課程卡、講義、範例網頁與短分享
+- [學習地圖](https://ai-km-jiang.vercel.app/learn.html): 把實際課後簡報、課程、教學文章與技能包串成任務型學習路徑
 - [Skills 下載](https://ai-km-jiang.vercel.app/skills.html): 開源 Claude Code Skills 技能包（含說明書與範例）
 - [合作案例](https://ai-km-jiang.vercel.app/cases.html): 已完成產品、報告書、互動系統與去敏感公開示範範本
 
 ## Learning Paths
 
-江江教練的四條學習路徑，幫助不同背景的人找到進入 AI 知識管理的起點：
+江江教練的四條學習路徑，幫助不同背景的人把實際簡報、課程、教學文章與技能包串成可走的路：
 
-- 新手入門：從免費線上講座開始，用公開課程簡報帶著模仿
-- 辦公室工作者：下載 Claude Skills 技能包，帶真實工作痛點參加工作坊
-- 講師與一人公司：從「講師的 Agent 工作流」八階段簡報入手，建立可複用工作流
-- 組織知識管理：從合作案例了解交付物，再聯繫洽談外部授課或合作
+- 新手入門：從永力社 AI 應用工作坊、PDF AI 顧問等課後簡報開始，再接免費線上講座。
+- 辦公室工作者：用商品照、文件整理、PDF AI 顧問與 Skills 處理真實工作場景。
+- 講師與一人公司：從「講師的 Agent 工作流」與 MVP 驗證簡報入手，建立可複用工作流。
+- 組織知識管理：從永力社工作坊與合作案例了解組織、商會、培訓場景怎麼落地。
 
 學習地圖入口：https://ai-km-jiang.vercel.app/learn.html
 
