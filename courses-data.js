@@ -101,6 +101,28 @@ window.COURSES = [
     }
   },
   {
+    id: "2026-06-07-ai-employee",
+    date: "2026-06-07",
+    time: "20:00",
+    duration_min: 60,
+    title: "怎麼訓練自己的 AI 員工",
+    type_label: "免費線上講座",
+    image: "images/courses/2026-06-03-1719-ai-employee-course-poster.jpg",
+    venue_mode: "online",
+    host: "江江教練",
+    tags: ["AI員工", "AI Agent", "工作流", "一人公司", "創業者", "重複工作"],
+    summary: "把 AI 從聊天工具，訓練成真的能幫你做事的 AI 員工。適合老闆、創業者、一人公司、接案者，以及想把 AI 真的放進工作流程的人。",
+    detail_url: "https://ai-km-jiang.vercel.app/courses/2026-06-03-1719-ai-employee-course.html",
+    materials: [],
+    registration: {
+      status: "open",
+      url: "https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ",
+      label: "免費參加 ↗",
+      tooltip: "報名請加入我的 LINE 社群，\n講座連結會分享在社群記事本",
+      note: "免費，講座連結會分享在 LINE 社群記事本"
+    }
+  },
+  {
     id: "2026-06-14-confluence-workflow",
     date: "2026-06-14",
     time: "20:00",
@@ -115,9 +137,29 @@ window.COURSES = [
     materials: [],
     registration: {
       status: "open",
-      url: null,                                    // ⚠️ 待補：申請表
+      url: null,
       label: "填寫申請表 ↗",
       note: "申請制限額"
+    }
+  },
+  {
+    id: "2026-06-17-wenzao-agent-workflow",
+    date: "2026-06-17",
+    time: "12:00",
+    duration_min: 60,
+    title: "文藻大學「講師的 Agent 工作流」",
+    type_label: "外部授課",
+    image: "images/courses/2026-06-17-wenzao-agent-workflow.jpg",
+    venue_mode: "online",
+    host: "江江教練",
+    tags: ["文藻大學", "講師", "行政人員", "Agent", "工作流", "知識庫"],
+    summary: "給大學教授、講師與行政人員的線上課：從資料收集整理，到建立自己的知識庫與 AI 工作流。",
+    detail_url: "https://ai-km-jiang.vercel.app/courses/2026-05-23-agent-workflow/",
+    materials: [],
+    registration: {
+      status: "private",
+      host_org: "文藻大學",
+      note: "教師與行政人員專場，6/17 12:00-13:00"
     }
   },
   {
@@ -161,38 +203,40 @@ window.COURSES = [
     id: "2026-07-08-marketing-1",
     date: "2026-07-08",
     time: "19:00",
-    title: "省時行銷密技 1：AI 幫我寫貼文",
+    duration_min: 120,
+    title: "AI Agent 與 Codex 實戰：把工作經驗變成 AI 員工",
     type_label: "外部授課",
     image: null,
     venue_mode: "online",
     host: "江江教練",
-    tags: ["行銷", "AI寫貼文", "嘉我好漾", "省時"],
-    summary: "嘉我好漾線上青創課。",
+    tags: ["嘉我好漾", "AI Agent", "Codex", "AI員工", "AI顧問", "可視化報表"],
+    summary: "嘉我好漾線上青創課。從 AI Agent 概念、AI Codex 基礎操作設定，到把工作經驗提煉成 AI 員工／AI 顧問可照著執行的流程，並整理成可視化報表。",
     detail_url: null,
     materials: [],
     registration: {
       status: "private",
       host_org: "嘉我好漾",
-      note: "嘉義縣勞青處青創課程"
+      note: "嘉義縣勞青處青創課程，7/8 19:00-21:00"
     }
   },
   {
     id: "2026-07-14-marketing-2",
     date: "2026-07-14",
     time: "19:00",
-    title: "省時行銷密技 2：AI 幫我做素材",
+    duration_min: 120,
+    title: "AI 圖文實作：把品牌資產做出來",
     type_label: "外部授課",
     image: null,
     venue_mode: "online",
     host: "江江教練",
-    tags: ["行銷", "AI素材", "嘉我好漾", "輪播圖"],
-    summary: "嘉我好漾線上青創課，第二堂。",
+    tags: ["嘉我好漾", "AI圖文", "品牌資產", "短影音", "長影片", "內容節奏"],
+    summary: "嘉我好漾線上青創課。實作 AI 圖文工具，建立品牌資產與降低 AI 味的品質標準，並拆解短影音、長影片在行銷漏斗中的角色與一週內容節奏。",
     detail_url: null,
     materials: [],
     registration: {
       status: "private",
       host_org: "嘉我好漾",
-      note: "嘉義縣勞青處青創課程"
+      note: "嘉義縣勞青處青創課程，7/14 19:00-21:00"
     }
   },
   {
@@ -240,7 +284,7 @@ window.COURSES = [
     time: "20:00",
     title: "關係不內耗練習課",
     type_label: "免費線上講座",
-    image: null,
+    image: "images/courses/2026-05-20-relation-non-internal.jpg",
     venue_mode: "online",
     host: "江江教練",
     tags: ["關係", "情緒", "AI輔助", "練習課"],
@@ -255,7 +299,7 @@ window.COURSES = [
     time: "19:00",
     title: "創業點子驗證術：AI 幫你試水溫",
     type_label: "外部授課",
-    image: null,
+    image: "images/courses/2026-05-05-mvp-validation.jpg",
     venue_mode: "online",
     host: "江江教練",
     tags: ["創業", "MVP", "OGSM", "嘉我好漾"],
@@ -270,7 +314,7 @@ window.COURSES = [
     time: "20:00",
     title: "把書、影片、PDF 變成你的 AI 顧問",
     type_label: "免費線上講座",
-    image: null,
+    image: "images/courses/2026-05-03-pdf-ai-advisor.png",
     venue_mode: "online",
     host: "江江教練",
     tags: ["人格提煉", "AI顧問", "知識管理", "PDF"],
@@ -285,7 +329,7 @@ window.COURSES = [
     time: "20:00",
     title: "給文科生的 Harness Engineering × LLM Wiki 通識課",
     type_label: "免費線上講座",
-    image: null,
+    image: "images/courses/2026-04-29-harness-engineering.jpg",
     venue_mode: "online",
     host: "江江教練",
     tags: ["駕馭工程", "LLMWiki", "通識", "文科生"],
@@ -300,7 +344,7 @@ window.COURSES = [
     time: "20:00",
     title: "用 AI 打造你的學習地圖，從此不再資訊焦慮",
     type_label: "免費線上講座",
-    image: null,
+    image: "images/courses/2026-03-29-agent-learning-map.jpg",
     venue_mode: "online",
     host: "江江教練",
     tags: ["學習地圖", "知識管理", "資訊焦慮", "文科生"],

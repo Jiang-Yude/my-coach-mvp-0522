@@ -114,6 +114,15 @@
     </div>`;
   }
 
+  // ─── 延伸資源（簡報、技能包等）───
+  function materialsHTML(c) {
+    if (!c.materials || !c.materials.length) return '';
+    const links = c.materials.map(m =>
+      `<a class="course-material" href="${escapeHtml(m.url)}" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;margin-right:14px;font-size:0.95rem;font-weight:600;color:var(--c-coral);border-bottom:1px dashed var(--c-coral);text-decoration:none;">${escapeHtml(m.label || '資源 ↗')}</a>`
+    ).join('');
+    return `<div class="card-materials">${links}</div>`;
+  }
+
   // ─── 課程詳細頁連結（有 detail_url 才顯示） ───
   function detailLinkHTML(c) {
     if (!c.detail_url) return '';
