@@ -196,14 +196,13 @@
       return true;
     });
 
-    // 排序：未來升序 → 過去降序。籌備中的課先保留在資料源，不公開顯示。
+    // 課程預告只顯示未來場次；已結束課程整理到 resources.html。
     const incubating = filtered.filter(isIncubating);
     const upcoming = filtered.filter(isUpcoming).sort((a,b)=>parseDate(a.date)-parseDate(b.date));
-    const past = filtered.filter(isPast).sort((a,b)=>parseDate(b.date)-parseDate(a.date));
 
     // 沒結果
     const emptyEl = document.getElementById('no-courses-results');
-    if (emptyEl) emptyEl.classList.toggle('show', upcoming.length === 0 && past.length === 0);
+    if (emptyEl) emptyEl.classList.toggle('show', upcoming.length === 0);
 
     function groupByMonth(arr) {
       const groups = {};
@@ -268,16 +267,8 @@
       html += subsection('下月', nextMonthArr);
       html += subsection('後續檔期', later, '更後面的場次與時間未定的課程。');
     }
-    if (past.length) {
-      const groups = groupByMonth(past);
-      html += `<div style="margin: 72px 0 16px; padding-bottom: 12px; border-bottom: 1px dashed var(--line);">
-        <div class="eyebrow">過去的紀錄</div>
-        <p style="color:var(--ink-faint);font-size:0.95rem;margin:8px 0 0;">已結束的課程，留存當紀錄。</p>
-      </div>`;
-      html += renderGroup(groups, (a,b)=>b.localeCompare(a));
-    }
     if (!html) {
-      html = `<p style="text-align:center;color:var(--ink-faint);padding:48px;">尚無課程資料。</p>`;
+      html = `<p style="text-align:center;color:var(--ink-faint);padding:48px;">目前沒有課程預告。已上完的課程與簡報請看 <a href="resources.html" style="color:var(--c-coral);border-bottom:1px dashed var(--c-coral);">學習資源</a>。</p>`;
     }
     target.innerHTML = html;
   };

@@ -8,8 +8,8 @@
 
 - [首頁](https://ai-km-jiang.vercel.app/): 個人定位、最近的課、社群入口
 - [學習地圖](https://ai-km-jiang.vercel.app/learn.html): 新手、辦公室工作者、講師與一人公司、組織知識管理四條學習路徑
-- [課程預告](https://ai-km-jiang.vercel.app/courses.html): 線上講座、付費工作坊、外部授課完整列表
-- [學習資源](https://ai-km-jiang.vercel.app/resources.html): 已上課簡報、公開課程素材、文章與短分享
+- [課程預告](https://ai-km-jiang.vercel.app/courses.html): 尚未上課與即將上課的線上講座、付費工作坊、外部授課
+- [學習資源](https://ai-km-jiang.vercel.app/resources.html): 已上完課程的簡報、封面課程卡、公開課程素材、文章與短分享
 - [Skills 下載](https://ai-km-jiang.vercel.app/skills.html): 開源 Claude Code Skills 技能包（含說明書與範例）
 - [合作案例](https://ai-km-jiang.vercel.app/cases.html): 已完成產品、報告書、互動系統與去敏感公開示範範本
 

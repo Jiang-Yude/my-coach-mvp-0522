@@ -78,7 +78,7 @@
       "type": "page",
       "title": "課程預告",
       "url": "/courses.html",
-      "summary": "免費線上講座、付費工作坊與外部授課。",
+      "summary": "尚未上課與即將上課的免費線上講座、付費工作坊與外部授課。",
       "tags": {
         "topic": ["AI 知識管理", "AI Agent 工作流"],
         "level": ["零基礎入門", "工作流設計"],
@@ -91,7 +91,7 @@
       "type": "page",
       "title": "學習資源",
       "url": "/resources.html",
-      "summary": "已上課簡報、公開課程素材、文章與短分享。",
+      "summary": "已上完課程的簡報、封面課程卡、公開課程素材、文章與短分享。",
       "tags": {
         "topic": ["AI 知識管理", "AI Agent 工作流", "知識資產累積"],
         "level": ["工具使用", "工作流設計"],
