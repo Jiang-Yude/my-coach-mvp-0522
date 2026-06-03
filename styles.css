@@ -404,9 +404,16 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
 @media (min-width: 720px) {
   .list-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
   .list-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+  .list-grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 940px) {
+  .list-grid.cols-4 { grid-template-columns: repeat(3, 1fr); }
 }
 @media (min-width: 1080px) {
   .list-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1180px) {
+  .list-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 }
 
 /* 籌備中 badge */
@@ -535,6 +542,44 @@ section { padding: 88px 0; position: relative; overflow: hidden; }
   border-bottom-color: var(--c-coral);
 }
 .list-card .card-links span { color: var(--ink-faint); font-size: 1.06rem; }
+
+.resource-course-grid {
+  gap: 16px;
+}
+.resource-course-grid .course-card .card-body {
+  padding: 15px 16px 17px;
+  gap: 2px;
+}
+.resource-course-grid .list-card .card-meta {
+  gap: 7px;
+  font-size: 0.88rem;
+  margin-bottom: 7px;
+}
+.resource-course-grid .list-card .card-date {
+  font-size: 0.94rem;
+}
+.resource-course-grid .list-card .badge {
+  padding: 3px 8px;
+  font-size: 0.68rem;
+}
+.resource-course-grid .list-card h3 {
+  font-size: 1.16rem;
+  line-height: 1.28;
+  margin-bottom: 7px;
+}
+.resource-course-grid .list-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+.resource-course-grid .list-card .card-links {
+  gap: 10px;
+  font-size: 0.88rem;
+  padding-top: 9px;
+}
+.resource-course-grid .list-card:not(.course-card) {
+  padding: 18px 18px;
+}
 
 /* ─── 分組 header ─── */
 .group-header {
