@@ -119,26 +119,6 @@ window.COURSES = [
     }
   },
   {
-    id: "2026-06-04-house-design-agent-demo",
-    date: "2026-06-04",
-    time: "14:00",
-    duration_min: 30,
-    title: "房屋設計 AI Agent 30 分鐘示範",
-    type_label: "外部說明會",
-    image: null,
-    venue_mode: "tbd",
-    host: "江江教練",
-    tags: ["房屋設計", "AI Agent", "外部說明會", "工作流示範"],
-    summary: "給房屋設計公司的 30 分鐘概念示範：如果公司多一個 AI 員工，可以先從哪些房屋設計工作流開始試。",
-    detail_url: null,
-    materials: [],
-    registration: {
-      status: "private",
-      host_org: "外部邀約",
-      note: "外部說明會，14:00 時間待確認"
-    }
-  },
-  {
     id: "2026-06-07-ai-employee",
     date: "2026-06-07",
     time: "20:00",

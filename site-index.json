@@ -165,19 +165,6 @@
       }
     },
     {
-      "id": "course-2026-06-04-house-design-agent-demo",
-      "type": "course",
-      "title": "房屋設計 AI Agent 30 分鐘示範",
-      "url": "/courses.html",
-      "summary": "給房屋設計公司的 30 分鐘概念示範：如果公司多一個 AI 員工，可以先從哪些房屋設計工作流開始試。",
-      "tags": {
-        "topic": ["AI Agent 工作流", "AI 員工", "組織 AI 導入"],
-        "level": ["工作流設計"],
-        "audience": ["組織管理者", "辦公室工作者"],
-        "content_type": ["外部說明會"]
-      }
-    },
-    {
       "id": "course-2026-06-17-wenzao-agent-workflow",
       "type": "course",
       "title": "文藻大學「講師的 Agent 工作流」",
