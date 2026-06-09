@@ -178,19 +178,6 @@
       }
     },
     {
-      "id": "course-2026-06-10-boss-ai-strategy",
-      "type": "course",
-      "title": "給企業主的 AI 駕馭策略課",
-      "url": "/courses.html",
-      "summary": "與陳明勇老師合開。給企業主的 AI 思維課，不教操作、講駕馭策略。",
-      "tags": {
-        "topic": ["企業主的 AI 駕馭策略", "AI 知識管理", "組織 AI 導入"],
-        "level": ["工作流設計"],
-        "audience": ["企業主", "創業者", "組織管理者"],
-        "content_type": ["付費工作坊"]
-      }
-    },
-    {
       "id": "course-2026-06-27-parent-child-ai-story",
       "type": "course",
       "title": "星奇兒親子 AI 故事工作坊",
