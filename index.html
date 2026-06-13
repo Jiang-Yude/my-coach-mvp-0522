@@ -28,7 +28,7 @@
   "name": "江昱德",
   "alternateName": ["江江教練", "Jiang Yude"],
   "jobTitle": "AI 教練",
-  "description": "AI 教練與一人公司主理人。專長是提煉隱性知識——協助知識工作者把散落的文件、會議紀錄、課程錄影、工作經驗，用 AI 工具變成可累積、可重用、可輔助決策的知識資產。",
+  "description": "AI 教練與一人公司主理人。專長是提煉隱性知識：協助知識工作者把散落的文件、會議紀錄、課程錄影、工作經驗，用 AI 工具變成可累積、可重用、可輔助決策的知識資產。",
   "url": "https://ai-km-jiang.vercel.app/",
   "image": "https://ai-km-jiang.vercel.app/images/intro-jiang.png",
   "knowsAbout": [
@@ -65,6 +65,629 @@
   }
 }
 </script>
+
+<style>
+/* ── index.html 頁面專屬樣式 ── */
+
+/* ── 1. Hero：雙 CTA 按鈕列 ── */
+.hero-cta-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+.hero-btn-primary {
+  display: inline-block;
+  padding: 14px 30px;
+  background: var(--c-coral);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1.5px solid var(--c-coral);
+  transition: background .25s, transform .25s, box-shadow .25s;
+  text-decoration: none;
+}
+.hero-btn-primary:hover {
+  background: #d44d43;
+  border-color: #d44d43;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(232, 90, 79, 0.32);
+  color: #fff;
+}
+.hero-btn-secondary {
+  display: inline-block;
+  padding: 14px 30px;
+  background: transparent;
+  color: var(--ink);
+  border-radius: var(--radius-pill);
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1.5px solid var(--line);
+  transition: all .25s;
+  text-decoration: none;
+}
+.hero-btn-secondary:hover {
+  border-color: var(--c-sand);
+  color: var(--c-sand);
+  transform: translateY(-2px);
+}
+.tier-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 1.06rem;
+  font-weight: 600;
+  color: var(--c-coral);
+  text-decoration: none;
+}
+.tier-link:hover { text-decoration: underline; }
+.hero-hook {
+  margin: 28px 0 0;
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* ── 2. 三支柱 ── */
+.pillars-section {
+  padding: 72px 0 64px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+@media (max-width: 768px) {
+  .pillars-grid { grid-template-columns: 1fr; gap: 18px; }
+}
+.pillar-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--c-sand);
+}
+.pillar-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 3.6rem;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 12px;
+  color: var(--line);
+}
+.pillar-card:nth-child(1) .pillar-num { color: rgba(232, 90, 79, 0.25); }
+.pillar-card:nth-child(2) .pillar-num { color: rgba(160, 129, 68, 0.25); }
+.pillar-card:nth-child(3) .pillar-num { color: rgba(77, 156, 125, 0.28); }
+.pillar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 0 8px;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.pillar-card:nth-child(1) .pillar-title { color: var(--c-coral); }
+.pillar-card:nth-child(2) .pillar-title { color: var(--c-sand); }
+.pillar-card:nth-child(3) .pillar-title { color: var(--c-mint); }
+.pillar-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.18rem;
+  color: var(--ink-faint);
+  margin: 0 0 14px;
+  font-weight: 500;
+}
+.pillar-desc {
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin: 0;
+}
+.pillars-tagline {
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.6rem;
+  color: var(--c-sand);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ── 3. 信任層：數字 strip + 單位 chips ── */
+.trust-strip {
+  padding: 52px 0;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  position: relative;
+  overflow: hidden;
+}
+.trust-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 48px 64px;
+}
+.trust-stat {
+  text-align: center;
+}
+.trust-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.trust-stat-label {
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  margin-top: 6px;
+  letter-spacing: 0.02em;
+}
+.trust-divider {
+  width: 1px;
+  height: 56px;
+  background: var(--line);
+  flex-shrink: 0;
+}
+@media (max-width: 720px) {
+  .trust-divider { display: none; }
+  .trust-inner { gap: 32px 40px; }
+}
+.trust-units {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.trust-chip {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: border-color .2s, color .2s;
+}
+.trust-chip:hover {
+  border-color: var(--c-sand);
+  color: var(--ink);
+}
+
+/* ── 6. 課程三層體系 ── */
+.tiers-section {
+  padding: 72px 0 64px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+@media (max-width: 840px) {
+  .tiers-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+.tier-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  padding: 36px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+.tier-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--c-sand);
+}
+.tier-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.tier-card.lv1::before { background: var(--c-mint); }
+.tier-card.lv2::before { background: var(--c-coral); }
+.tier-card.lv3::before { background: var(--c-lavender); }
+.tier-level {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.12rem;
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+.tier-card.lv1 .tier-level { color: var(--c-mint); }
+.tier-card.lv2 .tier-level { color: var(--c-coral); }
+.tier-card.lv3 .tier-level { color: var(--c-lavender); }
+.tier-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0;
+}
+.tier-who {
+  font-size: 1.06rem;
+  color: var(--ink-faint);
+  font-style: italic;
+  margin: 0;
+}
+.tier-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tier-items li {
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.6;
+}
+.tier-items li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--c-sand);
+  font-weight: 700;
+}
+.tier-takeaway {
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  flex-grow: 1;
+}
+.tier-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.18rem;
+  color: var(--c-sand);
+  font-style: italic;
+  font-weight: 500;
+}
+.tiers-cta-row {
+  text-align: center;
+  margin-top: 44px;
+}
+
+/* ── 7. 旗艦課深度區 ── */
+.flagship-section {
+  padding: 72px 0 64px;
+  background: var(--bg-soft);
+  position: relative;
+  overflow: hidden;
+}
+.flagship-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  padding: 52px 52px 44px;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 720px) {
+  .flagship-inner { padding: 36px 24px 32px; }
+}
+.flagship-inner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--c-coral), var(--c-peach));
+}
+.flagship-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--c-sand);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.flagship-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.flagship-price-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--c-coral);
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.flagship-positioning {
+  font-size: 1.12rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+  margin: 0 0 28px;
+  max-width: 680px;
+}
+.flagship-signature {
+  font-family: 'Caveat', cursive;
+  font-size: 1.45rem;
+  color: var(--c-sand);
+  font-weight: 600;
+  margin: 0 0 28px;
+}
+.flagship-items-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 12px;
+  letter-spacing: 0.01em;
+}
+.flagship-takeaways {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.flagship-takeaways li {
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  padding-left: 22px;
+  position: relative;
+  line-height: 1.65;
+}
+.flagship-takeaways li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--c-coral);
+  font-weight: 700;
+  font-size: 1rem;
+}
+/* 試看影片佔位框 */
+.flagship-video-placeholder {
+  background: var(--bg-soft);
+  border: 1.5px dashed var(--c-sand);
+  border-radius: var(--radius-lg);
+  padding: 40px 24px;
+  text-align: center;
+  margin: 0 0 32px;
+  color: var(--ink-faint);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.12rem;
+  line-height: 1.65;
+}
+.flagship-cta {
+  display: inline-block;
+  padding: 14px 34px;
+  background: var(--c-coral);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 1.5px solid var(--c-coral);
+  transition: background .25s, transform .25s, box-shadow .25s;
+  text-decoration: none;
+}
+.flagship-cta:hover {
+  background: #d44d43;
+  border-color: #d44d43;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(232, 90, 79, 0.32);
+  color: #fff;
+}
+
+/* ── 8. 學員與推薦 ── */
+.testimonials-section {
+  padding: 64px 0 56px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+@media (max-width: 840px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+.testimonial-card {
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.testimonial-quote {
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin: 0;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.18rem;
+}
+.testimonial-source {
+  font-size: 1.06rem;
+  color: var(--ink-faint);
+  font-weight: 500;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+
+/* ── 10. 技能包生態圈 ── */
+.skills-teaser {
+  padding: 64px 0 56px;
+  background: var(--bg-soft);
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.skills-teaser-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.skills-teaser-tagline {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  color: var(--c-sand);
+  font-weight: 600;
+  margin: 18px 0 0;
+}
+
+/* ── 六入口卡：重用 entry-grid，區塊有自己的 section padding ── */
+.entry-section {
+  padding: 60px 0 64px;
+  background: var(--bg);
+}
+
+/* ── 手機 RWD 補完 ── */
+@media (max-width: 720px) {
+  .tiers-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .pillars-grid { grid-template-columns: 1fr; }
+}
+/* 最近的課：桌機三欄、窄幅單欄（取代原 inline style，避免蓋掉手機版規則） */
+.home-upcoming-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) {
+  .home-upcoming-grid { grid-template-columns: 1fr; }
+}
+
+/* ════ 咪卡時刻（視覺引導元件） ════
+   咪卡＝幫訪客理解內容的視覺引導：她的動作、神情直接跟旁邊的資訊互動（風格＝江江的咪卡社群圖卡：黑貓、鴨舌帽、奶茶米色、溫暖手繪）。
+   文案已定稿（.mika-line，不要改）；圖由 Codex 生成後，把 .mika-moment-img 裡的虛線佔位換成 <img>（建議去背 PNG，比例 4:5）。 */
+.mika-moment {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  max-width: 720px;
+  margin: 44px auto 0;
+  text-align: left;
+}
+.mika-moment.flip { flex-direction: row-reverse; }
+.mika-moment-img {
+  flex: 0 0 250px;
+  aspect-ratio: 4 / 5;
+  border: 2px dashed rgba(160,129,68,0.45);
+  border-radius: 16px;
+  background: rgba(160,129,68,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink-faint, #9b8c7a);
+}
+.mika-moment-img.has-img {
+  border: none;
+  background: none;
+  padding: 0;
+  overflow: hidden;
+}
+.mika-moment-img.has-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+.mika-moment-text .mika-name {
+  display: inline-block;
+  padding: 3px 14px;
+  background: rgba(160,129,68,0.12);
+  border-radius: 999px;
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--c-sand, #C99A5B);
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+.mika-moment-text .mika-go {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 1.06rem;
+  font-weight: 600;
+  color: var(--c-coral);
+  text-decoration: none;
+}
+.mika-moment-text .mika-go:hover { text-decoration: underline; }
+.mika-moment-text .mika-line {
+  font-size: 1.18rem;
+  line-height: 1.75;
+  color: var(--ink, #3d342a);
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .mika-moment, .mika-moment.flip {
+    flex-direction: column;
+    text-align: center;
+  }
+  .mika-moment-img { flex: 0 0 auto; width: 210px; }
+}
+/* ════ Hero 頂部咪卡（設計工作流） ════ */
+.hero-mika-top {
+  max-width: 230px;
+  margin: 4px auto 22px;
+}
+.hero-mika-top img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 600px) {
+  .hero-mika-top { max-width: 180px; }
+}
+</style>
 </head>
 <body class="spotlight" data-motion-type="pointer">
 
@@ -74,115 +697,312 @@
     <button class="nav-toggle" aria-label="選單"><span></span><span></span><span></span></button>
     <ul class="nav-menu">
       <li><a href="index.html" class="active">首頁</a></li>
-      <li><a href="courses.html">課程預告</a></li>
-      <li><a href="resources.html">課後簡報</a></li>
-      <li><a href="learn.html">學習地圖</a></li>
-      <li><a href="skills.html">Skills 下載</a></li>
-      <li><a href="cases.html">合作案例</a></li>
+      <li><a href="offers.html">收費課程</a></li>
+      <li><a href="courses.html">免費講座</a></li>
+      <li><a href="learn.html">自學資源</a></li>
+      <li><a href="cases.html">服務方案</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- Hero -->
+<!-- ════════════════════════════════════════
+     1. Hero
+     ════════════════════════════════════════ -->
 <section class="hero">
   <div class="watercolor wc-coral"></div>
   <div class="watercolor wc-peach"></div>
   <div class="watercolor wc-sand"></div>
   <div class="container narrow">
-    <div class="eyebrow">江江教練的</div>
-    <h1>AI <span class="italic">知識管理</span></h1>
+    <div class="eyebrow">江江教練 · 隱性知識提煉師</div>
+    <h1>訓練你的 <span class="italic">AI 員工</span></h1>
+    <div class="hero-mika-top">
+      <img src="images/mika-workflow.png" alt="咪卡開心地設計工作流程" loading="eager" />
+    </div>
     <p class="subtitle">
-      教大家用各種 AI 工具，把自己的知識資產<br />
-      提煉出來、累積下來、應用起來。
+      零基礎課程，完全不會寫程式也可以。<br />
+      只要會寫文件跟分類資料夾，<br />
+      即可打造你的 AI 工作流。
     </p>
     <div class="verb-chain">
       提煉 <span>→</span> 累積 <span>→</span> 應用
     </div>
+    <p class="hero-hook">AI 每次都要重新教、關掉就忘，像個失憶的新人？<br />這裡教你讓它記得你。</p>
+    <div class="hero-cta-row">
+      <a class="hero-btn-primary" href="#ai-power-quiz">AI 戰力檢測 →</a>
+      <a class="hero-btn-secondary" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener">每月免費講座</a>
+    </div>
+    <div class="mika-moment" data-mika-moment="hero">
+      <!-- 圖規格（給 Codex）：咪卡坐在辦公桌前打筆電、整理分類資料夾，認真可愛的員工 -->
+      <div class="mika-moment-img has-img"><img src="images/mika-hero.png" alt="咪卡在辦公桌前整理資料、打電腦" loading="lazy" /></div>
+      <div class="mika-moment-text">
+        <span class="mika-name">咪卡</span>
+        <p class="mika-line">把 AI 當員工帶，它會越來越懂你。</p>
+        <a class="mika-go" href="ai-office/">咪卡就住在 AI 辦公室，去看看 →</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- 最近的課（自動讀 courses-data.js?v=20260603-resources-covers 過濾未來 3 場） -->
+<!-- ════════════════════════════════════════
+     2. 三支柱：提煉 / 累積 / 應用
+     ════════════════════════════════════════ -->
+<section class="pillars-section">
+  <div class="container">
+    <div class="section-head-center">
+      <div class="eyebrow">三件事</div>
+      <h2 class="section-title">我在教的，<span class="italic">其實是這三件事</span></h2>
+      <p class="section-sub">我是隱性知識提煉師：幫你把腦中知道、但還沒寫下來的判斷與經驗提煉出來。<br />我真正賣的是能力：提煉、累積、架構你的知識，讓它成為你自己的資產。</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <h3 class="pillar-title">提煉</h3>
+        <p class="pillar-sub">把你的判斷拿出來</p>
+        <p class="pillar-desc">你腦袋裡的判斷、做法、標準，散在各種文件、會議、對話裡。AI 幫你把它們找出來。</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <h3 class="pillar-title">累積</h3>
+        <p class="pillar-sub">存成你的知識庫</p>
+        <p class="pillar-desc">提煉出來的判斷，要存在一個地方。每次做完一件事，知識庫就厚一點。</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-num">03</div>
+        <h3 class="pillar-title">應用</h3>
+        <p class="pillar-sub">讓 AI 照你的標準做事</p>
+        <p class="pillar-desc">知識庫建起來之後，AI 才能真的「照你的方式」出手。它記得你，省去亂猜。</p>
+      </div>
+    </div>
+    <div class="mika-moment flip" data-mika-moment="pillars">
+      <!-- 圖規格（給 Codex）：咪卡像導演坐在小椅子上，拿小指揮棒指向上方三張卡，神情認真 -->
+      <div class="mika-moment-img has-img"><img src="images/mika-pillars.png" alt="咪卡像導演坐著，指揮提煉、累積、應用三張卡" loading="lazy" /></div>
+      <div class="mika-moment-text">
+        <span class="mika-name">咪卡</span>
+        <p class="mika-line">這三步在做同一件事：把你的判斷，變成 AI 照著做的規則。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     4.5 小測驗：你的 AI 戰力（已接入 ai-power-tower/ 子站）
+     ════════════════════════════════════════ -->
+<section class="quiz-teaser-section" id="ai-power-quiz" style="padding:64px 0 56px; background:var(--bg-soft); position:relative; overflow:hidden;">
+  <div class="watercolor wc-coral" style="width:320px;height:280px;top:-70px;right:-70px;opacity:0.09;"></div>
+  <div class="container narrow" style="text-align:center;">
+    <div class="eyebrow">小測驗</div>
+    <h2 class="section-title">你的 <span class="italic">AI 戰力</span> 有幾分？</h2>
+    <p class="section-sub">16 層樓、約 5 分鐘。從基層專員一路爬到經營者，結算你的大腦倍數、手腳倍數與戰力原型。</p>
+    <div style="margin:32px auto 0;">
+      <a class="hero-btn-primary" href="ai-power-tower/" target="_blank" rel="noopener" style="font-size:1.18rem; padding:16px 38px;">推門進去 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     4. 最近的課（保留原始碼，含 courses-data.js 自動卡）
+     ════════════════════════════════════════ -->
 <section style="padding: 60px 0 40px;">
   <div class="container">
     <div class="section-head-center">
       <div class="eyebrow">最近的課</div>
       <h2 class="section-title">接下來這幾場 <span class="italic">可以一起學</span></h2>
     </div>
-    <div class="list-grid cols-2" id="home-upcoming" style="grid-template-columns: repeat(3, 1fr);">
-      <div class="list-card course-card has-thumb" data-course-id="2026-06-07-ai-employee">
-        <div class="card-thumbnail"><img src="images/courses/2026-06-03-1719-ai-employee-course-poster.jpg" alt="怎麼訓練自己的 AI 員工" loading="lazy" /></div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="card-date">06-07 (日) 20:00</span>
-          </div>
-          <h3>怎麼訓練自己的 AI 員工</h3>
-          <div class="card-modes"><span class="mode-badge venue-online">線上</span><span class="mode-badge reg-open">開放報名</span></div>
-          <a class="course-detail-link" href="https://ai-km-jiang.vercel.app/courses/2026-06-03-1719-ai-employee-course.html" target="_blank" rel="noopener">📄 完整課程內容與簡報 ↗</a>
-          <div class="course-cta open">
-            <a class="cta-btn cta-has-tip" href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener" data-tip="報名請加入我的 LINE 社群，
-講座連結會分享在社群記事本">免費參加 ↗</a>
-            <p class="cta-note">免費，講座連結會分享在 LINE 社群記事本</p>
-          </div>
-        </div>
-      </div>
-      <div class="list-card course-card" data-course-id="2026-06-10-boss-ai-strategy">
-        <div class="card-thumbnail-placeholder">
-      <div class="ph-decor ph-decor-a"></div>
-      <div class="ph-decor ph-decor-b"></div>
-      <div class="ph-top">
-        <span class="ph-month-mark">JUNE</span>
-      </div>
-      <div class="ph-mid">
-        <div class="ph-day">10</div>
-        <div class="ph-month-cn">Jun</div>
-      </div>
-      <div class="ph-bottom">
-        <div class="ph-title">給企業主的 AI 駕馭策略課</div>
-        <div class="ph-org">付費工作坊</div>
-      </div>
-    </div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="card-date">6 月 · 時間待定</span>
-          </div>
-          <h3>給企業主的 AI 駕馭策略課</h3>
-          <div class="card-modes"><span class="mode-badge venue-tbd">待定</span><span class="mode-badge reg-pending">待開放</span></div>
-
-          <div class="course-cta pending"><p class="cta-note">設計中，6/1 開始推廣，屆時公布報名連結</p></div>
-        </div>
-      </div>
-      <div class="list-card course-card" data-course-id="2026-06-14-confluence-workflow">
-        <div class="card-thumbnail-placeholder">
-      <div class="ph-decor ph-decor-a"></div>
-      <div class="ph-decor ph-decor-b"></div>
-      <div class="ph-top">
-        <span class="ph-month-mark">JUNE</span>
-      </div>
-      <div class="ph-mid">
-        <div class="ph-day">14</div>
-        <div class="ph-month-cn">Jun</div>
-      </div>
-      <div class="ph-bottom">
-        <div class="ph-title">一人一隻手機就能完成的 團隊資訊匯流工作法</div>
-        <div class="ph-org">免費講座</div>
-      </div>
-    </div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="card-date">06-14 (日) 20:00</span>
-          </div>
-          <h3>一人一隻手機就能完成的 團隊資訊匯流工作法</h3>
-          <div class="card-modes"><span class="mode-badge venue-online">線上</span><span class="mode-badge reg-open">開放報名</span></div>
-
-          <div class="course-cta pending"><p class="cta-note">申請制限額</p></div>
-        </div>
-      </div></div>
+    <!-- 卡片由 courses-render.js 讀 courses-data.js 自動渲染未來 3 場，不再寫死靜態卡（避免過期場次曝光） -->
+    <div class="list-grid home-upcoming-grid" id="home-upcoming"></div>
     <div style="text-align:center; margin-top: 32px;">
-      <a class="button ghost" href="courses.html">看全部課程 →</a>
+      <a class="button ghost" href="courses.html">看免費講座 →</a>
     </div>
   </div>
 </section>
 
+<!-- ════════════════════════════════════════
+     11. 六入口卡（接近底部，讓想自己逛的人用）
+     ════════════════════════════════════════ -->
+<section class="entry-section">
+  <div class="container">
+    <div class="section-head-center">
+      <div class="eyebrow">想自己逛</div>
+      <h2 class="section-title">四個入口，<span class="italic">你今天想找什麼</span>？</h2>
+      <p class="section-sub">先看收費課程或免費講座；想自己查資料走自學資源；想討論合作或找方案走服務方案。</p>
+    </div>
+
+    <div class="entry-grid five">
+      <a class="entry-card c1" href="offers.html">
+        <div class="entry-eye">想直接報名</div>
+        <h3>收費課程</h3>
+        <p>全部課程與定價，還有 30 秒找到起點的小診斷，都在這一頁。</p>
+        <span class="arrow">看收費課程 →</span>
+      </a>
+
+      <a class="entry-card c2" href="courses.html">
+        <div class="entry-eye">先免費聽一場</div>
+        <h3>免費講座</h3>
+        <p>每月兩場免費線上講座，加 LINE 社群就能參加。先看看適不適合再說。</p>
+        <span class="arrow">看免費講座 →</span>
+      </a>
+
+      <a class="entry-card c3" href="learn.html">
+        <div class="entry-eye">自己慢慢逛</div>
+        <h3>自學資源</h3>
+        <p>學習地圖、課後簡報、Skills 技能包、AI 趨勢觀察，串成一條路讓你選。</p>
+        <span class="arrow">進自學資源 →</span>
+      </a>
+
+      <a class="entry-card c5" href="cases.html">
+        <div class="entry-eye">找我做團隊與顧問</div>
+        <h3>服務方案</h3>
+        <p>團隊工作坊、一個月陪跑、顧問合作，以及免費下載的 AI 辦公室系統。</p>
+        <span class="arrow">看服務方案 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     5. 課程三層體系（預錄課已併入 Level 1）
+     ════════════════════════════════════════ -->
+<section class="tiers-section">
+  <div class="watercolor wc-sand" style="width:380px;height:340px;bottom:-100px;left:-80px;opacity:0.09;"></div>
+  <div class="container">
+    <div class="section-head-center">
+      <div class="eyebrow">跟我學</div>
+      <h2 class="section-title">從免費到陪跑，<span class="italic">一條清楚的路</span></h2>
+      <p class="section-sub">不用一次跳深水區。每一層都有講明的「帶走什麼」，走到哪，那一層就是你的。</p>
+    </div>
+    <div class="tiers-grid">
+      <!-- Level 1 -->
+      <div class="tier-card lv1">
+        <div class="tier-level">Level 1 · 安心啟動</div>
+        <h3 class="tier-title">先看看，<br />覺得對再說</h3>
+        <p class="tier-who">適合：剛好奇 AI，還不確定要不要投入</p>
+        <ul class="tier-items">
+          <li>每月兩場免費線上講座</li>
+          <li>預錄課四支（500–1000，七月底起）：<br />規劃你的 AI 辦公室（頭陣）、講師簡報流、小編圖文流、文科生 3X4 資料整理</li>
+          <li>課後簡報公開查閱</li>
+        </ul>
+        <p class="tier-takeaway">帶走：裝好能運作的 AI 工作台，知道這條路適不適合自己。</p>
+        <div class="tier-price">免費起</div>
+        <a class="tier-link" href="offers.html#card-prerec">看這層的課 →</a>
+      </div>
+      <!-- Level 2 -->
+      <div class="tier-card lv2">
+        <div class="tier-level">Level 2 · 任務實作</div>
+        <h3 class="tier-title">打造你的<br />AI 員工</h3>
+        <p class="tier-who">適合：想親手做、第一次做知識庫的人</p>
+        <ul class="tier-items">
+          <li>三小時手把手實體工作坊</li>
+          <li>江江在旁邊看你操作、現場糾正</li>
+          <li>當天做出你的知識庫雛形</li>
+        </ul>
+        <p class="tier-takeaway">帶走：一個會記得你的 AI 員工、四步流程、AI 辦公室套件。</p>
+        <div class="tier-price">3,000 元</div>
+        <a class="tier-link" href="offers.html#card-3000">看這層的課 →</a>
+      </div>
+      <!-- Level 3 -->
+      <div class="tier-card lv3">
+        <div class="tier-level">Level 3 · 組織導入</div>
+        <h3 class="tier-title">讓整個團隊<br />一起動起來</h3>
+        <p class="tier-who">適合：想把 AI 帶進團隊、組織的人</p>
+        <ul class="tier-items">
+          <li>團隊 AI 工作坊（8,000）</li>
+          <li>一個月深度陪跑（18,000）</li>
+          <li>顧問合作（洽談）</li>
+        </ul>
+        <p class="tier-takeaway">帶走：一條跑得動的 AI 工作流、團隊共用的知識庫雛形。</p>
+        <div class="tier-price">8,000 起</div>
+        <a class="tier-link" href="offers.html#card-8000">看這層的課 →</a>
+      </div>
+    </div>
+    <div class="mika-moment" data-mika-moment="tiers">
+      <!-- 圖規格（給 Codex）：咪卡踏在階梯第一階、回頭招手，神情輕鬆 -->
+      <div class="mika-moment-img has-img"><img src="images/mika-tiers.png" alt="咪卡踏上階梯第一階，回頭招手" loading="lazy" /></div>
+      <div class="mika-moment-text">
+        <span class="mika-name">咪卡</span>
+        <p class="mika-line">怎麼選？還沒裝環境的走 Level 1，裝好的直接 Level 2，要帶團隊的看 Level 3。</p>
+      </div>
+    </div>
+    <div class="tiers-cta-row">
+      <a class="button ghost" href="offers.html">看收費課程 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     7. 旗艦課深度區
+     ════════════════════════════════════════ -->
+<section class="flagship-section">
+  <div class="watercolor wc-coral" style="width:300px;height:280px;top:-60px;right:-60px;opacity:0.10;"></div>
+  <div class="container">
+    <div class="section-head-center">
+      <div class="eyebrow">主推 · 6/21 實體開課</div>
+      <h2 class="section-title">為什麼叫 <span class="italic">AI 員工</span>？</h2>
+    </div>
+    <div class="flagship-inner">
+      <div class="flagship-eyebrow">手把手實體工作坊</div>
+      <h3 class="flagship-title">打造你的 AI 員工</h3>
+      <div class="flagship-price-tag">3,000 元 · 6/21（日）實體三小時 ＋ 6/28（日）線上複習一小時</div>
+      <p class="flagship-positioning">
+        把你的判斷提煉成知識庫，帶出第一個真正記得你的 AI 員工。<br />
+        這堂課練的是習慣。江江在旁邊看你操作，5 到 10 分鐘親自改你的動作。<br />
+        你走出去的，是一套跑得動、帶得走的工作方式。
+      </p>
+      <p class="flagship-signature">「工具換了沒關係，知識庫是你的。」</p>
+      <p class="flagship-items-title">你會帶走：</p>
+      <ul class="flagship-takeaways">
+        <li>一個真正記得你的判斷與標準的 AI 員工</li>
+        <li>你自己的知識庫雛形</li>
+        <li>可複製的四步提煉流程</li>
+        <li>AI 辦公室套件（帶回家繼續用）</li>
+      </ul>
+      <!-- 試看影片：待江江挑 YouTube 片段 -->
+      <div class="flagship-video-placeholder" style="display:none"><!-- 上線前隱藏：等試看影片 -->
+        試看影片<br />
+        <span style="font-size:1.06rem;opacity:0.7;">（待江江提供 YouTube 片段連結，這裡放 embed 或 thumbnail 連結）</span>
+      </div>
+      <a class="flagship-cta" href="offers.html#card-3000">看報名詳情 →</a>
+      <div class="mika-moment flip" data-mika-moment="flagship">
+      <!-- 圖規格（給 Codex）：咪卡坐在一隻打電腦的小機器人旁邊，溫暖地陪牠、教牠（機器人＝被訓練的 AI 員工） -->
+      <div class="mika-moment-img has-img"><img src="images/mika-flagship.png" alt="咪卡坐在打電腦的可愛機器人旁邊，陪牠工作" loading="lazy" /></div>
+      <div class="mika-moment-text">
+        <span class="mika-name">咪卡</span>
+        <p class="mika-line">江江教練把訓練 AI 的過程和心得，都整理成技能包了。</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     8. 學員與推薦（結構佔位，待補內容）
+     ════════════════════════════════════════ -->
+<!-- 上線前隱藏：等真實學員見證 -->
+<section class="testimonials-section" style="display:none">
+  <div class="container">
+    <div class="section-head-center">
+      <div class="eyebrow">學員怎麼說</div>
+      <h2 class="section-title">真實的人，<span class="italic">真實的話</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-quote">（此處放學員回饋，待江江提供。請提供 1–3 句真實的話，不需要修飾太多。）</p>
+        <p class="testimonial-source">學員姓名 · 身份背景</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">（此處放學員回饋，待江江提供。請提供 1–3 句真實的話，不需要修飾太多。）</p>
+        <p class="testimonial-source">學員姓名 · 身份背景</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-quote">（此處放推薦短評，待江江提供。可以是合作夥伴的評語，或是課後的真實回饋。）</p>
+        <p class="testimonial-source">推薦人姓名 · 身份背景</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     9. 我是江昱德（保留原始碼，含照片、LINE 雙 CTA、社群圈）
+     ════════════════════════════════════════ -->
 <!-- IG 漸層 defs（給 SVG fill="url(#ig-gradient)" 用） -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -196,55 +1016,6 @@
   </defs>
 </svg>
 
-<!-- 五入口卡：課程預告 / 課後簡報 / 學習地圖 / Skills 下載 / 合作案例 -->
-<section style="padding: 40px 0 60px;">
-  <div class="container">
-    <div class="section-head-center">
-      <div class="eyebrow">五個入口</div>
-      <h2 class="section-title">你今天 <span class="italic">想找什麼</span>？</h2>
-      <p class="section-sub">先看接下來的課，回來翻課後簡報；還不知道怎麼學，就走學習地圖。</p>
-    </div>
-
-    <div class="entry-grid five">
-      <a class="entry-card c1" href="courses.html">
-        <div class="entry-eye">想跟我一起學</div>
-        <h3>課程預告</h3>
-        <p>免費線上講座、付費工作坊、外部授課。接下來幾週、幾個月的場次都在這。</p>
-        <span class="arrow">查看課程 →</span>
-      </a>
-
-      <a class="entry-card c2" href="resources.html">
-        <div class="entry-eye">上完課後回來看</div>
-        <h3>課後簡報</h3>
-        <p>公開的講座簡報、課程素材、文章與短分享。上完課的內容會往這裡整理。</p>
-        <span class="arrow">查看簡報 →</span>
-      </a>
-
-      <a class="entry-card c3" href="learn.html">
-        <div class="entry-eye">不知道先學什麼</div>
-        <h3>學習地圖</h3>
-        <p>把實際簡報、課程、教學文章和技能包串成路徑，依你的工作場景開始。</p>
-        <span class="arrow">選學習路徑 →</span>
-      </a>
-
-      <a class="entry-card c4" href="skills.html">
-        <div class="entry-eye">把方法包起來</div>
-        <h3>Skills 下載</h3>
-        <p>我用 AI 做事的方法，做成可以 clone 的 Claude Skills。從評估、提煉到一人公司操作，都有對應的包。</p>
-        <span class="arrow">查看技能包 →</span>
-      </a>
-
-      <a class="entry-card c5" href="cases.html">
-        <div class="entry-eye">想看實際落地</div>
-        <h3>合作案例</h3>
-        <p>已完成的產品、報告書、互動系統與去敏感範本。先看交付物長什麼樣子。</p>
-        <span class="arrow">查看案例 →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- 第三區：介紹 + LINE hook + 6 圓 icon -->
 <section class="intro-section">
   <div class="watercolor wc-sand-bg"></div>
   <div class="container">
@@ -337,6 +1108,93 @@
   </div>
 </section>
 
+<!-- ════════════════════════════════════════
+     3. 信任層：數字 + 合作單位
+     信任層：數字與單位需江江確認後才可部署
+     ════════════════════════════════════════ -->
+<!-- 信任層：數字與單位需江江確認後才可部署 -->
+<section class="trust-strip">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-stat">
+        <div class="trust-stat-num">11</div>
+        <div class="trust-stat-label">授課單位</div>
+      </div>
+      <!-- 上線前隱藏：待補真實數字 -->
+      <div class="trust-divider" style="display:none"></div>
+      <div class="trust-stat" style="display:none">
+        <div class="trust-stat-num">（待補）</div>
+        <div class="trust-stat-label">學員人數</div>
+      </div>
+      <div class="trust-divider" style="display:none"></div>
+      <div class="trust-stat" style="display:none">
+        <div class="trust-stat-num">（待補）</div>
+        <div class="trust-stat-label">開課場次</div>
+      </div>
+      <div class="trust-divider" style="display:none"></div>
+      <div class="trust-stat" style="display:none">
+        <div class="trust-stat-num">（待補）</div>
+        <div class="trust-stat-label">公開技能包</div>
+      </div>
+    </div>
+    <div class="trust-units">
+      <span class="trust-chip">台北聯合醫院</span>
+      <span class="trust-chip">桃園市政府政風處</span>
+      <span class="trust-chip">臺北科技大學</span>
+      <span class="trust-chip">臺北市立大學</span>
+      <span class="trust-chip">中國文化大學</span>
+      <span class="trust-chip">國立中央大學</span>
+      <span class="trust-chip">淡江大學</span>
+      <span class="trust-chip">新北市衛生局</span>
+      <span class="trust-chip">嘉義縣政府勞工暨青年發展處</span>
+      <span class="trust-chip">台北永續影響力扶輪社</span>
+      <span class="trust-chip">台中公益傳播基金會</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     10. 技能包生態圈
+     ════════════════════════════════════════ -->
+<section class="skills-teaser">
+  <div class="watercolor wc-mint" style="width:300px;height:260px;bottom:-80px;right:-60px;opacity:0.10;"></div>
+  <div class="container">
+    <div class="skills-teaser-inner">
+      <div class="eyebrow" style="text-align:center;">Skills 技能包</div>
+      <h2 class="section-title" style="text-align:center;">方法都包成<span class="italic">技能包</span>了</h2>
+      <p class="section-sub" style="text-align:center;margin:0 auto 12px;">教過的、用過的、跑通的方法，打包成可以直接 clone 的 Claude Skills。你載了就能用，不只聽我說。</p>
+      <p class="skills-teaser-tagline">我的方法不藏私，包好了，讓你直接帶走</p>
+      <div style="text-align:center;margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a class="button ghost" href="skills.html">看 Skills 下載 →</a>
+        <a class="button ghost" href="ai-office/">認識 AI 辦公室（27 位內建助理）→</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     12. 結尾招牌句
+     ════════════════════════════════════════ -->
+<section class="closing-motto-section" style="padding:90px 0 80px; text-align:center; position:relative; overflow:hidden;">
+  <div class="watercolor wc-peach" style="width:420px;height:340px;top:-60px;left:-100px;opacity:0.10;"></div>
+  <div class="watercolor wc-sand" style="width:380px;height:320px;bottom:-80px;right:-90px;opacity:0.10;"></div>
+  <div class="container narrow">
+    <p style="font-family:'Caveat',cursive; font-size:clamp(2.2rem,5vw,3.4rem); color:var(--c-sand, #C99A5B); font-weight:700; line-height:1.35; margin:0;">流水的 AI 工具，<br />鐵打的知識庫</p>
+    <p style="font-size:1.12rem; color:var(--ink-soft, #6b5d4f); margin:22px 0 0; line-height:1.8;">工具會一直換，你累積下來的知識庫，誰也拿不走。</p>
+    <div class="mika-moment" data-mika-moment="closing">
+      <!-- 圖規格（給 Codex）：咪卡雙手高舉木牌，牌上寫「流水的 AI 工具，鐵打的知識庫」，神情得意滿足 -->
+      <div class="mika-moment-img has-img"><img src="images/mika-closing.png" alt="咪卡雙手舉牌：流水的 AI 工具，鐵打的知識庫" loading="lazy" /></div>
+      <div class="mika-moment-text">
+        <span class="mika-name">咪卡</span>
+        <p class="mika-line">我是咪卡，江江帶出來的第一個 AI 員工。下一個，是你的。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     13. Footer（保留原始碼）
+     ════════════════════════════════════════ -->
 <footer>
   <div class="watercolor wc-sand"></div>
   <div class="container">
@@ -347,11 +1205,14 @@
 
     <div class="foot-links">
       <a href="index.html">首頁</a>
-      <a href="courses.html">課程預告</a>
+      <a href="offers.html">收費課程</a>
+      <a href="courses.html">免費講座</a>
+      <a href="learn.html">自學資源</a>
+      <a href="cases.html">服務方案</a>
       <a href="resources.html">課後簡報</a>
-      <a href="learn.html">學習地圖</a>
+      <a href="ai-trends.html">AI 趨勢</a>
       <a href="skills.html">Skills 下載</a>
-      <a href="cases.html">合作案例</a>
+      <a href="ai-office/">AI 辦公室</a>
       <a href="https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ" target="_blank" rel="noopener">LINE 社群 ↗</a>
       <a href="https://line.me/R/ti/p/@713kczfc" target="_blank" rel="noopener">LINE OA ↗</a>
       <a href="https://www.threads.com/@jiang_yude_coach" target="_blank" rel="noopener">Threads ↗</a>
@@ -370,5 +1231,7 @@
 <script src="courses-data.js?v=20260603-resources-covers" defer></script>
 <script src="courses-render.js?v=20260603-resources-covers" defer></script>
 <script src="spotlight.js" defer></script>
+
+
 </body>
 </html>

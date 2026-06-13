@@ -12,6 +12,7 @@
       "隱性知識提煉",
       "Claude Skills",
       "AI Agent 工作流",
+      "AI 趨勢判讀",
       "提示詞優化",
       "一人公司 AI 工作法",
       "知識資產累積",
@@ -37,6 +38,7 @@
     ],
     "content_type": [
       "頁面入口",
+      "AI 趨勢文章",
       "課程簡報",
       "付費工作坊",
       "免費線上講座",
@@ -71,6 +73,45 @@
         "level": ["零基礎入門", "工作流設計"],
         "audience": ["新手", "辦公室工作者", "講師", "一人公司", "組織管理者"],
         "content_type": ["頁面入口"]
+      }
+    },
+    {
+      "id": "page-ai-trends",
+      "type": "page",
+      "title": "AI 趨勢",
+      "url": "/ai-trends.html",
+      "summary": "江江教練對 AI 產業消息、工具變化與大廠發布會的個人判讀。",
+      "tags": {
+        "topic": ["AI 趨勢判讀", "AI Agent 工作流", "AI 知識管理"],
+        "level": ["零基礎入門", "工作流設計"],
+        "audience": ["新手", "知識工作者", "一人公司", "組織管理者"],
+        "content_type": ["頁面入口", "AI 趨勢文章"]
+      }
+    },
+    {
+      "id": "trend-apple-wwdc26-siri-lobster-ai",
+      "type": "article",
+      "title": "蘋果的 Siri 終於要往「龍蝦 AI」進化了",
+      "url": "/ai-trends/apple-wwdc26-siri-lobster-ai/",
+      "summary": "從 WWDC26 看 Apple Intelligence、App Intents、View Annotations 到 Xcode agents，判讀 Apple 如何把 Siri 推向能讀介面、叫工具、串 App、完成任務的形態。",
+      "tags": {
+        "topic": ["AI 趨勢判讀", "AI Agent 工作流"],
+        "level": ["零基礎入門", "工作流設計"],
+        "audience": ["知識工作者", "一人公司", "講師", "組織管理者"],
+        "content_type": ["AI 趨勢文章"]
+      }
+    },
+    {
+      "id": "trend-demis-hassabis-agi-science-ai",
+      "type": "article",
+      "title": "AGI 山腳下，真正被改寫的是稀缺時代的規則",
+      "url": "/ai-trends/demis-hassabis-agi-science-ai/",
+      "summary": "從 Stanford GSB 對談與 Nana Chen Studio 二次解讀出發，整理 Demis Hassabis 對 AGI、後稀缺、雙重囚徒困境、動態監管、智能與意識分離、AI 原生世代的看法，並轉成 AI 知識管理與 AI 員工的深度觀點報告。",
+      "tags": {
+        "topic": ["AI 趨勢判讀", "AI Agent 工作流", "AI 知識管理"],
+        "level": ["工作流設計", "進階開發"],
+        "audience": ["知識工作者", "一人公司", "講師", "組織管理者"],
+        "content_type": ["AI 趨勢文章"]
       }
     },
     {

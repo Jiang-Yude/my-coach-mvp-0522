@@ -144,20 +144,21 @@ window.COURSES = [
     id: "2026-06-14-confluence-workflow",
     date: "2026-06-14",
     time: "20:00",
-    title: "一人一隻手機就能完成的 團隊資訊匯流工作法",
+    title: "把 YouTube 變成簡報：時間軸、截圖、重點一次整理好",
     type_label: "免費講座",
     image: null,
     venue_mode: "online",
     host: "江江教練",
-    tags: ["匯流工作法", "非同步協作", "共享知識庫", "申請制"],
-    summary: "一種現在就能開始做的新組織溝通方式，門檻很低。一人一隻手機、ChatGPT、一個共享知識庫，就可以開始。不用先學程式、自動化、複雜工具。",
+    tags: ["YouTube", "簡報", "時間軸", "重點摘要", "AI工作流"],
+    summary: "把 YouTube 連結交給 AI，就能整理出時間軸、截圖、重點摘要，甚至直接做成網頁和簡報。這場免費講座，我會拆解這套工作流怎麼跑。",
     detail_url: null,
     materials: [],
     registration: {
       status: "open",
-      url: null,
-      label: "填寫申請表 ↗",
-      note: "申請制限額"
+      url: "https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ",
+      label: "免費參加 ↗",
+      tooltip: "我每月固定舉辦兩場免費線上講座，\n講座資訊請看我的 LINE 社群",
+      note: "免費，加入 LINE 社群收到講座資訊"
     }
   },
   {
@@ -178,25 +179,6 @@ window.COURSES = [
       status: "private",
       host_org: "文藻大學",
       note: "教師與行政人員專場，6/17 12:00-13:00"
-    }
-  },
-  {
-    id: "2026-06-10-boss-ai-strategy",
-    date: "2026-06-10",
-    time: null,
-    duration_min: 300,
-    title: "給企業主的 AI 駕馭策略課",
-    type_label: "付費工作坊",
-    image: null,
-    venue_mode: "tbd",
-    host: "江江教練 × 陳明勇",
-    tags: ["企業主", "AI策略", "合開", "駕馭", "工作坊"],
-    summary: "與陳明勇老師合開。給企業主的 AI 思維課，不教操作、講駕馭策略。",
-    detail_url: null,
-    materials: [],
-    registration: {
-      status: "pending",
-      note: "設計中，6/1 開始推廣，屆時公布報名連結"
     }
   },
   {

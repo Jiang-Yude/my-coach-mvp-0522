@@ -35,18 +35,31 @@
 - 首頁：https://ai-km-jiang.vercel.app/
 - 課程預告：https://ai-km-jiang.vercel.app/courses.html
 - 課後簡報：https://ai-km-jiang.vercel.app/resources.html
+- AI 趨勢：https://ai-km-jiang.vercel.app/ai-trends.html
 - 學習地圖：https://ai-km-jiang.vercel.app/learn.html
 - Skills 下載：https://ai-km-jiang.vercel.app/skills.html
 - 合作案例：https://ai-km-jiang.vercel.app/cases.html
 
+## AI 趨勢
+
+AI 趨勢區整理江江對 AI 產業消息、工具更新、大廠發布會的判讀，重點放在這些變化會如何影響個人工作流、團隊知識管理與下一步要練的能力。
+
+目前收錄：
+- AGI 山腳下，真正被改寫的是稀缺時代的規則：https://ai-km-jiang.vercel.app/ai-trends/demis-hassabis-agi-science-ai/
+  - 從 Stanford GSB 對談與 Nana Chen Studio 二次解讀出發，整理 Demis Hassabis 對 AGI、後稀缺、雙重囚徒困境、動態監管、智能與意識分離、AI 原生世代的看法
+  - 文章結構為來源整理、尺度校正、五個大命題、AI 知識管理與 AI 員工的深度工作流啟發
+- 蘋果的 Siri 終於要往「龍蝦 AI」進化了：https://ai-km-jiang.vercel.app/ai-trends/apple-wwdc26-siri-lobster-ai/
+  - 從 WWDC26 看 Apple Intelligence、App Intents、View Annotations 到 Xcode agents
+  - 文章結構為江江個人趨勢判讀、官方影片 17 段時間軸整理、最後連到免費講座 LINE 社群
+
 ## 學習路徑
 
-學習地圖提供四條入口，每條路徑都串到實際課後簡報、課程、教學文章或技能包：
+學習地圖提供四條入口，每一步都直接連到實際的課後簡報、課程頁、方格子教學文章或技能包，點教材名稱就打開真正的內容：
 
-- 新手入門：從永力社 AI 應用工作坊、PDF AI 顧問等課後簡報開始，再接免費線上講座。
-- 辦公室工作者：用商品照、文件整理、PDF AI 顧問與 Skills 處理真實工作場景。
-- 講師與一人公司：從「講師的 Agent 工作流」與 MVP 驗證簡報入手，把備課、內容、產品整理成可複用工作流。
-- 組織知識管理：從永力社工作坊與合作案例理解 AI 知識管理如何在組織、商會、培訓場景落地。
+- 新手入門：從永力社 AI 應用工作坊、PDF AI 顧問、用 AI 打造學習地圖等簡報開始，搭配方格子文章「AI 名詞解釋」「兩招解決 AI 資訊焦慮」，再接免費線上講座。
+- 辦公室工作者：用 PDF AI 顧問、手機商品照等簡報，搭配方格子文章「四維度資料整理法」「三層次會議記錄」與 Skills，處理文件、會議、簡報等真實工作場景。
+- 講師與一人公司：從「講師的 Agent 工作流」「創業點子驗證術」「文科生的 Harness Engineering」簡報入手，搭配方格子文章「把專業知識整理成技能包」「真實需求調查法」，把備課、內容、產品整理成可複用工作流。
+- 組織知識管理：從永力社工作坊與合作案例，搭配方格子文章「AI 培訓前先問需要用還是想用」「實踐知識管理」，理解 AI 知識管理如何在組織、商會、培訓場景落地。
 
 ## 開源 Claude Code Skills 技能包
 
